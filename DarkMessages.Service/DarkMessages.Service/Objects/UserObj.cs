@@ -346,7 +346,7 @@ namespace DarkMessages.Service.Objects
                             rp.friends = new List<Friend>();
                             foreach (DataRow row in dataTable.Rows)
                             {
-                                Friend msg = new Friend() { username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()! };
+                                Friend msg = new Friend() { username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, lastChatMessage = row["lastMessage"].ToString()! };
                                 rp.friends.Add(msg);
                             }
                         }

@@ -44,7 +44,7 @@ namespace DarkMessages.DesktopApp
                     {
                         UserItem item = new UserItem();
                         item.name = friend.name;
-                        item.description = "Feliz cumple. Pasala increible!!";
+                        item.description = friend.lastChatMessage;
                         item.username = container.username;
                         item.usernameFriend = friend.username;
                         item.container = this;

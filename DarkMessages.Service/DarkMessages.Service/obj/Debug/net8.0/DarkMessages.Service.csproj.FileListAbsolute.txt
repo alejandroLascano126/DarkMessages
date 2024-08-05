@@ -70,3 +70,4 @@ E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\ref\DarkMessages.Service.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\EmailHandler.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\EmailHandler.pdb
+E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\DarkMessages.Service.sourcelink.json

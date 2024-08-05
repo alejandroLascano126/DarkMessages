@@ -11,5 +11,6 @@ namespace DarkMessages.models.Friends
         public string username { get; set; }
         public string name { get; set; }
         public string lastname { get; set; }
+        public string lastChatMessage { get; set; }
     }
 }

@@ -9,3 +9,4 @@ E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net
 E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\refint\DarkMessages.models.dll
 E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.pdb
 E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\ref\DarkMessages.models.dll
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.sourcelink.json
