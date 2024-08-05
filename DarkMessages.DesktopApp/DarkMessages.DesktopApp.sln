@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DarkMessages.DesktopApp", "DarkMessages.DesktopApp\DarkMessages.DesktopApp.csproj", "{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{4A57D48E-290A-4884-BDA8-4E51B57ABED7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A57D48E-290A-4884-BDA8-4E51B57ABED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A57D48E-290A-4884-BDA8-4E51B57ABED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A57D48E-290A-4884-BDA8-4E51B57ABED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A57D48E-290A-4884-BDA8-4E51B57ABED7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A2D8856-BAB2-4524-B59A-454FA0DEA4CF}
+	EndGlobalSection
+EndGlobal

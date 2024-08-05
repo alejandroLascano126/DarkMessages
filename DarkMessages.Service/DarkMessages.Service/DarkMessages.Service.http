@@ -1,0 +1,6 @@
+@DarkMessages.Service_HostAddress = http://localhost:5113
+
+GET {{DarkMessages.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

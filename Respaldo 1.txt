@@ -1,0 +1,100 @@
+CREATE TABLE securityCodes
+(
+  idUser int,
+  securityCode int
+)
+
+declare @resp int
+exec sp_validate_securitycode @idUser = 1, @securityCode = 982269, @response = @resp output
+select @resp as response
+
+ALTER PROCEDURE sp_validate_securitycode 
+(
+  @idUser int,
+  @securityCode int,
+  @response int output
+)
+as
+  if exists(select null from securityCodes where securityCode = @securityCode and idUser = @idUser)
+  begin
+    set @response = 0;
+	delete securityCodes where securityCode = @securityCode and idUser = @idUser;
+  end
+  else
+    set @response = 1;
+
+return 0;
+
+
+CREATE PROCEDURE sp_insert_securitycode
+(
+  @idUser int,
+  @securityCode int,
+  @response int output
+)
+as
+  insert into securityCodes(idUser, securityCode) values(@idUser, @securityCode)
+  if @@ERROR > 0
+    set @response = 1;
+  else
+    set @response = 0;
+return 0;
+
+declare @resp int
+exec sp_register_user @username = 'alejandro', @password = '1234', @email = 'alejandrolascano126@gmail.com', @languages = 'spanish;english', @country = 'Ecuador', @response = @resp output
+select @resp as response
+
+
+ALTER PROCEDURE sp_register_user
+(  
+  @username varchar(20),
+  @password varchar(20),
+  @email varchar(100),
+  @languages varchar(200),
+  @country varchar(30),
+  @response int output
+)
+as
+  insert into users(username, password, email, country, languages) 
+             values(@username, @password,@email, @languages, @country)
+  if (@@ERROR > 0)
+    set @response = 1
+  ELSE
+    set @response = 0
+return 0;
+
+
+ALTER PROCEDURE sp_validate_userpw
+(
+  @username varchar(20),
+  @password varchar(20),
+  @email varchar(100) output,
+  @idUser int output,
+  @response int output
+)
+as
+  if exists(select null from users where username = @username and password = @password)
+  begin
+    select @idUser = idUser, @email = email from users where username = @username and password = @password;
+	set @response = 0;
+  end   
+  else
+    begin
+	  set @response = 1;
+	end
+return 0;
+
+
+CREATE TABLE users
+(
+  idUser int identity,
+  username varchar(20),
+  password varchar(20),
+  email varchar(100),
+  lastDevice varchar(50),
+  country varchar(30),
+  languages varchar(200)
+)
+
+
+

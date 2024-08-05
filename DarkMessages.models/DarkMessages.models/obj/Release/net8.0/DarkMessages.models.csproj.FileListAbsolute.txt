@@ -1,0 +1,11 @@
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\bin\Release\net8.0\DarkMessages.models.deps.json
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\bin\Release\net8.0\DarkMessages.models.dll
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\bin\Release\net8.0\DarkMessages.models.pdb
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.GeneratedMSBuildEditorConfig.editorconfig
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.AssemblyInfoInputs.cache
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.AssemblyInfo.cs
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.csproj.CoreCompileInputs.cache
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.dll
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\refint\DarkMessages.models.dll
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\DarkMessages.models.pdb
+E:\DarkMessenger Desktop\DarkMessages.models\DarkMessages.models\obj\Release\net8.0\ref\DarkMessages.models.dll

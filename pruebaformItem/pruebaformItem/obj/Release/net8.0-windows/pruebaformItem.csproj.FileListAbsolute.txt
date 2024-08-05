@@ -1,0 +1,17 @@
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\bin\Release\net8.0-windows\pruebaformItem.exe
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\bin\Release\net8.0-windows\pruebaformItem.deps.json
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\bin\Release\net8.0-windows\pruebaformItem.runtimeconfig.json
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\bin\Release\net8.0-windows\pruebaformItem.dll
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\bin\Release\net8.0-windows\pruebaformItem.pdb
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.Form1.resources
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.itemPrueba.resources
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.csproj.GenerateResource.cache
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.GeneratedMSBuildEditorConfig.editorconfig
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.AssemblyInfoInputs.cache
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.AssemblyInfo.cs
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.csproj.CoreCompileInputs.cache
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.dll
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\refint\pruebaformItem.dll
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.pdb
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\pruebaformItem.genruntimeconfig.cache
+E:\DarkMessenger Desktop\pruebaformItem\pruebaformItem\obj\Release\net8.0-windows\ref\pruebaformItem.dll

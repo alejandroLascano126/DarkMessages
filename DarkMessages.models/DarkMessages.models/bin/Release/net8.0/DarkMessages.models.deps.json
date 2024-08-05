@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DarkMessages.models/1.0.0": {
+        "runtime": {
+          "DarkMessages.models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DarkMessages.models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

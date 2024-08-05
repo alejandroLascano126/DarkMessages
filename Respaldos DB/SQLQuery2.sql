@@ -1,0 +1,42 @@
+--ALTER PROCEDURE [dbo].[sp_register_user]    
+--(      
+--  @username varchar(20),    
+--  @password varchar(20),    
+--  @email varchar(100),    
+--  @languages varchar(200),    
+--  @country varchar(30), 
+--  @name varchar(30),
+--  @lastname varchar(30),
+--  @response int output,  
+--  @responsemsg varchar(100) output,  
+--  @id int output
+--)    
+--as      
+--  set @responsemsg = '';
+--  if exists(select null from users where username = @username)
+--  begin
+--    set @responsemsg = 'The username is already registered';  
+--    set @response = 1;   
+--	return -1
+--  end
+
+--  if exists(select null from users where email = @email)  
+--  begin  
+--    set @responsemsg = 'The email is already registered';  
+--    set @response = 1;   
+--	return -1
+--  end  
+ 
+--  insert into users(username, password, email, country, languages, name, lastname)     
+--             values(@username, @password,@email, @languages, @country, @name, @lastname)    
+--  if (@@ERROR > 0)    
+--    set @response = 1    
+--  ELSE
+--  begin
+--    set @responsemsg = 'User registered successfully.';
+--    set @response = 0   
+--	select @id = idUser from users where email = @email;
+--  end
+    
+  
+--return 0;
