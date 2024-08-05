@@ -18,10 +18,10 @@ namespace DarkMessages.Service.Objects
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder()
         {
             //DataSource = "192.168.100.76",
-            DataSource = "localhost",
-            InitialCatalog = "DarkMessages",
+            DataSource = "192.168.1.136",
+            InitialCatalog = "darkMessages",
             UserID = "sa",
-            Password = "@Ale25252525",
+            Password = "123*abc*456",
             ConnectTimeout = 30,
             Encrypt = true,
             TrustServerCertificate = true,

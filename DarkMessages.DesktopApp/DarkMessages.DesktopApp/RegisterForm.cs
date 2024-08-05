@@ -24,7 +24,7 @@ namespace DarkMessages.DesktopApp
             InitializeComponent();
             LoadLanguages();
             LoadCountries();
-            client.BaseAddress = new Uri("http://localhost:5113/");
+            client.BaseAddress = new Uri(GlobalVariables.url);
         }
 
         private void LoadLanguages() 

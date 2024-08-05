@@ -26,7 +26,7 @@ namespace DarkMessages.DesktopApp
         public LoginForm()
         {
             InitializeComponent();
-            client.BaseAddress = new Uri("http://localhost:5113/");
+            client.BaseAddress = new Uri(GlobalVariables.url);
         }
 
         private async void button1_Click(object sender, EventArgs e)

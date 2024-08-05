@@ -23,7 +23,7 @@ namespace DarkMessages.DesktopApp
         public MainPage()
         {
             InitializeComponent();
-            client.BaseAddress = new Uri("http://localhost:5113/");
+            client.BaseAddress = new Uri(GlobalVariables.url);
         }
 
         public async Task loadUserItems()

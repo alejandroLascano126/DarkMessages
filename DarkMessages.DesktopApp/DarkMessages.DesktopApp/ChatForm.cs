@@ -27,7 +27,7 @@ namespace DarkMessages.DesktopApp
         public ChatForm()
         {
             InitializeComponent();
-            client.BaseAddress = new Uri("http://localhost:5113/");
+            client.BaseAddress = new Uri(GlobalVariables.url);
         }
 
         private async void ChatForm_Load(object sender, EventArgs e)

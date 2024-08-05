@@ -28,7 +28,7 @@ namespace DarkMessages.DesktopApp
         public SecurityCodeForm()
         {
             InitializeComponent();
-            client.BaseAddress = new Uri("http://localhost:5113/");
+            client.BaseAddress = new Uri(GlobalVariables.url);
             initTimerCodigoValida();
         }
 
