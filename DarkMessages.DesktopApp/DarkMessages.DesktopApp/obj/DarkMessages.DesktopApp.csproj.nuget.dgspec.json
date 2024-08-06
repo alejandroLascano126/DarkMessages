@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj": {}
+    "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj": {}
   },
   "projects": {
-    "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj": {
+    "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
+        "projectUniqueName": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
         "projectName": "DarkMessages.DesktopApp",
-        "projectPath": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
-        "packagesPath": "C:\\Users\\aleja\\.nuget\\packages\\",
-        "outputPath": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\obj\\",
+        "projectPath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
+        "packagesPath": "C:\\Users\\usrTechsoft\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\aleja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usrTechsoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -81,7 +85,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

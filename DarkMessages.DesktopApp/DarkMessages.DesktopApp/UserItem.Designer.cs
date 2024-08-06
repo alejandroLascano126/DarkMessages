@@ -72,7 +72,7 @@
             Controls.Add(picboxUserItem);
             Controls.Add(lblname);
             Name = "UserItem";
-            Size = new Size(317, 76);
+            Size = new Size(352, 76);
             MouseClick += UserItem_MouseClick;
             MouseEnter += UserItem_MouseEnter;
             MouseLeave += UserItem_MouseLeave;

@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Release\net8.0\publish\</_PublishTargetUrl>
-    <History>True|2024-07-08T04:37:14.3732103Z;True|2024-07-07T23:25:30.3339431-05:00;</History>
+    <_PublishTargetUrl>C:\Proyectos personales\DarkMessages\DarkMessages.Service\DarkMessages.Service\bin\Release\net8.0\publish\</_PublishTargetUrl>
+    <History>True|2024-08-06T21:02:06.7231298Z;True|2024-08-06T15:51:04.2038751-05:00;True|2024-08-06T10:00:56.6380632-05:00;True|2024-08-06T09:50:14.6069951-05:00;True|2024-08-06T09:36:39.7575275-05:00;True|2024-07-07T23:37:14.3732103-05:00;True|2024-07-07T23:25:30.3339431-05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

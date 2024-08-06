@@ -368,6 +368,5 @@ namespace DarkMessages.Service.Objects
             }
             return rp;
         }
-        
     }
 }

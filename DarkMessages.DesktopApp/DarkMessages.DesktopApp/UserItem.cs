@@ -58,7 +58,7 @@ namespace DarkMessages.DesktopApp
 
         private void UserItem_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.Silver;
+            this.BackColor = SystemColors.ActiveCaption;
         }
 
         private void UserItem_MouseClick(object sender, MouseEventArgs e)
