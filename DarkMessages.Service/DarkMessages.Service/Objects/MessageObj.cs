@@ -11,14 +11,13 @@ namespace DarkMessages.Service.Objects
 
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder()
         {
-            //DataSource = "192.168.100.76",
-            DataSource = "192.168.1.136",
-            InitialCatalog = "darkMessages",
-            UserID = "sa",
-            Password = "123*abc*456",
-            ConnectTimeout = 30,
-            Encrypt = true,
-            TrustServerCertificate = true,
+            DataSource = GlobalVariables.DataSource,
+            InitialCatalog = GlobalVariables.InitialCatalog,
+            UserID = GlobalVariables.UserID,
+            Password = GlobalVariables.Password,
+            ConnectTimeout = GlobalVariables.ConnectTimeout,
+            Encrypt = GlobalVariables.Encrypt,
+            TrustServerCertificate = GlobalVariables.TrustServerCertificate,
         };
 
         string connectionString = "";
@@ -41,7 +40,7 @@ namespace DarkMessages.Service.Objects
                     using (SqlCommand command = new SqlCommand("insertMessage", connection)) 
                     {
                         command.CommandType = CommandType.StoredProcedure;
-
+                        command.Parameters.Clear();
                         command.Parameters.AddWithValue("@usernameSender", rq.senderUser);
                         command.Parameters.AddWithValue("@usernameReceiver", rq.receiverUser);
                         command.Parameters.AddWithValue("@message", rq.messageContent);
@@ -84,7 +83,7 @@ namespace DarkMessages.Service.Objects
                     using (SqlCommand command = new SqlCommand("consultMessages", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-
+                        command.Parameters.Clear();
                         command.Parameters.AddWithValue("@usernameSender", rq.usernameSender);
                         command.Parameters.AddWithValue("@usernameReceiver", rq.usernameReceiver);
                         command.Parameters.AddWithValue("@rows", rq.rows);
@@ -129,5 +128,60 @@ namespace DarkMessages.Service.Objects
             return rp;
         }
 
+
+        public async Task<rpCountMessages> countMessages(rqCountMessages rq) 
+        {
+            rpCountMessages rp = new rpCountMessages();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("countPrivateMessages", connection)) 
+                    {
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@usernameSender", rq.usernameSender);
+                        command.Parameters.AddWithValue("@usernameReceiver", rq.usernameReceiver);
+                        
+                        SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        SqlParameter countOutput = new SqlParameter("@count", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        command.Parameters.Add(responseOutput);
+                        command.Parameters.Add(countOutput);
+
+                        await command.ExecuteNonQueryAsync();
+
+                        int response = (int)responseOutput.Value;
+                        int count = (int)countOutput.Value;
+
+                        if (response == 0)
+                        {
+                            rp.count = count;
+                            rp.success = true;
+                        }
+                        else
+                        {
+                            rp.success = false;
+                            rp.count = 0;
+                        }
+                    }
+                }
+            }
+            catch (Exception e) 
+            {
+                rp.success = false;
+                rp.count = 0;
+            }
+
+            return rp;
+
+
+        }
     }
 }

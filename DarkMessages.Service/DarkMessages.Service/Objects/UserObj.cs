@@ -17,14 +17,13 @@ namespace DarkMessages.Service.Objects
 
         SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder()
         {
-            //DataSource = "192.168.100.76",
-            DataSource = "192.168.1.136",
-            InitialCatalog = "darkMessages",
-            UserID = "sa",
-            Password = "123*abc*456",
-            ConnectTimeout = 30,
-            Encrypt = true,
-            TrustServerCertificate = true,
+            DataSource = GlobalVariables.DataSource,
+            InitialCatalog = GlobalVariables.InitialCatalog,
+            UserID = GlobalVariables.UserID,
+            Password = GlobalVariables.Password,
+            ConnectTimeout = GlobalVariables.ConnectTimeout,
+            Encrypt = GlobalVariables.Encrypt,
+            TrustServerCertificate = GlobalVariables.TrustServerCertificate,
         };
 
         string connectionString = "";

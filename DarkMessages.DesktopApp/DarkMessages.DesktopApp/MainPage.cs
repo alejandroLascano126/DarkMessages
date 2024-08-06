@@ -16,8 +16,6 @@ namespace DarkMessages.DesktopApp
 {
     public partial class MainPage : Form
     {
-        private string[] nombres = { "Alejandro", "Veronica", "Luisa", "Joel", "Marcos", "Fabio", "Steven", "Sonia", "Andrea", "Luis" };
-        private string[] username = { "alejandro", "jvero", "", "", "", "", "", "", "", "" };
         public Container container { get; set; }
         HttpClient client = new HttpClient();
         public MainPage()
@@ -60,16 +58,6 @@ namespace DarkMessages.DesktopApp
             {
                 MessageBox.Show($"Error: {ex}");
             }
-
-            //UserItem[] userItems = new UserItem[10];
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    UserItem item = new UserItem();
-            //    item.container = this;
-                
-            //    userItems[i] = item;
-            //    flpItemsUser.Controls.Add(userItems[i]);
-            //}
         }
 
         private async void MainPage_Load(object sender, EventArgs e)

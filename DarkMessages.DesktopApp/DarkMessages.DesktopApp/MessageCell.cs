@@ -64,9 +64,6 @@ namespace DarkMessages.DesktopApp
 
             Graphics g = pevent.Graphics;
 
-            //TextRenderer.DrawText(g, title, new Font(FontFamily.GenericSansSerif, 10 , FontStyle.Regular), new Point(5, 5), ForeColor);
-            //TextRenderer.DrawText(g, description, new Font(FontFamily.GenericSansSerif, 6, FontStyle.Regular), new Point(5, 25), ForeColor);
-
             TextRenderer.DrawText(
                 g,title,new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular),new Point(5, 5),ForeColor,TextFormatFlags.Left);
 

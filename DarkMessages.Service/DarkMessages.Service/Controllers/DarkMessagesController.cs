@@ -5,6 +5,8 @@ using DarkMessages.Service.Objects;
 using DarkMessages.models.SignUp;
 using DarkMessages.models.Message;
 using DarkMessages.models.Friends;
+using DarkMessages.Service.Hub;
+using Microsoft.AspNetCore.SignalR;
 
 namespace DarkMessages.Service.Controllers
 {
@@ -14,6 +16,13 @@ namespace DarkMessages.Service.Controllers
     {
         UserObj userObj = new UserObj();
         MessageObj messageObj = new MessageObj();
+        private readonly IHubContext<ChatHub> _hubContext;
+
+        public DarkMessagesController(IHubContext<ChatHub> hubContext)
+        {
+            _hubContext = hubContext;
+        }
+
 
         [HttpPost("ValidateSecurityCode")]
         public async Task<rpValidateSecurityCode> LoginSecurityCode(rqValidateSecurityCode rq)
@@ -48,10 +57,14 @@ namespace DarkMessages.Service.Controllers
         }
 
         [HttpPost("insertMessage")]
-        public async Task<rpInsertMessage> insertMessage(rqInsertMessage rq) 
+        public async Task<rpInsertMessage> insertMessage(rqInsertMessage rq)
         {
             rpInsertMessage rp = new rpInsertMessage();
-            rp =await  messageObj.insertMessage(rq);
+            rp = await messageObj.insertMessage(rq);
+            if (rp.success) 
+            {
+                await _hubContext.Clients.All.SendAsync("ReceiveMessages", rp);
+            }
             return rp;
         }
 
@@ -70,7 +83,17 @@ namespace DarkMessages.Service.Controllers
             rp = await userObj.consultFriends(rq);
             return rp;
         }
-        
+
+        [HttpPost("countMessages")]
+        public async Task<rpCountMessages> countMessages(rqCountMessages rq) 
+        {
+            rpCountMessages rp = new rpCountMessages();
+            rp = await messageObj.countMessages(rq);
+            return rp;
+
+        }
+
+
 
     }
 }
