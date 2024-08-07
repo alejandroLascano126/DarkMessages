@@ -63,15 +63,6 @@ namespace DarkMessages.DesktopApp
 
         private void UserItem_MouseClick(object sender, MouseEventArgs e)
         {
-            List<models.Message> messages = new List<models.Message>();
-            models.Message msg1 = new models.Message() {message = "Hola Pablo", time = "11:31", isLeftAligned = true };
-            models.Message msg2 = new models.Message() { message = "Hola Sonia", time = "11:32", isLeftAligned = false };
-            models.Message msg3 = new models.Message() { message = "Me gustas", time = "11:32", isLeftAligned = true };
-            models.Message msg4 = new models.Message() { message = "A mi tambien", time = "11:33", isLeftAligned = false };
-            messages.Add(msg1);
-            messages.Add(msg2);
-            messages.Add(msg3);
-            messages.Add(msg4);
             container.ChatFormInitializer(_name, username, usernameFriend);
         }
     }

@@ -29,7 +29,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/consultFriends";
-                rqConsultFriends rqInsertMessage = new rqConsultFriends() { username = container.username, rows = 10, page = 1 };
+                rqConsultFriends rqInsertMessage = new rqConsultFriends() { username = container.username, rows = 10, page = 1, option = "" };
                 var rqSerialized = JsonSerializer.Serialize(rqInsertMessage);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -63,19 +63,20 @@ namespace DarkMessages.DesktopApp
         private async void MainPage_Load(object sender, EventArgs e)
         {
             await loadUserItems();
+            ChatFormInitializer(null, null, null);
         }
 
-        public void ChatFormInitializer(string name, string username, string receiver) 
+        public void ChatFormInitializer(string? name, string? username, string? receiver) 
         {
             if (panelChat.Controls.Count > 0) 
             {
                 panelChat.Controls.Clear(); 
             }
             ChatForm chatForm = new ChatForm();
-            chatForm.name = name;
-            chatForm.messages = null;
-            chatForm.userName = username;
-            chatForm.receiver = receiver;
+            chatForm.name = name ?? "";
+            chatForm.userName = username ?? "";
+            chatForm.receiver = receiver ?? "";
+            chatForm.container = this;
             chatForm.TopLevel = false;
             chatForm.Dock = DockStyle.Fill;
             panelChat.Controls.Add(chatForm);

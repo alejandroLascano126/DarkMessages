@@ -1,5 +1,4 @@
-﻿using DarkMessages.DesktopApp.models;
-using DarkMessages.models.Login;
+﻿using DarkMessages.models.Login;
 using DarkMessages.models.Message;
 using DarkMessages.models.SignUp;
 using Microsoft.AspNetCore.SignalR.Client;
@@ -16,6 +15,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -29,9 +29,11 @@ namespace DarkMessages.DesktopApp
         public string name { get; set; }
         public string userName { get; set; }
         public string receiver { get; set; }
-        public List<DarkMessages.models.Message.message> messages { get; set; }
-        public Container? container { get; set; }
+        private List<DarkMessages.models.Message.message> messages { get; set; }
+        public MainPage? container { get; set; }
         HttpClient client = new HttpClient();
+        private int page;
+        private int messagesCount;
 
         public ChatForm()
         {
@@ -45,12 +47,17 @@ namespace DarkMessages.DesktopApp
         {
             lblNameChat.Text = name;
 
-            //int messagesCount = await countMessages(userName, receiver);
-            //int page = messagesCount / 10;
+            messagesCount = await countMessages(userName, receiver);
+            page = (int)Math.Ceiling((double)messagesCount / 7);
+            page = (page == 0) ? 1 : page;
             messages = new List<DarkMessages.models.Message.message>() { };
-            await consultMessages(userName, receiver, 7, 1);
+            await consultMessages(userName, receiver, 7, page);
 
-
+            if(userName == "" && receiver == "" && name == "") 
+            {
+                btnSendMessage.Enabled = false;
+                rtbSendMessage.Enabled = false;
+            }
         }
 
 
@@ -61,8 +68,9 @@ namespace DarkMessages.DesktopApp
 
             if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
             {
-                //AddMessage(rtbSendMessage.Text, DateTime.Now.ToString("HH:ss"), false);
                 await sendMessage(userName, receiver, rtbSendMessage.Text);
+                
+                rtbSendMessage.Text = "";
             }
         }
 
@@ -125,25 +133,28 @@ namespace DarkMessages.DesktopApp
                 rpConsultMessages rp = JsonSerializer.Deserialize<rpConsultMessages>(responseBody) ?? new rpConsultMessages();
                 if (rp.success)
                 {
-                    Console.WriteLine("Message consulted correctly");
-                    DarkMessages.models.Message.message msg = new DarkMessages.models.Message.message();
-                    msg = rp.messages.Last(); // last new message
-                    if (rp.messages.Count - messages.Count == 1) // a new message received
+                    if (rp.messages.Count > 0)
                     {
-                        AddMessage(msg.messageContent, msg.createdAt.ToString("HH:mm"), (msg.senderUser == userName) ? false : true);
-                    }
-                    else //many new messages
-                    {
-                        tlpMessagesChat.Controls.Clear();
-                        foreach (var message in rp.messages)
+                        Console.WriteLine("Message consulted correctly");
+                        DarkMessages.models.Message.message msg = new DarkMessages.models.Message.message();
+                        msg = rp.messages.Last(); // last new message
+                        if (rp.messages.Count - messages.Count == 1) // a new message received
                         {
-                            AddMessage(message.messageContent, message.createdAt.ToString("HH:mm"), (message.senderUser == userName) ? false : true);
+                            AddMessage(msg.messageContent, msg.createdAt.ToString("HH:mm"), (msg.senderUser == userName) ? false : true);
+                            insertLocalLastMessages(msg.messageContent);
                         }
-                        messages.Clear();
-                    }
+                        else //many new messages
+                        {
+                            tlpMessagesChat.Controls.Clear();
+                            foreach (var message in rp.messages)
+                            {
+                                AddMessage(message.messageContent, message.createdAt.ToString("HH:mm"), (message.senderUser == userName) ? false : true);
+                            }
+                            messages.Clear();
+                        }
 
-                    messages = rp.messages;
-                    
+                        messages = rp.messages;
+                    }
                 }
                 else
                 {
@@ -210,14 +221,34 @@ namespace DarkMessages.DesktopApp
 
         private async void addMessageAsync(rpConsultMessages rpConsultMessages) 
         {
-            await consultMessages(userName, receiver, 7, 1);
-            //DarkMessages.models.Message.message message = new DarkMessages.models.Message.message();
-            //message = rpConsultMessages.messages.Last();
-
-            //AddMessage(message.messageContent, message.createdAt.ToString("HH:mm"), (message.senderUser == userName) ? false : true);
+            messagesCount = await countMessages(userName, receiver);
+            page = (int)Math.Ceiling((double)messagesCount / 7);
+            page = (page == 0) ? 1 : page;
+            await consultMessages(userName, receiver, 7, page);
         }
 
+        private void insertLocalLastMessages(string lastMessage) 
+        {
+            foreach (var control in container!.Controls)
+            {
+                if (control.GetType() == typeof(FlowLayoutPanel))
+                {
+                    FlowLayoutPanel flp = (FlowLayoutPanel)control;
+                    foreach (var userItem in flp.Controls)
+                    {
+                        if (userItem.GetType() == typeof(UserItem))
+                        {
+                            UserItem usitem = (UserItem)userItem;
+                            if (usitem.usernameFriend == receiver)
+                            {
+                                usitem.description = lastMessage;
+                            }
+                        }
+                    }
 
+                }
+            }
+        }
     }
 
 

@@ -140,6 +140,7 @@ namespace DarkMessages.Service.Objects
                     using (SqlCommand command = new SqlCommand("countPrivateMessages", connection)) 
                     {
                         command.Parameters.Clear();
+                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@usernameSender", rq.usernameSender);
                         command.Parameters.AddWithValue("@usernameReceiver", rq.usernameReceiver);
                         

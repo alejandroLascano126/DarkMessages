@@ -13,10 +13,17 @@ namespace DarkMessages.Service.Hub
             Clients.All.SendAsync("ReceiveMessages", rpConsultMessages);
         }
 
+        //public void ConsultFriendsUpdateds(rpConsultFriends rpConsultFriends) 
+        //{
+        //    Clients.All.SendAsync("FriendsUpdateds", rpConsultFriends);
+        //}
+
         public void ConsultOnlineFriends(rpConsultFriends rpConsultFriends) 
         {
             Clients.All.SendAsync("ReceivieOnlineFriends", rpConsultFriends);
         }
+
+        
 
         
     }

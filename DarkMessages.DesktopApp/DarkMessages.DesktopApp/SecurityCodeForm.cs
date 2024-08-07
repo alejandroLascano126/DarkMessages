@@ -98,7 +98,7 @@ namespace DarkMessages.DesktopApp
                         {
                             container.LoginUserPageInitializer();
                         }
-                        else if(opt == "login_user")
+                        else if (opt == "login_user")
                         {
                             container.MainPageInitializer();
                         }

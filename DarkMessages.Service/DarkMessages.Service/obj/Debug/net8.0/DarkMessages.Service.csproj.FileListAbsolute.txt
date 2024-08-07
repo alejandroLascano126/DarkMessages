@@ -147,3 +147,4 @@ E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Proyectos personales\DarkMessages\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Proyectos personales\DarkMessages\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
+E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\appsettings.json

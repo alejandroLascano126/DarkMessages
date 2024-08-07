@@ -332,6 +332,7 @@ namespace DarkMessages.Service.Objects
                         command.Parameters.AddWithValue("@username", rq.username);
                         command.Parameters.AddWithValue("@rows", rq.rows);
                         command.Parameters.AddWithValue("@page", rq.page);
+                        //command.Parameters.AddWithValue("@option", rq.option ?? "");
                         SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
