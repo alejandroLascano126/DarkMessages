@@ -1,5 +1,4 @@
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\appsettings.Development.json
-E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\appsettings.json
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\DarkMessages.Service.exe
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\DarkMessages.Service.deps.json
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\bin\Debug\net8.0\DarkMessages.Service.runtimeconfig.json
