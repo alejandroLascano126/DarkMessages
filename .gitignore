@@ -1,6 +1,12 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
+/DarkMessages.DesktopApp/DarkMessages.DesktopApp/bin
+/DarkMessages.Service/DarkMessages.Service/bin
 
 /DarkMessages.Service/DarkMessages.Service/appsettings.json
 /DarkMessages.DesktopApp/DarkMessages.DesktopApp/appSettings.json
+/DarkMessages.DesktopApp/DarkMessages.DesktopApp/obj
+/DarkMessages.Service/DarkMessages.Service/obj
+/DarkMessages.Service/.vs
+/DarkMessages.DesktopApp/.vs
