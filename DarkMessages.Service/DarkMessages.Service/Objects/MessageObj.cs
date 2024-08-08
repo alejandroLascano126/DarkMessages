@@ -54,7 +54,17 @@ namespace DarkMessages.Service.Objects
                         int response = (int)responseOutput.Value;
                         if (response == 0)
                         {
-                            rp.success = true;
+                            rp.success = true;  
+                            //Sending email to te receiver
+                            //bool resp = await emailSender.SendEmailAsync(rq.email, $"[DarkMessages] Nuevo mensaje de: {rq.senderUser}", rq.messageContent, null);
+                            //if (resp)
+                            //{
+                            //    rp.message = "Se envió email al usuario";
+                            //}
+                            //else 
+                            //{
+                            //    rp.message = "No se envió email al usuario";
+                            //}
                         }
                         else 
                         {
@@ -128,7 +138,6 @@ namespace DarkMessages.Service.Objects
             return rp;
         }
 
-
         public async Task<rpCountMessages> countMessages(rqCountMessages rq) 
         {
             rpCountMessages rp = new rpCountMessages();
@@ -184,5 +193,7 @@ namespace DarkMessages.Service.Objects
 
 
         }
+
+
     }
 }

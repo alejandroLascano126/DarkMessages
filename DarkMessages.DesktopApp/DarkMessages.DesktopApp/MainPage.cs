@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DarkMessages.DesktopApp
@@ -29,11 +30,12 @@ namespace DarkMessages.DesktopApp
 
         private async void MainPage_Load(object sender, EventArgs e)
         {
-            ChatFormInitializer(null, null, null,true);
+            lblUsername.Text = container.name + " " + container.lastname;
+            ChatFormInitializer(null, null, null,true, null);
             flpItemsUserInitializer();
         }
 
-        public void ChatFormInitializer(string? name, string? username, string? receiver, bool isFriend)
+        public void ChatFormInitializer(string? name, string? username, string? receiver, bool isFriend, string? email)
         {
             if (panelChat.Controls.Count > 0)
             {
@@ -44,6 +46,7 @@ namespace DarkMessages.DesktopApp
             chatForm.userName = username ?? "";
             chatForm.receiver = receiver ?? "";
             chatForm.isFriend = isFriend;
+            chatForm.email = email ?? "";
             chatForm.container = this;
             chatForm.TopLevel = false;
             chatForm.Dock = DockStyle.Fill;
@@ -101,6 +104,7 @@ namespace DarkMessages.DesktopApp
         private void btnAtrasFriends_Click(object sender, EventArgs e)
         {
             flpItemsUserInitializer();
+            ChatFormInitializer(null, null, null, true, null);
         }
     }
 }

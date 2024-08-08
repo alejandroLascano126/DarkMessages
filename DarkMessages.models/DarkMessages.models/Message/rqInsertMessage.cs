@@ -11,5 +11,6 @@ namespace DarkMessages.models.Message
         public string senderUser { get; set; }
         public string receiverUser { get; set; }
         public string messageContent { get; set; }
+        public string email { get; set; }
     }
 }

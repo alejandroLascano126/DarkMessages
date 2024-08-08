@@ -85,10 +85,9 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async void UsersQueryView_Load(object sender, EventArgs e)
+        private void UsersQueryView_Load(object sender, EventArgs e)
         {
             flpUsersQuery.Size = Size;
-            //await loadUserItems();
         }
     }
 }

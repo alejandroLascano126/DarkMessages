@@ -153,9 +153,19 @@ namespace DarkMessages.Service.Objects
                     {
                         Direction = ParameterDirection.Output
                     };
+                    SqlParameter nameOutput = new SqlParameter("@name", SqlDbType.VarChar, 30)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    SqlParameter lastnameOutput = new SqlParameter("@lastname", SqlDbType.VarChar, 30)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
                     command.Parameters.Add(emailOutput);
                     command.Parameters.Add(idUserOutput);
                     command.Parameters.Add(responseOutput);
+                    command.Parameters.Add(nameOutput);
+                    command.Parameters.Add(lastnameOutput);
 
                     await connection.OpenAsync();
                     int respValue = await command.ExecuteNonQueryAsync();
@@ -166,6 +176,8 @@ namespace DarkMessages.Service.Objects
                     {
                         rp.email = (string)emailOutput.Value;
                         rp.id = (int)idUserOutput.Value;
+                        rp.name = (string)nameOutput.Value;
+                        rp.lastname = (string)lastnameOutput.Value;
                         
 
                         int sc = 0;
@@ -251,7 +263,6 @@ namespace DarkMessages.Service.Objects
             }
         }
 
-
         public async Task<rpValidateSecurityCode> ValidateSecurityCodeAsync(rqValidateSecurityCode rq) 
         {
             rpValidateSecurityCode rp = new rpValidateSecurityCode();
@@ -316,7 +327,6 @@ namespace DarkMessages.Service.Objects
             return $"{hiddenName}@{domain}";
         }
 
-
         public async Task<rpConsultFriends> consultFriends(rqConsultFriends rq) 
         {
             rpConsultFriends rp = new rpConsultFriends();
@@ -346,7 +356,7 @@ namespace DarkMessages.Service.Objects
                             rp.friends = new List<Friend>();
                             foreach (DataRow row in dataTable.Rows)
                             {
-                                Friend msg = new Friend() { username = row["friend"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, lastChatMessage = row["lastMessage"].ToString()! };
+                                Friend msg = new Friend() { username = row["friend"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, lastChatMessage = row["lastMessage"].ToString()!, email = row["email"].ToString()! };
                                 rp.friends.Add(msg);
                             }
                         }
@@ -369,7 +379,6 @@ namespace DarkMessages.Service.Objects
             }
             return rp;
         }
-
 
         public async Task<rpUserQuery> filterUsers(rqUserQuery rq) 
         {
@@ -408,7 +417,6 @@ namespace DarkMessages.Service.Objects
             }
             return rp;
         }
-
 
         public async Task<rpAddFriendship> registerFriendship(rqAddFriendship rq)
         {

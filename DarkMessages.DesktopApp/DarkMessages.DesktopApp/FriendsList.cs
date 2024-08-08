@@ -53,6 +53,7 @@ namespace DarkMessages.DesktopApp
                         item.username = container.username;
                         item.usernameFriend = friend.username;
                         item.isFriend = true;
+                        item.email = friend.email;
                         item.container = mainPage;
                         flpItemsUser.Controls.Add(item);
                     }

@@ -53,19 +53,17 @@ namespace DarkMessages.DesktopApp
                 HttpContent content = new StringContent(rqLoginSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
                 string responseBody = await response.Content.ReadAsStringAsync();
-                JObject jsonResponse = JObject.Parse(responseBody);
-                bool success = Convert.ToBoolean(jsonResponse["success"]);
-                string message = Convert.ToString(jsonResponse["message"]) ?? "";
-                if (success)
+                rpLogin rpLogin = JsonSerializer.Deserialize<rpLogin>(responseBody) ?? new rpLogin();
+                if (rpLogin.success)
                 {
                     Close();
-                    MessageBox.Show(message);
-                    int id = Convert.ToInt32(jsonResponse["id"]);
-                    container!.SecurityCodePageInitializer(id, username, password, "login_user");
+                    MessageBox.Show(rpLogin.message);
+                    int id = Convert.ToInt32(rpLogin.id);
+                    container!.SecurityCodePageInitializer(id, username, password, "login_user", rpLogin.name, rpLogin.lastname);
                 }
                 else
                 {
-                    MessageBox.Show(message);
+                    MessageBox.Show(rpLogin.message);
                 }
             }
             catch (Exception ex)

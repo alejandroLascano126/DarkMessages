@@ -6,6 +6,8 @@ namespace DarkMessages.DesktopApp
     public partial class Container : Form
     {
         public string username { get; set; } = "alejandro";
+        public string name { get; set; }
+        public string lastname { get; set; }
         public Container()
         {
             InitializeComponent();
@@ -28,9 +30,11 @@ namespace DarkMessages.DesktopApp
             loginForm.Show();
         }
 
-        public void SecurityCodePageInitializer(int idUser, string username, string password, string? otp) 
+        public void SecurityCodePageInitializer(int idUser, string username, string password, string? otp, string name, string lastname) 
         {
             this.username = username;
+            this.name = name;
+            this.lastname = lastname;
             SecurityCodeForm securityCodeForm = new SecurityCodeForm();
             securityCodeForm.idUser = idUser;
             securityCodeForm.username = username;

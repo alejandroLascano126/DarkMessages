@@ -17,6 +17,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -33,11 +34,16 @@ namespace DarkMessages.DesktopApp
         public string userName { get; set; }
         public string receiver { get; set; }
         public bool isFriend { get; set; }
+        public string email { get; set; }
+        private bool isInputDisabled{get;set;} = false;
+        private HubConnection hubConnection;
+        public rpConsultMessages rpConsultMessages { get; set; }
         private List<DarkMessages.models.Message.message> messages { get; set; }
         public MainPage? container { get; set; }
         HttpClient client = new HttpClient();
         private int page;
         private int messagesCount;
+        private int currentRow = 0;
 
         public ChatForm()
         {
@@ -55,22 +61,22 @@ namespace DarkMessages.DesktopApp
             page = (int)Math.Ceiling((double)messagesCount / 7);
             page = (page == 0) ? 1 : page;
             messages = new List<DarkMessages.models.Message.message>() { };
-            await consultMessages(userName, receiver, 7, page);
 
-            if(userName == "" && receiver == "" && name == "") 
-            {
-                btnSendMessage.Enabled = false;
-                rtbSendMessage.Enabled = false;
-            }
-
-            if (!isFriend) 
+            if (!isFriend)
             {
                 AddFriendButton();
+                disableInputChatForm();
             }
+
+            if (userName == "" && receiver == "" && name == "")
+            {
+                disableInputChatForm();
+            }
+
+            if (!isInputDisabled)
+                await consultMessages(userName, receiver, 7, page);
+            
         }
-
-
-
 
         private async void btnSendMessage_Click(object sender, EventArgs e)
         {
@@ -83,7 +89,6 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private int currentRow = 0;
         private void AddMessage(string message, string time, bool isLeftAligned)
         {
             MessageCell messageCell = new MessageCell();
@@ -110,7 +115,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/insertMessage";
-                rqInsertMessage rqInsertMessage = new rqInsertMessage() { senderUser = userName, receiverUser = receiver, messageContent = message };
+                rqInsertMessage rqInsertMessage = new rqInsertMessage() { senderUser = userName, receiverUser = receiver, messageContent = message, email = email};
                 var rqSerialized = JsonSerializer.Serialize(rqInsertMessage);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -208,8 +213,6 @@ namespace DarkMessages.DesktopApp
             return 0;
         }
 
-        private HubConnection hubConnection;
-        public rpConsultMessages rpConsultMessages { get; set; }
         private async void InitializeSignalR()
         {
             hubConnection = new HubConnectionBuilder().WithUrl($"{GlobalVariables.url}chathub").Build();
@@ -233,18 +236,19 @@ namespace DarkMessages.DesktopApp
 
         private async void addMessageAsync(rpConsultMessages rpConsultMessages) 
         {
-            messagesCount = await countMessages(userName, receiver);
-            page = (int)Math.Ceiling((double)messagesCount / 7);
-            page = (page == 0) ? 1 : page;
-            await consultMessages(userName, receiver, 7, page);
+            if (!isInputDisabled) 
+            {
+                messagesCount = await countMessages(userName, receiver);
+                page = (int)Math.Ceiling((double)messagesCount / 7);
+                page = (page == 0) ? 1 : page;
+                await consultMessages(userName, receiver, 7, page);
+            }
         }
 
-        string nombre;
         private void insertLocalLastMessages(string lastMessage) 
         {
             foreach (Control control in container!.Controls) 
             {
-                
                 if (control.Name == "panelUsers") 
                 {
                     foreach(Control control2 in control.Controls) 
@@ -271,28 +275,6 @@ namespace DarkMessages.DesktopApp
                     }
                 }
             }
-
-
-
-            //foreach (var control in container!.Controls)
-            //{
-            //    if (control.GetType() == typeof(FlowLayoutPanel))
-            //    {
-            //        FlowLayoutPanel flp = (FlowLayoutPanel)control;
-            //        foreach (var userItem in flp.Controls)
-            //        {
-            //            if (userItem.GetType() == typeof(UserItem))
-            //            {
-            //                UserItem usitem = (UserItem)userItem;
-            //                if (usitem.usernameFriend == receiver)
-            //                {
-            //                    usitem.description = lastMessage;
-            //                }
-            //            }
-            //        }
-
-                //    }
-                //}
         }
         
         private async Task registerFriendship(string usernameFirst, string usernameSecond) 
@@ -313,6 +295,7 @@ namespace DarkMessages.DesktopApp
                         Invoke(new Action(() => {
                             tlpMessagesChat.Controls.Clear();
                             container!.flpQueryUserInitializer();
+                            enableInputChatForm();
                         } ));
                         
                     }
@@ -320,6 +303,7 @@ namespace DarkMessages.DesktopApp
                     {
                         tlpMessagesChat.Controls.Clear();
                         container!.flpQueryUserInitializer();
+                        enableInputChatForm();
                     }
                 }
                 else
@@ -347,6 +331,20 @@ namespace DarkMessages.DesktopApp
             messageCell.Description = "";
             messageCell.Click += messageCellAddFriendClick!;
             tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
+        }
+
+        public void disableInputChatForm()
+        {
+            btnSendMessage.Enabled = false;
+            rtbSendMessage.Enabled = false;
+            isInputDisabled = true;
+        }
+
+        public void enableInputChatForm() 
+        {
+            btnSendMessage.Enabled = true;
+            rtbSendMessage.Enabled = true;
+            isInputDisabled = false;
         }
     }
 

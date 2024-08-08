@@ -33,15 +33,18 @@
             panelUsers = new Panel();
             txtSearchFriends = new TextBox();
             btnBackFriends = new Button();
+            lblUsername = new Label();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblFriends
             // 
             lblFriends.AutoSize = true;
-            lblFriends.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblFriends.Location = new Point(33, 16);
+            lblFriends.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblFriends.Location = new Point(13, 81);
             lblFriends.Name = "lblFriends";
-            lblFriends.Size = new Size(77, 25);
+            lblFriends.Size = new Size(65, 21);
             lblFriends.TabIndex = 1;
             lblFriends.Text = "Friends";
             // 
@@ -54,55 +57,76 @@
             // 
             // panelUsers
             // 
-            panelUsers.Location = new Point(33, 102);
+            panelUsers.Location = new Point(33, 153);
             panelUsers.Name = "panelUsers";
-            panelUsers.Size = new Size(360, 496);
+            panelUsers.Size = new Size(360, 445);
             panelUsers.TabIndex = 3;
             // 
             // txtSearchFriends
             // 
-            txtSearchFriends.BackColor = SystemColors.GradientInactiveCaption;
+            txtSearchFriends.BackColor = SystemColors.ControlLightLight;
             txtSearchFriends.BorderStyle = BorderStyle.FixedSingle;
             txtSearchFriends.Font = new Font("Segoe UI", 14F);
-            txtSearchFriends.Location = new Point(33, 48);
+            txtSearchFriends.Location = new Point(13, 40);
             txtSearchFriends.Name = "txtSearchFriends";
-            txtSearchFriends.Size = new Size(323, 32);
+            txtSearchFriends.Size = new Size(297, 32);
             txtSearchFriends.TabIndex = 4;
             txtSearchFriends.Click += txtSearchFriends_Click;
             txtSearchFriends.TextChanged += txtSearchFriends_TextChanged;
             // 
             // btnBackFriends
             // 
-            btnBackFriends.BackColor = SystemColors.ActiveCaption;
+            btnBackFriends.BackColor = SystemColors.GradientInactiveCaption;
             btnBackFriends.BackgroundImage = Properties.Resources.replay_10080194;
             btnBackFriends.BackgroundImageLayout = ImageLayout.Stretch;
             btnBackFriends.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
             btnBackFriends.FlatAppearance.BorderSize = 0;
             btnBackFriends.FlatStyle = FlatStyle.Flat;
-            btnBackFriends.Location = new Point(362, 49);
+            btnBackFriends.Location = new Point(316, 41);
             btnBackFriends.Name = "btnBackFriends";
-            btnBackFriends.Size = new Size(31, 31);
+            btnBackFriends.Size = new Size(31, 32);
             btnBackFriends.TabIndex = 5;
             btnBackFriends.UseVisualStyleBackColor = false;
             btnBackFriends.Click += btnAtrasFriends_Click;
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblUsername.Location = new Point(13, 6);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(190, 30);
+            lblUsername.TabIndex = 6;
+            lblUsername.Text = "Nombre Apellido";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.GradientInactiveCaption;
+            panel1.Controls.Add(txtSearchFriends);
+            panel1.Controls.Add(lblUsername);
+            panel1.Controls.Add(btnBackFriends);
+            panel1.Controls.Add(lblFriends);
+            panel1.Location = new Point(33, 48);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(360, 107);
+            panel1.TabIndex = 4;
             // 
             // MainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(1174, 623);
-            Controls.Add(btnBackFriends);
-            Controls.Add(txtSearchFriends);
+            Controls.Add(panel1);
             Controls.Add(panelUsers);
             Controls.Add(panelChat);
-            Controls.Add(lblFriends);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainPage";
             Text = "MainPage";
             Load += MainPage_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -111,5 +135,7 @@
         private Panel panelUsers;
         private TextBox txtSearchFriends;
         private Button btnBackFriends;
+        private Label lblUsername;
+        private Panel panel1;
     }
 }

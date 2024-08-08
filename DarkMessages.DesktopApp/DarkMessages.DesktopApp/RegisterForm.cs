@@ -72,7 +72,7 @@ namespace DarkMessages.DesktopApp
                 {
                     Close();
                     MessageBox.Show(rp.message);
-                    container!.SecurityCodePageInitializer(rp.id, username, password, "register_user");
+                    container!.SecurityCodePageInitializer(rp.id, username, password, "register_user", "","");
                 }
                 else 
                 {
