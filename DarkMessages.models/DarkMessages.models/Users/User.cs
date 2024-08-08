@@ -16,5 +16,8 @@ namespace DarkMessages.models.Usuarios
         public string languages { get; set; }
         public string email { get; set; }
         public string lastDevice { get; set; }
+        public string name { get; set; }
+        public string lastname { get; set; }
+        public bool isFriend { get; set; }
     }
 }

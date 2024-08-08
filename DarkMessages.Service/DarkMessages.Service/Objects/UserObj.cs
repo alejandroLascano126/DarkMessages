@@ -346,7 +346,7 @@ namespace DarkMessages.Service.Objects
                             rp.friends = new List<Friend>();
                             foreach (DataRow row in dataTable.Rows)
                             {
-                                Friend msg = new Friend() { username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, lastChatMessage = row["lastMessage"].ToString()! };
+                                Friend msg = new Friend() { username = row["friend"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, lastChatMessage = row["lastMessage"].ToString()! };
                                 rp.friends.Add(msg);
                             }
                         }
@@ -366,6 +366,92 @@ namespace DarkMessages.Service.Objects
             catch (Exception ex) 
             {
                 rp.success = false;
+            }
+            return rp;
+        }
+
+
+        public async Task<rpUserQuery> filterUsers(rqUserQuery rq) 
+        {
+            rpUserQuery rp = new rpUserQuery();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString)) 
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("sp_consultFilterUsers", connection)) 
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@value", rq.value);
+                        command.Parameters.AddWithValue("@myUsername", rq.username);
+                        
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            rp.users = new List<User>();
+                            foreach (DataRow row in dataTable.Rows)
+                            {
+                                User user = new() { Id = Convert.ToInt32(row["idUser"]!), userName = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, isFriend = (row["isFriend"].ToString()! == "Y") ? true : false  };
+                                rp.users.Add(user ?? new User());
+                            }
+                        }
+                        rp.success = true;
+                    }
+                }
+            }
+            catch (Exception ex) 
+            {
+                rp.success = false;
+                rp.message = ex.Message;
+            }
+            return rp;
+        }
+
+
+        public async Task<rpAddFriendship> registerFriendship(rqAddFriendship rq)
+        {
+            rpAddFriendship rp = new rpAddFriendship();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("sp_registerFriendship", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@usernameFirst", rq.usernameFirst);
+                        command.Parameters.AddWithValue("@usernameSecond", rq.usernameSecond);
+
+
+                        SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        command.Parameters.Add(responseOutput);
+                        int respValue = await command.ExecuteNonQueryAsync();
+
+                        int response = (int)responseOutput.Value;
+
+                        if (response == 0)
+                        {
+                            rp.success = true;
+                            rp.message = "You have a new Friend";
+                        }
+                        else
+                        {
+                            rp.success = false;
+                            rp.message = "Error adding new Friend";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                rp.success = false;
+                rp.message = ex.Message;
             }
             return rp;
         }

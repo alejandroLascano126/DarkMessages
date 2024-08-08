@@ -79,9 +79,10 @@
             // 
             tlpMessagesChat.Anchor = AnchorStyles.Top;
             tlpMessagesChat.AutoScroll = true;
-            tlpMessagesChat.ColumnCount = 2;
-            tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpMessagesChat.ColumnCount = 3;
+            tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             tlpMessagesChat.Location = new Point(0, 53);
             tlpMessagesChat.Name = "tlpMessagesChat";
             tlpMessagesChat.RowCount = 22;

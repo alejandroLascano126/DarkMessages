@@ -19,6 +19,7 @@ namespace DarkMessages.DesktopApp
         public MainPage container { get; set; }
         public string usernameFriend { get; set; }
         public string username { get; set; }
+        public bool isFriend { get; set; }
 
         public UserItem()
         {
@@ -63,7 +64,7 @@ namespace DarkMessages.DesktopApp
 
         private void UserItem_MouseClick(object sender, MouseEventArgs e)
         {
-            container.ChatFormInitializer(_name, username, usernameFriend);
+            container.ChatFormInitializer(_name, username, usernameFriend, isFriend);
         }
     }
 }

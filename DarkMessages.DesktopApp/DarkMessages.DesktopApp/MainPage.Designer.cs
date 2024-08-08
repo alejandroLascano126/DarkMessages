@@ -28,19 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flpItemsUser = new FlowLayoutPanel();
             lblFriends = new Label();
             panelChat = new Panel();
+            panelUsers = new Panel();
+            txtSearchFriends = new TextBox();
+            btnBackFriends = new Button();
             SuspendLayout();
-            // 
-            // flpItemsUser
-            // 
-            flpItemsUser.AutoScroll = true;
-            flpItemsUser.BackColor = SystemColors.GradientInactiveCaption;
-            flpItemsUser.Location = new Point(32, 48);
-            flpItemsUser.Name = "flpItemsUser";
-            flpItemsUser.Size = new Size(360, 550);
-            flpItemsUser.TabIndex = 0;
             // 
             // lblFriends
             // 
@@ -59,15 +52,51 @@
             panelChat.Size = new Size(734, 550);
             panelChat.TabIndex = 2;
             // 
+            // panelUsers
+            // 
+            panelUsers.Location = new Point(33, 102);
+            panelUsers.Name = "panelUsers";
+            panelUsers.Size = new Size(360, 496);
+            panelUsers.TabIndex = 3;
+            // 
+            // txtSearchFriends
+            // 
+            txtSearchFriends.BackColor = SystemColors.GradientInactiveCaption;
+            txtSearchFriends.BorderStyle = BorderStyle.FixedSingle;
+            txtSearchFriends.Font = new Font("Segoe UI", 14F);
+            txtSearchFriends.Location = new Point(33, 48);
+            txtSearchFriends.Name = "txtSearchFriends";
+            txtSearchFriends.Size = new Size(323, 32);
+            txtSearchFriends.TabIndex = 4;
+            txtSearchFriends.Click += txtSearchFriends_Click;
+            txtSearchFriends.TextChanged += txtSearchFriends_TextChanged;
+            // 
+            // btnBackFriends
+            // 
+            btnBackFriends.BackColor = SystemColors.ActiveCaption;
+            btnBackFriends.BackgroundImage = Properties.Resources.replay_10080194;
+            btnBackFriends.BackgroundImageLayout = ImageLayout.Stretch;
+            btnBackFriends.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
+            btnBackFriends.FlatAppearance.BorderSize = 0;
+            btnBackFriends.FlatStyle = FlatStyle.Flat;
+            btnBackFriends.Location = new Point(362, 49);
+            btnBackFriends.Name = "btnBackFriends";
+            btnBackFriends.Size = new Size(31, 31);
+            btnBackFriends.TabIndex = 5;
+            btnBackFriends.UseVisualStyleBackColor = false;
+            btnBackFriends.Click += btnAtrasFriends_Click;
+            // 
             // MainPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1174, 623);
+            Controls.Add(btnBackFriends);
+            Controls.Add(txtSearchFriends);
+            Controls.Add(panelUsers);
             Controls.Add(panelChat);
             Controls.Add(lblFriends);
-            Controls.Add(flpItemsUser);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainPage";
             Text = "MainPage";
@@ -77,9 +106,10 @@
         }
 
         #endregion
-
-        private FlowLayoutPanel flpItemsUser;
         private Label lblFriends;
         private Panel panelChat;
+        private Panel panelUsers;
+        private TextBox txtSearchFriends;
+        private Button btnBackFriends;
     }
 }

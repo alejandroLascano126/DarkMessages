@@ -8,7 +8,8 @@ namespace DarkMessages.models.Usuarios
 {
     public class rqUserQuery
     {
-        public int userId { get; set; }
-        public string option { get; set; }
+        public string value { get; set; }
+        public string username { get; set; }
+        
     }
 }

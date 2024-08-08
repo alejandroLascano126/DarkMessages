@@ -8,6 +8,6 @@ namespace DarkMessages.models.Usuarios
 {
     public class rpUserQuery : BaseResponse
     {
-        public List<User> users;
+        public List<User> users { get; set; }
     }
 }

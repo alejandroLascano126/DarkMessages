@@ -20,3 +20,4 @@ E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\bin\Release\net8.0\Em
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\bin\Release\net8.0\EmailHandler.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\bin\Release\net8.0\EmailHandler.pdb
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Release\net8.0\ref\EmailHandler.dll
+E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.sourcelink.json

@@ -7,6 +7,9 @@
     <Compile Update="Container.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FriendsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -24,6 +27,9 @@
     </Compile>
     <Compile Update="UserItem.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UsersQueryView.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 </Project>

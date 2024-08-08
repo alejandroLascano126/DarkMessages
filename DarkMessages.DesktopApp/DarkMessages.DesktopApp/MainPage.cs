@@ -18,64 +18,32 @@ namespace DarkMessages.DesktopApp
     {
         public Container container { get; set; }
         HttpClient client = new HttpClient();
+        UsersQueryView usersQueryView = new UsersQueryView();
         public MainPage()
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
         }
 
-        public async Task loadUserItems()
-        {
-            try
-            {
-                string urlPost = "api/darkmsgs/consultFriends";
-                rqConsultFriends rqInsertMessage = new rqConsultFriends() { username = container.username, rows = 10, page = 1, option = "" };
-                var rqSerialized = JsonSerializer.Serialize(rqInsertMessage);
-                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.PostAsync(urlPost, content);
-                string responseBody = await response.Content.ReadAsStringAsync();
-                rpConsultFriends rp = JsonSerializer.Deserialize<rpConsultFriends>(responseBody) ?? new rpConsultFriends();
-                if (rp.success)
-                {
-                    Console.WriteLine("Friends consulted correctly");
-                    foreach (var friend in rp.friends) 
-                    {
-                        UserItem item = new UserItem();
-                        item.name = friend.name;
-                        item.description = friend.lastChatMessage;
-                        item.username = container.username;
-                        item.usernameFriend = friend.username;
-                        item.container = this;
-                        flpItemsUser.Controls.Add(item);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex}");
-            }
-        }
+
 
         private async void MainPage_Load(object sender, EventArgs e)
         {
-            await loadUserItems();
-            ChatFormInitializer(null, null, null);
+            ChatFormInitializer(null, null, null,true);
+            flpItemsUserInitializer();
         }
 
-        public void ChatFormInitializer(string? name, string? username, string? receiver) 
+        public void ChatFormInitializer(string? name, string? username, string? receiver, bool isFriend)
         {
-            if (panelChat.Controls.Count > 0) 
+            if (panelChat.Controls.Count > 0)
             {
-                panelChat.Controls.Clear(); 
+                panelChat.Controls.Clear();
             }
             ChatForm chatForm = new ChatForm();
             chatForm.name = name ?? "";
             chatForm.userName = username ?? "";
             chatForm.receiver = receiver ?? "";
+            chatForm.isFriend = isFriend;
             chatForm.container = this;
             chatForm.TopLevel = false;
             chatForm.Dock = DockStyle.Fill;
@@ -83,6 +51,56 @@ namespace DarkMessages.DesktopApp
             panelChat.Tag = chatForm;
             chatForm.Size = panelChat.Size;
             chatForm.Show();
+        }
+
+        public void flpItemsUserInitializer()
+        {
+            btnBackFriends.Enabled = false;
+            if (panelUsers.Controls.Count > 0)
+            {
+                panelUsers.Controls.Clear();
+            }
+            FriendsList friendsList = new FriendsList();
+            friendsList.mainPage = this;
+            friendsList.container = container;
+            friendsList.TopLevel = false;
+            friendsList.Dock = DockStyle.Fill;
+            panelUsers.Controls.Add(friendsList);
+            panelUsers.Tag = friendsList;
+            friendsList.Size = panelUsers.Size;
+            friendsList.Show();
+        }
+
+        private void txtSearchFriends_Click(object sender, EventArgs e)
+        {
+            flpQueryUserInitializer();
+        }
+
+        public void flpQueryUserInitializer()
+        {
+            btnBackFriends.Enabled = true;
+            if (panelUsers.Controls.Count > 0)
+            {
+                panelUsers.Controls.Clear();
+            }
+            usersQueryView.mainPage = this;
+            usersQueryView.container = container;
+            usersQueryView.TopLevel = false;
+            usersQueryView.value = "";
+            panelUsers.Controls.Add(usersQueryView);
+            usersQueryView.Tag = usersQueryView;
+            usersQueryView.Size = panelUsers.Size;
+            usersQueryView.Show();
+        }
+
+        private void txtSearchFriends_TextChanged(object sender, EventArgs e)
+        {
+            usersQueryView.value = txtSearchFriends.Text;
+        }
+
+        private void btnAtrasFriends_Click(object sender, EventArgs e)
+        {
+            flpItemsUserInitializer();
         }
     }
 }

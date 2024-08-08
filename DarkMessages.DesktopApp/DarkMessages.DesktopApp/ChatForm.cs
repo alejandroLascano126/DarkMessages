@@ -1,4 +1,5 @@
-﻿using DarkMessages.models.Login;
+﻿using DarkMessages.models.Friends;
+using DarkMessages.models.Login;
 using DarkMessages.models.Message;
 using DarkMessages.models.SignUp;
 using Microsoft.AspNetCore.SignalR.Client;
@@ -11,6 +12,7 @@ using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -18,6 +20,7 @@ using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 
 
@@ -29,6 +32,7 @@ namespace DarkMessages.DesktopApp
         public string name { get; set; }
         public string userName { get; set; }
         public string receiver { get; set; }
+        public bool isFriend { get; set; }
         private List<DarkMessages.models.Message.message> messages { get; set; }
         public MainPage? container { get; set; }
         HttpClient client = new HttpClient();
@@ -57,6 +61,11 @@ namespace DarkMessages.DesktopApp
             {
                 btnSendMessage.Enabled = false;
                 rtbSendMessage.Enabled = false;
+            }
+
+            if (!isFriend) 
+            {
+                AddFriendButton();
             }
         }
 
@@ -87,11 +96,14 @@ namespace DarkMessages.DesktopApp
             }
             else
             {
-                tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
+                tlpMessagesChat.Controls.Add(messageCell, 2, currentRow);
                 messageCell.Anchor = AnchorStyles.Right;
             }
             currentRow++;
         }
+
+        
+
 
         private async Task sendMessage(string sender, string receiver, string message)
         {
@@ -227,27 +239,114 @@ namespace DarkMessages.DesktopApp
             await consultMessages(userName, receiver, 7, page);
         }
 
+        string nombre;
         private void insertLocalLastMessages(string lastMessage) 
         {
-            foreach (var control in container!.Controls)
+            foreach (Control control in container!.Controls) 
             {
-                if (control.GetType() == typeof(FlowLayoutPanel))
+                
+                if (control.Name == "panelUsers") 
                 {
-                    FlowLayoutPanel flp = (FlowLayoutPanel)control;
-                    foreach (var userItem in flp.Controls)
+                    foreach(Control control2 in control.Controls) 
                     {
-                        if (userItem.GetType() == typeof(UserItem))
+                        if (control2.Name == "FriendsList")
                         {
-                            UserItem usitem = (UserItem)userItem;
-                            if (usitem.usernameFriend == receiver)
+                            FriendsList friendList = (FriendsList)control2;
+                            
+                            foreach (Control flpC in friendList.Controls)
                             {
-                                usitem.description = lastMessage;
+                                if (flpC.GetType() == typeof(FlowLayoutPanel))
+                                {
+                                    foreach (Control userItem in flpC.Controls) 
+                                    {
+                                        UserItem usitem = (UserItem)userItem;
+                                        if (usitem.usernameFriend == receiver)
+                                        {
+                                            usitem.description = lastMessage;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
-
                 }
             }
+
+
+
+            //foreach (var control in container!.Controls)
+            //{
+            //    if (control.GetType() == typeof(FlowLayoutPanel))
+            //    {
+            //        FlowLayoutPanel flp = (FlowLayoutPanel)control;
+            //        foreach (var userItem in flp.Controls)
+            //        {
+            //            if (userItem.GetType() == typeof(UserItem))
+            //            {
+            //                UserItem usitem = (UserItem)userItem;
+            //                if (usitem.usernameFriend == receiver)
+            //                {
+            //                    usitem.description = lastMessage;
+            //                }
+            //            }
+            //        }
+
+                //    }
+                //}
+        }
+        
+        private async Task registerFriendship(string usernameFirst, string usernameSecond) 
+        {
+            try
+            {
+                string urlPost = "api/darkmsgs/registerFriendship";
+                rqAddFriendship rqCountMessages = new rqAddFriendship() { usernameFirst = usernameFirst, usernameSecond = usernameSecond };
+                var rqSerialized = JsonSerializer.Serialize(rqCountMessages);
+                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpAddFriendship rp = JsonSerializer.Deserialize<rpAddFriendship>(responseBody) ?? new rpAddFriendship();
+                if (rp.success)
+                {
+                    if (InvokeRequired)
+                    {
+                        Invoke(new Action(() => {
+                            tlpMessagesChat.Controls.Clear();
+                            container!.flpQueryUserInitializer();
+                        } ));
+                        
+                    }
+                    else
+                    {
+                        tlpMessagesChat.Controls.Clear();
+                        container!.flpQueryUserInitializer();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Error. {rp.message}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}");
+            }
+        }
+
+
+        private async void messageCellAddFriendClick(object sender, EventArgs e)
+        {
+            await registerFriendship(userName, receiver);
+        }
+
+        private void AddFriendButton()
+        {
+            MessageCell messageCell = new MessageCell();
+            messageCell.TextAlign = ContentAlignment.MiddleCenter;
+            messageCell.Title = "Add Friend";
+            messageCell.Description = "";
+            messageCell.Click += messageCellAddFriendClick!;
+            tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
         }
     }
 

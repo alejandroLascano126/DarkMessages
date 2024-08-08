@@ -7,6 +7,7 @@ using DarkMessages.models.Message;
 using DarkMessages.models.Friends;
 using DarkMessages.Service.Hub;
 using Microsoft.AspNetCore.SignalR;
+using DarkMessages.models.Usuarios;
 
 namespace DarkMessages.Service.Controllers
 {
@@ -61,7 +62,7 @@ namespace DarkMessages.Service.Controllers
         {
             rpInsertMessage rp = new rpInsertMessage();
             rp = await messageObj.insertMessage(rq);
-            if (rp.success) 
+            if (rp.success)
             {
                 await _hubContext.Clients.All.SendAsync("ReceiveMessages", rp);
             }
@@ -85,12 +86,28 @@ namespace DarkMessages.Service.Controllers
         }
 
         [HttpPost("countMessages")]
-        public async Task<rpCountMessages> countMessages(rqCountMessages rq) 
+        public async Task<rpCountMessages> countMessages(rqCountMessages rq)
         {
             rpCountMessages rp = new rpCountMessages();
             rp = await messageObj.countMessages(rq);
             return rp;
 
+        }
+
+        [HttpPost("filterUsers")]
+        public async Task<rpUserQuery> filterUsers(rqUserQuery rq)
+        {
+            rpUserQuery rp = new rpUserQuery();
+            rp = await userObj.filterUsers(rq);
+            return rp;
+        }
+
+        [HttpPost("registerFriendship")]
+        public async Task<rpAddFriendship> registerFriendship(rqAddFriendship rq) 
+        {
+            rpAddFriendship rp = new rpAddFriendship();
+            rp = await userObj.registerFriendship(rq);
+            return rp;
         }
 
 
