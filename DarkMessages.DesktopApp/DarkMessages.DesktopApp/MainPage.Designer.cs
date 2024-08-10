@@ -127,6 +127,7 @@
             btnSettings.TabIndex = 8;
             btnSettings.Text = "Settings";
             btnSettings.UseVisualStyleBackColor = false;
+            btnSettings.Click += btnSettings_Click;
             // 
             // btnCreateGroup
             // 

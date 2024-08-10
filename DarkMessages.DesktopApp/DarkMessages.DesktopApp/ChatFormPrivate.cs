@@ -1,4 +1,5 @@
-﻿using DarkMessages.models.Friends;
+﻿using DarkMessages.models.Chats;
+using DarkMessages.models.Friends;
 using DarkMessages.models.Login;
 using DarkMessages.models.Message;
 using DarkMessages.models.SignUp;
@@ -30,11 +31,9 @@ namespace DarkMessages.DesktopApp
 {
     public partial class ChatFormPrivate : Form
     {
-        public string name { get; set; }
         public string userName { get; set; }
-        public string receiver { get; set; }
         public bool isFriend { get; set; }
-        public string email { get; set; }
+        public chat chat { get; set; }
         private bool isInputDisabled{get;set;} = false;
         private HubConnection hubConnection;
         public rpConsultMessages rpConsultMessages { get; set; }
@@ -55,9 +54,9 @@ namespace DarkMessages.DesktopApp
 
         private async void ChatForm_Load(object sender, EventArgs e)
         {
-            lblNameChat.Text = name;
+            lblNameChat.Text = chat.name;
 
-            messagesCount = await countMessages(userName, receiver);
+            messagesCount = await countMessages(userName, chat.friendUsername ?? "");
             page = (int)Math.Ceiling((double)messagesCount / 7);
             page = (page == 0) ? 1 : page;
             messages = new List<DarkMessages.models.Message.message>() { };
@@ -68,13 +67,13 @@ namespace DarkMessages.DesktopApp
                 disableInputChatForm();
             }
 
-            if (userName == "" && receiver == "" && name == "")
+            if (string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(chat.friendUsername) && string.IsNullOrEmpty(chat.name))
             {
                 disableInputChatForm();
             }
 
             if (!isInputDisabled)
-                await consultMessages(userName, receiver, 7, page);
+                await consultMessages(userName, chat.friendUsername ?? "", 7, page);
             
         }
 
@@ -83,7 +82,7 @@ namespace DarkMessages.DesktopApp
 
             if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
             {
-                await sendMessage(userName, receiver, rtbSendMessage.Text);
+                await sendMessage(userName, chat.friendUsername ?? "", rtbSendMessage.Text);
                 
                 rtbSendMessage.Text = "";
             }
@@ -98,6 +97,7 @@ namespace DarkMessages.DesktopApp
             if (isLeftAligned)
             {
                 tlpMessagesChat.Controls.Add(messageCell, 0, currentRow);
+                messageCell.Anchor = AnchorStyles.Left;
             }
             else
             {
@@ -115,7 +115,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/insertMessage";
-                rqInsertMessage rqInsertMessage = new rqInsertMessage() { senderUser = userName, receiverUser = receiver, messageContent = message, email = email};
+                rqInsertMessage rqInsertMessage = new rqInsertMessage() { senderUser = userName, receiverUser = receiver, messageContent = message, email = chat.email ?? "" };
                 var rqSerialized = JsonSerializer.Serialize(rqInsertMessage);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -238,10 +238,10 @@ namespace DarkMessages.DesktopApp
         {
             if (!isInputDisabled) 
             {
-                messagesCount = await countMessages(userName, receiver);
+                messagesCount = await countMessages(userName, chat.friendUsername ?? "");
                 page = (int)Math.Ceiling((double)messagesCount / 7);
                 page = (page == 0) ? 1 : page;
-                await consultMessages(userName, receiver, 7, page);
+                await consultMessages(userName, chat.friendUsername ?? "", 7, page);
             }
         }
 
@@ -264,7 +264,7 @@ namespace DarkMessages.DesktopApp
                                     foreach (Control userItem in flpC.Controls) 
                                     {
                                         UserItem usitem = (UserItem)userItem;
-                                        if (usitem.usernameFriend == receiver)
+                                        if (usitem.chat.friendUsername == chat.friendUsername)
                                         {
                                             usitem.description = lastMessage;
                                         }
@@ -320,7 +320,7 @@ namespace DarkMessages.DesktopApp
 
         private async void messageCellAddFriendClick(object sender, EventArgs e)
         {
-            await registerFriendship(userName, receiver);
+            await registerFriendship(userName, chat.friendUsername ?? "");
         }
 
         private void AddFriendButton()

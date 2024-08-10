@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DarkMessages.models.Chats;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +18,10 @@ namespace DarkMessages.DesktopApp
         private string _description;
         private Image _icon;
         public MainPage container { get; set; }
+        public bool isContact { get; set; }
+        public chat chat { get; set; }
         public string usernameFriend { get; set; }
         public string username { get; set; }
-        public bool isContact { get; set; }
-        public string email { get; set; }
 
         public UserItem()
         {
@@ -67,11 +68,11 @@ namespace DarkMessages.DesktopApp
         {
             if (isContact)
             {
-                container.ChatFormInitializer(_name, username, usernameFriend, isContact, email);
+                container.ChatFormInitializer(username, chat, isContact);
             }
             else 
             {
-            
+                container.ChatFormGroupInitializer(username, chat);
             }
             
         }

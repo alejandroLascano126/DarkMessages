@@ -11,6 +11,7 @@ using DarkMessages.models.Usuarios;
 using DarkMessages.models.Groups;
 using System.Net.NetworkInformation;
 using DarkMessages.models.Chats;
+using DarkMessages.models.Session;
 
 namespace DarkMessages.Service.Controllers
 {
@@ -22,6 +23,7 @@ namespace DarkMessages.Service.Controllers
         MessageObj messageObj = new MessageObj();
         GroupObj groupObj = new GroupObj();
         ChatObj chatObj = new ChatObj();
+        SessionObj sessionObj = new SessionObj();   
         private readonly IHubContext<ChatHub> _hubContext;
 
         public DarkMessagesController(IHubContext<ChatHub> hubContext)
@@ -139,6 +141,10 @@ namespace DarkMessages.Service.Controllers
         {
             rpRegisterGroupMessages rp = new rpRegisterGroupMessages();
             rp = await groupObj.registerGroupMessages(rq);
+            if (rp.success)
+            {
+                await _hubContext.Clients.All.SendAsync("ReceiveGroupMessages", rp);
+            }
             return rp;
         }
 
@@ -173,6 +179,14 @@ namespace DarkMessages.Service.Controllers
         {
             rpConsultChats rp = new rpConsultChats();
             rp = await chatObj.consultChats(rq);
+            return rp;
+        }
+
+        [HttpPost("LoginSession")]
+        public async Task<rpLoginSession> LoginSession(rqLoginSession rq)
+        {
+            rpLoginSession rp = new rpLoginSession();
+            rp = await sessionObj.LoginSession(rq);
             return rp;
         }
     }

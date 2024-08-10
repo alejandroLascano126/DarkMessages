@@ -15,6 +15,8 @@ using System.Net.Mail;
 using System.Net;
 using System.ComponentModel.DataAnnotations;
 using System.Timers;
+using DarkMessages.models.Session;
+using DarkMessages.DesktopApp.Helpers;
 
 
 
@@ -65,11 +67,22 @@ namespace DarkMessages.DesktopApp
                     User user = new User() { Id = id, userName = username, name = rpLogin.name, lastname = rpLogin.lastname };
                     if (GlobalVariables.emailValidation)
                     {
-                        container!.SecurityCodePageInitializer(user, "login_user");
+                        InitSession(username, id, rpLogin.name, rpLogin.lastname);
+                        bool follow = await LoginSession(username);
+                        if (!follow) 
+                        {
+                            container!.SecurityCodePageInitializer(user, "login_user");
+                        }
+                        
                     }
                     else 
                     {
-                        container!.MainPageInitializer(user);
+                        InitSession(username, id, rpLogin.name, rpLogin.lastname);
+                        bool follow = await LoginSession(username);
+                        if (!follow)
+                        {
+                            container!.MainPageInitializer(user);
+                        }
                     }
 
                     
@@ -85,5 +98,78 @@ namespace DarkMessages.DesktopApp
             }
 
         }
+
+
+
+        private async Task<bool> LoginSession(string username)
+        {
+            try
+            {
+                string ip = ConnectionHelper.getMachineIp();
+
+                string urlPost = "api/darkmsgs/LoginSession";
+                rqLoginSession rqLogin = new rqLoginSession() { ip_name = ip, username = username, saveSession = true };
+                var rqLoginSerialized = JsonSerializer.Serialize(rqLogin);
+                HttpContent content = new StringContent(rqLoginSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpLoginSession rpLoginSession = JsonSerializer.Deserialize<rpLoginSession>(responseBody) ?? new rpLoginSession();
+                if (rpLoginSession.success)
+                {
+                    return true;
+                  
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+
+        public void InitSession(string lastUsername, int userId, string name, string lastname)
+        {
+            if (string.IsNullOrEmpty(GlobalVariables.lastUsername))
+            {
+                string AppSettingsjsonPath = "appSettings.json";
+                string jsonString = File.ReadAllText(AppSettingsjsonPath);
+                Root? root = JsonSerializer.Deserialize<Root>(jsonString);
+
+                root.appSettings.lastUsername = lastUsername;
+                root.appSettings.userId = userId;
+                root.appSettings.name = name;
+                root.appSettings.lastname = lastname;
+
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string updatedJsonText = JsonSerializer.Serialize(root, options);
+                File.WriteAllText(AppSettingsjsonPath, updatedJsonText);
+
+                GlobalVariables.lastUsername = lastUsername;
+                GlobalVariables.userId = userId;
+                GlobalVariables.name = name;
+                GlobalVariables.lastname = lastname;
+            }
+        }
+    }
+
+
+
+    public class appSettings
+    {
+        public string url { get; set; }
+        public bool emailValidation { get; set; }
+        public string lastUsername { get; set; }
+        public int userId { get; set; }
+        public string name { get; set; }
+        public string lastname { get; set; }
+    }
+
+    public class Root
+    {
+        public appSettings appSettings { get; set; }
     }
 }

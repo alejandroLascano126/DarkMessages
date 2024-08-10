@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using MimeKit;
+using System.Net.Sockets;
 
 
 
@@ -15,6 +16,33 @@ namespace ConsoleTest
     {
         public static void Main(string[] args) 
         {
+            // Obtener el nombre de host de la máquina local
+            string hostName = Dns.GetHostName();
+
+            // Obtener las direcciones IP asociadas al nombre de host
+            IPAddress[] ipAddresses = Dns.GetHostAddresses(hostName);
+
+            // Filtrar y seleccionar la primera dirección IPv4 que no sea de loopback
+            IPAddress primaryIpAddress = null;
+            foreach (var ipAddress in ipAddresses)
+            {
+                if (ipAddress.AddressFamily == AddressFamily.InterNetwork && !IPAddress.IsLoopback(ipAddress))
+                {
+                    primaryIpAddress = ipAddress;
+                    break;
+                }
+            }
+
+            if (primaryIpAddress != null)
+            {
+                Console.WriteLine("Dirección IP principal de la máquina: " + primaryIpAddress.ToString());
+            }
+            else
+            {
+                Console.WriteLine("No se encontró una dirección IPv4 válida.");
+            }
+
+            return;
             string emailFrom = "darkmessages@outlook.com";
             string emailTo = "alejandrolascano126@gmail.com";
             string passwordFrom = "123*abc*456";

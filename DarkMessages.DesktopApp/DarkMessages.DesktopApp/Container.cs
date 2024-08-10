@@ -1,16 +1,25 @@
+using DarkMessages.DesktopApp.Helpers;
 using DarkMessages.models.Login;
+using DarkMessages.models.Session;
 using DarkMessages.models.Usuarios;
+using System.ComponentModel;
+using System.Text;
+using System.Text.Json;
 using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DarkMessages.DesktopApp
 {
     public partial class Container : Form
     {
         public User user { get; set; }
+        HttpClient client = new HttpClient();
         public Container()
         {
             InitializeComponent();
-            LoginUserPageInitializer();
+            client.BaseAddress = new Uri(GlobalVariables.url);
+            //LoginUserPageInitializer();
+            SessionSaved();
         }
 
 
@@ -68,6 +77,75 @@ namespace DarkMessages.DesktopApp
             Tag = mainPage;
             mainPage.Size = Size;
             mainPage.Show();
+        }
+
+        private async void SessionSaved()
+        {
+            bool resp = await LoginSession();
+            if (resp)
+            {
+                int id = GlobalVariables.userId;
+                string username = GlobalVariables.lastUsername;
+                string name = GlobalVariables.name;
+                string lastname = GlobalVariables.lastname;
+                user = new User() { Id = id, userName = username, name = name, lastname = lastname };
+                MainPageInitializer(user);
+            }
+            else 
+            {
+                LoginUserPageInitializer();
+            }
+        }
+
+        private async Task<bool> LoginSession()
+        {
+            if (!string.IsNullOrEmpty(GlobalVariables.lastUsername))
+            {
+                try
+                {
+                    string ip = ConnectionHelper.getMachineIp();
+
+                    string urlPost = "api/darkmsgs/LoginSession";
+                    rqLoginSession rqLogin = new rqLoginSession() { ip_name = ip, username = GlobalVariables.lastUsername, saveSession = true, option = "LOG" };
+                    var rqLoginSerialized = JsonSerializer.Serialize(rqLogin);
+                    HttpContent content = new StringContent(rqLoginSerialized, Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    rpLoginSession rpLoginSession = JsonSerializer.Deserialize<rpLoginSession>(responseBody) ?? new rpLoginSession();
+                    if (rpLoginSession.success)
+                    {
+                        return true;
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            else 
+            {
+                return false;
+            }
+
+            
+        }
+
+        public void SettingsFormInitializer() 
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.container = this;
+            settingsForm.user = user;
+            settingsForm.TopLevel = false;
+            settingsForm.Dock = DockStyle.Fill;
+            this.Controls.Add(settingsForm);
+            this.Tag = settingsForm;
+            settingsForm.Size = this.Size;
+            settingsForm.Show();
         }
     }
 }

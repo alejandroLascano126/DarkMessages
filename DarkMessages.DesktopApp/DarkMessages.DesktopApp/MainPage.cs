@@ -1,4 +1,5 @@
-﻿using DarkMessages.models.Friends;
+﻿using DarkMessages.models.Chats;
+using DarkMessages.models.Friends;
 using DarkMessages.models.Message;
 using DarkMessages.models.Usuarios;
 using System;
@@ -33,22 +34,20 @@ namespace DarkMessages.DesktopApp
         private async void MainPage_Load(object sender, EventArgs e)
         {
             lblUsername.Text = container.user.name + " " + container.user.lastname;
-            ChatFormInitializer(null, null, null, true, null);
+            ChatFormInitializer(null, null, true);
             flpItemsUserInitializer();
         }
 
-        public void ChatFormInitializer(string? name, string? username, string? receiver, bool isFriend, string? email)
+        public void ChatFormInitializer(string? username, chat? chat, bool isFriend)
         {
             if (panelChat.Controls.Count > 0)
             {
                 panelChat.Controls.Clear();
             }
             ChatFormPrivate chatForm = new ChatFormPrivate();
-            chatForm.name = name ?? "";
             chatForm.userName = username ?? "";
-            chatForm.receiver = receiver ?? "";
+            chatForm.chat = chat ?? new chat();
             chatForm.isFriend = isFriend;
-            chatForm.email = email ?? "";
             chatForm.container = this;
             chatForm.TopLevel = false;
             chatForm.Dock = DockStyle.Fill;
@@ -106,7 +105,7 @@ namespace DarkMessages.DesktopApp
         private void btnAtrasFriends_Click(object sender, EventArgs e)
         {
             flpItemsUserInitializer();
-            ChatFormInitializer(null, null, null, true, null);
+            ChatFormInitializer(null, null, true);
         }
 
         private void btnCreateGroup_Click(object sender, EventArgs e)
@@ -114,7 +113,7 @@ namespace DarkMessages.DesktopApp
             CreateGroupFormInitializer();
         }
 
-        public void CreateGroupFormInitializer() 
+        public void CreateGroupFormInitializer()
         {
             btnBackFriends.Enabled = true;
             if (panelUsers.Controls.Count > 0)
@@ -129,6 +128,45 @@ namespace DarkMessages.DesktopApp
             createGroupForm.Size = panelUsers.Size;
             createGroupForm.Show();
 
+        }
+
+        public void ChatFormGroupInitializer(string username, chat chat)
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            ChatFormGroup chatForm = new ChatFormGroup();
+            chatForm.userName = username ?? "";
+            chatForm.chat = chat;
+            chatForm.container = this;
+            chatForm.TopLevel = false;
+            chatForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(chatForm);
+            panelChat.Tag = chatForm;
+            chatForm.Size = panelChat.Size;
+            chatForm.Show();
+        }
+
+        public void GropSettingsFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            GroupSettingsForm groupSettingsForm = new GroupSettingsForm();
+            groupSettingsForm.TopLevel = false;
+            groupSettingsForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(groupSettingsForm);
+            panelChat.Tag = groupSettingsForm;
+            groupSettingsForm.Size = panelChat.Size;
+            groupSettingsForm.Show();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Close();
+            container.SettingsFormInitializer();
         }
     }
 }

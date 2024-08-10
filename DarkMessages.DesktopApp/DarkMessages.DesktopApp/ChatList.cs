@@ -49,13 +49,13 @@ namespace DarkMessages.DesktopApp
                     foreach (var chat in rp.chats)
                     {
                         UserItem item = new UserItem();
-                        item.name = chat.name;
+                        item.chat = chat;
+                        item.name = chat.name ?? "";
                         item.description = chat.lastMessage ?? "";
                         item.username = container.user.userName;
                         item.usernameFriend = chat.friendUsername ?? "";
                         //1 contact  2 group
                         item.isContact = chat.typeChatId == 1 ? true : false;
-                        item.email = chat.email ?? "";
                         item.container = mainPage;
                         flpItemsUser.Controls.Add(item);
                     }

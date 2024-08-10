@@ -1,4 +1,5 @@
-﻿using DarkMessages.models.Friends;
+﻿using DarkMessages.models.Chats;
+using DarkMessages.models.Friends;
 using DarkMessages.models.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -58,11 +59,13 @@ namespace DarkMessages.DesktopApp
                         flpUsersQuery.Controls.Clear();
                         foreach (var user in rp.users)
                         {
+                            chat chat = new chat() { name = user.name ?? "", friendUsername = user.userName ?? "", email = user.email };
                             UserItem item = new UserItem();
-                            item.name = user.name;
+                            item.name = user.name ?? "";
                             item.description = (user.isFriend) ? "Friend" : "";
                             item.username = container.user.userName;
-                            item.usernameFriend = user.userName;
+                            item.chat = chat;
+                            item.usernameFriend = user.userName ?? "";
                             item.isContact = user.isFriend;
                             item.container = mainPage;
                             flpUsersQuery.Controls.Add(item);
