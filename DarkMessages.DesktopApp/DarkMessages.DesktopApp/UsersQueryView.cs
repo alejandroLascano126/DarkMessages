@@ -44,7 +44,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/filterUsers";
-                rqUserQuery rqUserQuery = new rqUserQuery() { value = _value, username = container.username};
+                rqUserQuery rqUserQuery = new rqUserQuery() { value = _value, username = container.user.userName};
                 var rqSerialized = JsonSerializer.Serialize(rqUserQuery);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -61,9 +61,9 @@ namespace DarkMessages.DesktopApp
                             UserItem item = new UserItem();
                             item.name = user.name;
                             item.description = (user.isFriend) ? "Friend" : "";
-                            item.username = container.username;
+                            item.username = container.user.userName;
                             item.usernameFriend = user.userName;
-                            item.isFriend = user.isFriend;
+                            item.isContact = user.isFriend;
                             item.container = mainPage;
                             flpUsersQuery.Controls.Add(item);
                         }

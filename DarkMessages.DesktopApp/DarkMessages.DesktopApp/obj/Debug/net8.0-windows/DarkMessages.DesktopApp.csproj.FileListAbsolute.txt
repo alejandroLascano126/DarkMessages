@@ -82,7 +82,6 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Deb
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Debug\net8.0-windows\RestSharp.dll
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Debug\net8.0-windows\DarkMessages.models.pdb
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.csproj.AssemblyReference.cache
-E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.ChatForm.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.Container.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.LoginForm.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.MainPage.resources
@@ -106,7 +105,10 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Deb
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Debug\net8.0-windows\DarkMessages.DesktopApp.pdb
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.genruntimeconfig.cache
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\ref\DarkMessages.DesktopApp.dll
-E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.FriendsList.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.UsersQueryView.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.FriendsList.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.UsersQueryView.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.CreateGroupButton.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.CreateGroupForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.ChatList.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.ChatFormPrivate.resources

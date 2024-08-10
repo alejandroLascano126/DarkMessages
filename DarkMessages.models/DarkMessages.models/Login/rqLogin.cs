@@ -11,5 +11,6 @@ namespace DarkMessages.models.Login
         public string username { get; set; }
         public string password { get; set; }
         public int securityCode { get; set; }
+        public bool emailValidation { get; set; }
     }
 }

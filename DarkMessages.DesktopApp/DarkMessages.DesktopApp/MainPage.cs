@@ -1,5 +1,6 @@
 ﻿using DarkMessages.models.Friends;
 using DarkMessages.models.Message;
+using DarkMessages.models.Usuarios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace DarkMessages.DesktopApp
     public partial class MainPage : Form
     {
         public Container container { get; set; }
+        public User user { get; set; }
         HttpClient client = new HttpClient();
         UsersQueryView usersQueryView = new UsersQueryView();
         public MainPage()
@@ -30,8 +32,8 @@ namespace DarkMessages.DesktopApp
 
         private async void MainPage_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = container.name + " " + container.lastname;
-            ChatFormInitializer(null, null, null,true, null);
+            lblUsername.Text = container.user.name + " " + container.user.lastname;
+            ChatFormInitializer(null, null, null, true, null);
             flpItemsUserInitializer();
         }
 
@@ -41,7 +43,7 @@ namespace DarkMessages.DesktopApp
             {
                 panelChat.Controls.Clear();
             }
-            ChatForm chatForm = new ChatForm();
+            ChatFormPrivate chatForm = new ChatFormPrivate();
             chatForm.name = name ?? "";
             chatForm.userName = username ?? "";
             chatForm.receiver = receiver ?? "";
@@ -63,7 +65,7 @@ namespace DarkMessages.DesktopApp
             {
                 panelUsers.Controls.Clear();
             }
-            FriendsList friendsList = new FriendsList();
+            ChatList friendsList = new ChatList();
             friendsList.mainPage = this;
             friendsList.container = container;
             friendsList.TopLevel = false;
@@ -105,6 +107,28 @@ namespace DarkMessages.DesktopApp
         {
             flpItemsUserInitializer();
             ChatFormInitializer(null, null, null, true, null);
+        }
+
+        private void btnCreateGroup_Click(object sender, EventArgs e)
+        {
+            CreateGroupFormInitializer();
+        }
+
+        public void CreateGroupFormInitializer() 
+        {
+            btnBackFriends.Enabled = true;
+            if (panelUsers.Controls.Count > 0)
+            {
+                panelUsers.Controls.Clear();
+            }
+            CreateGroupForm createGroupForm = new CreateGroupForm();
+            createGroupForm.TopLevel = false;
+            createGroupForm.user = user;
+            panelUsers.Controls.Add(createGroupForm);
+            createGroupForm.Tag = createGroupForm;
+            createGroupForm.Size = panelUsers.Size;
+            createGroupForm.Show();
+
         }
     }
 }

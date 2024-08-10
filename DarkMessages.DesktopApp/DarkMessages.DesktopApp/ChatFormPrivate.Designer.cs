@@ -1,6 +1,6 @@
 ﻿namespace DarkMessages.DesktopApp
 {
-    partial class ChatForm
+    partial class ChatFormPrivate
     {
         /// <summary>
         /// Required designer variable.

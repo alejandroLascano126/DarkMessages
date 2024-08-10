@@ -28,7 +28,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace DarkMessages.DesktopApp
 {
-    public partial class ChatForm : Form
+    public partial class ChatFormPrivate : Form
     {
         public string name { get; set; }
         public string userName { get; set; }
@@ -45,7 +45,7 @@ namespace DarkMessages.DesktopApp
         private int messagesCount;
         private int currentRow = 0;
 
-        public ChatForm()
+        public ChatFormPrivate()
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
@@ -255,7 +255,7 @@ namespace DarkMessages.DesktopApp
                     {
                         if (control2.Name == "FriendsList")
                         {
-                            FriendsList friendList = (FriendsList)control2;
+                            ChatList friendList = (ChatList)control2;
                             
                             foreach (Control flpC in friendList.Controls)
                             {

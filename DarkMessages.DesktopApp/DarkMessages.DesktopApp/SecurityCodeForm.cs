@@ -13,16 +13,15 @@ using DarkMessages.models.Login;
 using System.Text.Json;
 using Microsoft.Win32;
 using System.Diagnostics.CodeAnalysis;
+using DarkMessages.models.Usuarios;
 
 namespace DarkMessages.DesktopApp
 {
     public partial class SecurityCodeForm : Form
     {
         private HttpClient client = new HttpClient();
-        public int idUser { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
         public string? opt { get; set; }
+        public User user { get; set; }
         public Container container { get; set; }
         private int contadorTimer = 59;
         public SecurityCodeForm()
@@ -78,7 +77,7 @@ namespace DarkMessages.DesktopApp
                 int securityCode = Convert.ToInt32(txtSecurityCode.Text);
                 string urlPost = "api/darkmsgs/ValidateSecurityCode";
                 rqValidateSecurityCode rq = new rqValidateSecurityCode();
-                rq.idUser = idUser;
+                rq.idUser = user.Id;
                 rq.securityCode = securityCode;
                 rq.opt = "";
                 var rqSerialized = JsonSerializer.Serialize(rq);
@@ -100,7 +99,7 @@ namespace DarkMessages.DesktopApp
                         }
                         else if (opt == "login_user")
                         {
-                            container.MainPageInitializer();
+                            container.MainPageInitializer(null);
                         }
                     }
                     // Redirect to the main message chat
@@ -121,8 +120,8 @@ namespace DarkMessages.DesktopApp
         {
             string urlPost = "api/darkmsgs/ResendSecurityCode";
             rqLogin rq = new rqLogin();
-            rq.username = username;
-            rq.password = password;
+            rq.username = user.userName;
+            rq.password = user.password;
             var rqSerialized = JsonSerializer.Serialize(rq);
             HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(urlPost, content);

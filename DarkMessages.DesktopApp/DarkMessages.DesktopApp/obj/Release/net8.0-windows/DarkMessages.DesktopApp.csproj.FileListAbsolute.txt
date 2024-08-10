@@ -110,3 +110,5 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Rel
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.FriendsList.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.MessageCell.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.UsersQueryView.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.CreateGroupButton.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.CreateGroupFrom.resources

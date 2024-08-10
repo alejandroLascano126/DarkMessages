@@ -18,7 +18,8 @@ namespace DarkMessages.DesktopApp
             IConfiguration configuration = builder.Build();
 
             GlobalVariables.url = configuration["appSettings:url"]!;
-           
+            GlobalVariables.emailValidation = Convert.ToBoolean(configuration["appSettings:emailValidation"]!);
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
@@ -29,5 +30,6 @@ namespace DarkMessages.DesktopApp
     public static class GlobalVariables
     {
         public static string url { get; set; }
+        public static bool emailValidation { get; set;}
     }
 }

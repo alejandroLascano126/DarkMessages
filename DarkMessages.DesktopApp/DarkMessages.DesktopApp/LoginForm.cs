@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkMessages.models.Login;
+using DarkMessages.models.Usuarios;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Mail;
 using System.Net;
 using System.ComponentModel.DataAnnotations;
 using System.Timers;
+
+
 
 
 namespace DarkMessages.DesktopApp
@@ -48,7 +51,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/ValidaUsernamePassword";
-                rqLogin rqLogin = new rqLogin() { username = username, password = password, securityCode = 000000 };
+                rqLogin rqLogin = new rqLogin() { username = username, password = password, securityCode = 000000, emailValidation = GlobalVariables.emailValidation };
                 var rqLoginSerialized = JsonSerializer.Serialize(rqLogin);
                 HttpContent content = new StringContent(rqLoginSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -59,7 +62,17 @@ namespace DarkMessages.DesktopApp
                     Close();
                     MessageBox.Show(rpLogin.message);
                     int id = Convert.ToInt32(rpLogin.id);
-                    container!.SecurityCodePageInitializer(id, username, password, "login_user", rpLogin.name, rpLogin.lastname);
+                    User user = new User() { Id = id, userName = username, name = rpLogin.name, lastname = rpLogin.lastname };
+                    if (GlobalVariables.emailValidation)
+                    {
+                        container!.SecurityCodePageInitializer(user, "login_user");
+                    }
+                    else 
+                    {
+                        container!.MainPageInitializer(user);
+                    }
+
+                    
                 }
                 else
                 {

@@ -35,6 +35,8 @@
             btnBackFriends = new Button();
             lblUsername = new Label();
             panel1 = new Panel();
+            btnSettings = new CreateGroupButton();
+            btnCreateGroup = new CreateGroupButton();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -44,9 +46,9 @@
             lblFriends.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblFriends.Location = new Point(13, 81);
             lblFriends.Name = "lblFriends";
-            lblFriends.Size = new Size(65, 21);
+            lblFriends.Size = new Size(52, 21);
             lblFriends.TabIndex = 1;
-            lblFriends.Text = "Friends";
+            lblFriends.Text = "Chats";
             // 
             // panelChat
             // 
@@ -57,9 +59,9 @@
             // 
             // panelUsers
             // 
-            panelUsers.Location = new Point(33, 153);
+            panelUsers.Location = new Point(33, 161);
             panelUsers.Name = "panelUsers";
-            panelUsers.Size = new Size(360, 445);
+            panelUsers.Size = new Size(360, 437);
             panelUsers.TabIndex = 3;
             // 
             // txtSearchFriends
@@ -102,14 +104,43 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientInactiveCaption;
+            panel1.Controls.Add(btnSettings);
+            panel1.Controls.Add(btnCreateGroup);
             panel1.Controls.Add(txtSearchFriends);
             panel1.Controls.Add(lblUsername);
             panel1.Controls.Add(btnBackFriends);
             panel1.Controls.Add(lblFriends);
             panel1.Location = new Point(33, 48);
             panel1.Name = "panel1";
-            panel1.Size = new Size(360, 107);
+            panel1.Size = new Size(360, 116);
             panel1.TabIndex = 4;
+            // 
+            // btnSettings
+            // 
+            btnSettings.BackColor = Color.DodgerBlue;
+            btnSettings.FlatAppearance.BorderSize = 0;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.ForeColor = Color.White;
+            btnSettings.Location = new Point(151, 79);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(95, 29);
+            btnSettings.TabIndex = 8;
+            btnSettings.Text = "Settings";
+            btnSettings.UseVisualStyleBackColor = false;
+            // 
+            // btnCreateGroup
+            // 
+            btnCreateGroup.BackColor = Color.DodgerBlue;
+            btnCreateGroup.FlatAppearance.BorderSize = 0;
+            btnCreateGroup.FlatStyle = FlatStyle.Flat;
+            btnCreateGroup.ForeColor = Color.White;
+            btnCreateGroup.Location = new Point(252, 79);
+            btnCreateGroup.Name = "btnCreateGroup";
+            btnCreateGroup.Size = new Size(95, 29);
+            btnCreateGroup.TabIndex = 7;
+            btnCreateGroup.Text = "New Group";
+            btnCreateGroup.UseVisualStyleBackColor = false;
+            btnCreateGroup.Click += btnCreateGroup_Click;
             // 
             // MainPage
             // 
@@ -137,5 +168,7 @@
         private Button btnBackFriends;
         private Label lblUsername;
         private Panel panel1;
+        private CreateGroupButton btnCreateGroup;
+        private CreateGroupButton btnSettings;
     }
 }

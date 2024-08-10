@@ -1,5 +1,6 @@
 ﻿using DarkMessages.models.Login;
 using DarkMessages.models.SignUp;
+using DarkMessages.models.Usuarios;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -72,7 +73,8 @@ namespace DarkMessages.DesktopApp
                 {
                     Close();
                     MessageBox.Show(rp.message);
-                    container!.SecurityCodePageInitializer(rp.id, username, password, "register_user", "","");
+                    User user = new User() {Id = rp.id, userName = username, password = password };
+                    container!.SecurityCodePageInitializer(user, "register_user");
                 }
                 else 
                 {

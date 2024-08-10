@@ -1,18 +1,16 @@
 using DarkMessages.models.Login;
+using DarkMessages.models.Usuarios;
 using System.Xml.Serialization;
 
 namespace DarkMessages.DesktopApp
 {
     public partial class Container : Form
     {
-        public string username { get; set; } = "alejandro";
-        public string name { get; set; }
-        public string lastname { get; set; }
+        public User user { get; set; }
         public Container()
         {
             InitializeComponent();
             LoginUserPageInitializer();
-            //MainPageInitializer();
         }
 
 
@@ -30,15 +28,11 @@ namespace DarkMessages.DesktopApp
             loginForm.Show();
         }
 
-        public void SecurityCodePageInitializer(int idUser, string username, string password, string? otp, string name, string lastname) 
+        public void SecurityCodePageInitializer(User user, string? otp) 
         {
-            this.username = username;
-            this.name = name;
-            this.lastname = lastname;
+            this.user = user;
             SecurityCodeForm securityCodeForm = new SecurityCodeForm();
-            securityCodeForm.idUser = idUser;
-            securityCodeForm.username = username;
-            securityCodeForm.password = password;
+            securityCodeForm.user = user;
             securityCodeForm.opt = (otp != null) ? otp : null;
             securityCodeForm.container = this;
             securityCodeForm.TopLevel = false;
@@ -61,10 +55,13 @@ namespace DarkMessages.DesktopApp
             registerForm.Show();
         }
 
-        public void MainPageInitializer() 
+        public void MainPageInitializer(User? user) 
         {
+            if(this.user == null && user != null)
+                this.user = user!;
             MainPage mainPage = new MainPage();
             mainPage.container = this;
+            mainPage.user = user!;
             mainPage.TopLevel = false;
             mainPage.Dock = DockStyle.Fill;
             Controls.Add(mainPage);

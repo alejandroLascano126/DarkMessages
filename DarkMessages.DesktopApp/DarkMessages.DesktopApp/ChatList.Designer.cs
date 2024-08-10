@@ -1,6 +1,6 @@
 ﻿namespace DarkMessages.DesktopApp
 {
-    partial class FriendsList
+    partial class ChatList
     {
         /// <summary>
         /// Required designer variable.

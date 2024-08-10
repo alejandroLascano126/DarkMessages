@@ -8,6 +8,9 @@ using DarkMessages.models.Friends;
 using DarkMessages.Service.Hub;
 using Microsoft.AspNetCore.SignalR;
 using DarkMessages.models.Usuarios;
+using DarkMessages.models.Groups;
+using System.Net.NetworkInformation;
+using DarkMessages.models.Chats;
 
 namespace DarkMessages.Service.Controllers
 {
@@ -17,6 +20,8 @@ namespace DarkMessages.Service.Controllers
     {
         UserObj userObj = new UserObj();
         MessageObj messageObj = new MessageObj();
+        GroupObj groupObj = new GroupObj();
+        ChatObj chatObj = new ChatObj();
         private readonly IHubContext<ChatHub> _hubContext;
 
         public DarkMessagesController(IHubContext<ChatHub> hubContext)
@@ -77,6 +82,7 @@ namespace DarkMessages.Service.Controllers
             return rp;
         }
 
+
         [HttpPost("consultFriends")]
         public async Task<rpConsultFriends> consultFriends(rqConsultFriends rq)
         {
@@ -103,14 +109,71 @@ namespace DarkMessages.Service.Controllers
         }
 
         [HttpPost("registerFriendship")]
-        public async Task<rpAddFriendship> registerFriendship(rqAddFriendship rq) 
+        public async Task<rpAddFriendship> registerFriendship(rqAddFriendship rq)
         {
             rpAddFriendship rp = new rpAddFriendship();
             rp = await userObj.registerFriendship(rq);
             return rp;
         }
 
+        #region groups
 
+        [HttpPost("registerGroup")]
+        public async Task<rpRegisterGroup> registerGroup(rqRegisterGroup rq)
+        {
+            rpRegisterGroup rp = new rpRegisterGroup();
+            rp = await groupObj.registerGroup(rq);
+            return rp;
+        }
 
+        [HttpPost("registerGroupMember")]
+        public async Task<rpRegisterGroupMember> registerGroupMember(rqRegisterGroupMember rq)
+        {
+            rpRegisterGroupMember rp = new rpRegisterGroupMember();
+            rp = await groupObj.registerGroupMember(rq);
+            return rp;
+        }
+
+        [HttpPost("registerGroupMessages")]
+        public async Task<rpRegisterGroupMessages> registerGroupMessages(rqRegisterGroupMessages rq)
+        {
+            rpRegisterGroupMessages rp = new rpRegisterGroupMessages();
+            rp = await groupObj.registerGroupMessages(rq);
+            return rp;
+        }
+
+        [HttpPost("consultGroup")]
+        public async Task<rpConsultGroup> consultGroup(rqConsultGroup rq)
+        {
+            rpConsultGroup rp = new rpConsultGroup();
+            rp = await groupObj.consultGroup(rq);
+            return rp;
+        }
+
+        [HttpPost("consultGroupMembers")]
+        public async Task<rpConsultGroupMembers> consultGroupMembers(rqConsultGroupMembers rq)
+        {
+            rpConsultGroupMembers rp = new rpConsultGroupMembers();
+            rp = await groupObj.consultGroupMembers(rq);
+            return rp;
+        }
+
+        [HttpPost("consultGroupMessages")]
+        public async Task<rpConsultGroupMessages> consultGroupMessages(rqConsultGroupMessages rq)
+        {
+            rpConsultGroupMessages rp = new rpConsultGroupMessages();
+            rp = await groupObj.consultGroupMessages(rq);
+            return rp;
+        }
+
+        #endregion
+
+        [HttpPost("consultChats")]
+        public async Task<rpConsultChats> consultChats(rqConsultChats rq)
+        {
+            rpConsultChats rp = new rpConsultChats();
+            rp = await chatObj.consultChats(rq);
+            return rp;
+        }
     }
 }

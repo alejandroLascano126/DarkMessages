@@ -178,33 +178,39 @@ namespace DarkMessages.Service.Objects
                         rp.id = (int)idUserOutput.Value;
                         rp.name = (string)nameOutput.Value;
                         rp.lastname = (string)lastnameOutput.Value;
-                        
 
-                        int sc = 0;
-                        Random random = new Random();
-                        sc = random.Next(100000, 999999);
-
-                        bool resp = await emailSender.SendEmailAsync(rp.email, "", "", sc);
-
-                        if (resp)
+                        if (rq.emailValidation)
                         {
-                            rqValidateSecurityCode rqReg = new rqValidateSecurityCode();
-                            rqReg.idUser = rp.id;
-                            rqReg.securityCode = sc;
-                            bool rersp = await RegisterSecurityCodeDB(rqReg);
-                            if (rersp)
+                            int sc = 0;
+                            Random random = new Random();
+                            sc = random.Next(100000, 999999);
+
+                            bool resp = await emailSender.SendEmailAsync(rp.email, "", "", sc);
+
+                            if (resp)
                             {
-                                rp.message = (resp) ? "User logged in successfully. An security code has been sent to alejan**********@gmail.com" : "Error sending the security code";
-                                rp.success = true;
+                                rqValidateSecurityCode rqReg = new rqValidateSecurityCode();
+                                rqReg.idUser = rp.id;
+                                rqReg.securityCode = sc;
+                                bool rersp = await RegisterSecurityCodeDB(rqReg);
+                                if (rersp)
+                                {
+                                    rp.message = (resp) ? "User logged in successfully. An security code has been sent to alejan**********@gmail.com" : "Error sending the security code";
+                                    rp.success = true;
+                                }
+
                             }
-                            
+                            else
+                            {
+                                rp.message = "Error: Security code wasn't registered";
+                                rp.success = false;
+                            }
                         }
                         else 
                         {
-                            rp.message = "Error: Security code wasn't registered";
-                            rp.success= false;
+                            rp.message = "User logged in successfully.";
+                            rp.success = true;
                         }
-                        
                     }
                     else
                     {

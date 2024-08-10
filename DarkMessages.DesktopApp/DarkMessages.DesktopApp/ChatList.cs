@@ -1,4 +1,5 @@
 ﻿using DarkMessages.models.Friends;
+using DarkMessages.models.Chats;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,13 +13,13 @@ using System.Windows.Forms;
 
 namespace DarkMessages.DesktopApp
 {
-    public partial class FriendsList : Form
+    public partial class ChatList : Form
     {
         public Container container { get; set; }
         public MainPage mainPage { get; set; }
         HttpClient client = new HttpClient();   
 
-        public FriendsList()
+        public ChatList()
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
@@ -35,25 +36,26 @@ namespace DarkMessages.DesktopApp
         {
             try
             {
-                string urlPost = "api/darkmsgs/consultFriends";
-                rqConsultFriends rqInsertMessage = new rqConsultFriends() { username = container.username, rows = 10, page = 1, option = "" };
+                string urlPost = "api/darkmsgs/consultChats";
+                rqConsultChats rqInsertMessage = new rqConsultChats() { username = container.user.userName, rows = 10, page = 1 };
                 var rqSerialized = JsonSerializer.Serialize(rqInsertMessage);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
                 string responseBody = await response.Content.ReadAsStringAsync();
-                rpConsultFriends rp = JsonSerializer.Deserialize<rpConsultFriends>(responseBody) ?? new rpConsultFriends();
+                rpConsultChats rp = JsonSerializer.Deserialize<rpConsultChats>(responseBody) ?? new rpConsultChats();
                 if (rp.success)
                 {
                     Console.WriteLine("Friends consulted correctly");
-                    foreach (var friend in rp.friends)
+                    foreach (var chat in rp.chats)
                     {
                         UserItem item = new UserItem();
-                        item.name = friend.name;
-                        item.description = friend.lastChatMessage;
-                        item.username = container.username;
-                        item.usernameFriend = friend.username;
-                        item.isFriend = true;
-                        item.email = friend.email;
+                        item.name = chat.name;
+                        item.description = chat.lastMessage ?? "";
+                        item.username = container.user.userName;
+                        item.usernameFriend = chat.friendUsername ?? "";
+                        //1 contact  2 group
+                        item.isContact = chat.typeChatId == 1 ? true : false;
+                        item.email = chat.email ?? "";
                         item.container = mainPage;
                         flpItemsUser.Controls.Add(item);
                     }

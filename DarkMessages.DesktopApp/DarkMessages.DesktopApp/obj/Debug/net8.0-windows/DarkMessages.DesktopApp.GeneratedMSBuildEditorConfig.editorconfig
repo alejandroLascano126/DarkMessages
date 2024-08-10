@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DarkMessages.DesktopApp
-build_property.ProjectDir = C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\
+build_property.ProjectDir = E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
