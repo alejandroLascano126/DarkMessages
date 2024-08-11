@@ -16,8 +16,8 @@ E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\Emai
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\EmailHandler.AssemblyInfoInputs.cache
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\EmailHandler.AssemblyInfo.cs
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\EmailHandler.csproj.CoreCompileInputs.cache
+E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\EmailHandler.sourcelink.json
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\EmailHandler.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\refint\EmailHandler.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\EmailHandler.pdb
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\ref\EmailHandler.dll
-E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Debug\net8.0\EmailHandler.sourcelink.json

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DarkMessages.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6841cf2a1f79be5e31c11118dfab2285a5b6c300")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e16ea5883c3f9bf2c3b991fa196b0196132b8f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("DarkMessages.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DarkMessages.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

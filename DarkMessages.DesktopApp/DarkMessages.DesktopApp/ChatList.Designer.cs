@@ -38,6 +38,7 @@
             flpItemsUser.Name = "flpItemsUser";
             flpItemsUser.Size = new Size(348, 450);
             flpItemsUser.TabIndex = 0;
+            flpItemsUser.MouseWheel += FlpItemsUser_MouseWheel;
             // 
             // FriendsList
             // 
@@ -52,6 +53,7 @@
             Load += FriendsList_Load;
             ResumeLayout(false);
         }
+
 
         #endregion
 

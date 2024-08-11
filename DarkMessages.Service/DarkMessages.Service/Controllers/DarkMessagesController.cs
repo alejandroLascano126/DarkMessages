@@ -189,5 +189,21 @@ namespace DarkMessages.Service.Controllers
             rp = await sessionObj.LoginSession(rq);
             return rp;
         }
+
+        [HttpPost("countGroupMessages")]
+        public async Task<rpCountMessages> countGroupMessages(rqCountGroupMessages rq)
+        {
+            rpCountMessages rp = new rpCountMessages();
+            rp = await groupObj.countGroupMessages(rq);
+            return rp;
+        }
+
+        [HttpPost("countChats")]
+        public async Task<rpCountChats> countChats(rqCountChats rq)
+        {
+            rpCountChats rp = new rpCountChats();
+            rp = await chatObj.countChats(rq);
+            return rp;
+        }
     }
 }

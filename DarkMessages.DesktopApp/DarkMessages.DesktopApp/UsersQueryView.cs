@@ -66,7 +66,8 @@ namespace DarkMessages.DesktopApp
                             item.username = container.user.userName;
                             item.chat = chat;
                             item.usernameFriend = user.userName ?? "";
-                            item.isContact = user.isFriend;
+                            item.isFriend = user.isFriend;
+                            item.isContact = true;
                             item.container = mainPage;
                             flpUsersQuery.Controls.Add(item);
                         }

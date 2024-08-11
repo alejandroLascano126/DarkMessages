@@ -34,7 +34,7 @@ namespace DarkMessages.DesktopApp
         public string userName { get; set; }
         public bool isFriend { get; set; }
         public chat chat { get; set; }
-        private bool isInputDisabled{get;set;} = false;
+        private bool isInputDisabled { get; set; } = false;
         private HubConnection hubConnection;
         public rpConsultMessages rpConsultMessages { get; set; }
         private List<DarkMessages.models.Message.message> messages { get; set; }
@@ -49,7 +49,7 @@ namespace DarkMessages.DesktopApp
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
             InitializeSignalR();
-            
+
         }
 
         private async void ChatForm_Load(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace DarkMessages.DesktopApp
 
             if (!isInputDisabled)
                 await consultMessages(userName, chat.friendUsername ?? "", 7, page);
-            
+
         }
 
         private async void btnSendMessage_Click(object sender, EventArgs e)
@@ -83,7 +83,7 @@ namespace DarkMessages.DesktopApp
             if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
             {
                 await sendMessage(userName, chat.friendUsername ?? "", rtbSendMessage.Text);
-                
+
                 rtbSendMessage.Text = "";
             }
         }
@@ -107,7 +107,7 @@ namespace DarkMessages.DesktopApp
             currentRow++;
         }
 
-        
+
 
 
         private async Task sendMessage(string sender, string receiver, string message)
@@ -217,13 +217,13 @@ namespace DarkMessages.DesktopApp
         {
             hubConnection = new HubConnectionBuilder().WithUrl($"{GlobalVariables.url}chathub").Build();
 
-            hubConnection.On<rpConsultMessages>("ReceiveMessages", (incominggMessage)  => 
+            hubConnection.On<rpConsultMessages>("ReceiveMessages", (incominggMessage) =>
             {
                 if (InvokeRequired)
                 {
                     Invoke(new Action(() => addMessageAsync(incominggMessage)));
                 }
-                else 
+                else
                 {
                     addMessageAsync(incominggMessage);
                 }
@@ -234,9 +234,9 @@ namespace DarkMessages.DesktopApp
 
         public bool IsConnected => hubConnection?.State == HubConnectionState.Connected;
 
-        private async void addMessageAsync(rpConsultMessages rpConsultMessages) 
+        private async void addMessageAsync(rpConsultMessages rpConsultMessages)
         {
-            if (!isInputDisabled) 
+            if (!isInputDisabled)
             {
                 messagesCount = await countMessages(userName, chat.friendUsername ?? "");
                 page = (int)Math.Ceiling((double)messagesCount / 7);
@@ -245,23 +245,23 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private void insertLocalLastMessages(string lastMessage) 
+        private void insertLocalLastMessages(string lastMessage)
         {
-            foreach (Control control in container!.Controls) 
+            foreach (Control control in container!.Controls)
             {
-                if (control.Name == "panelUsers") 
+                if (control.Name == "panelUsers")
                 {
-                    foreach(Control control2 in control.Controls) 
+                    foreach (Control control2 in control.Controls)
                     {
                         if (control2.Name == "FriendsList")
                         {
                             ChatList friendList = (ChatList)control2;
-                            
+
                             foreach (Control flpC in friendList.Controls)
                             {
                                 if (flpC.GetType() == typeof(FlowLayoutPanel))
                                 {
-                                    foreach (Control userItem in flpC.Controls) 
+                                    foreach (Control userItem in flpC.Controls)
                                     {
                                         UserItem usitem = (UserItem)userItem;
                                         if (usitem.chat.friendUsername == chat.friendUsername)
@@ -276,8 +276,8 @@ namespace DarkMessages.DesktopApp
                 }
             }
         }
-        
-        private async Task registerFriendship(string usernameFirst, string usernameSecond) 
+
+        private async Task registerFriendship(string usernameFirst, string usernameSecond)
         {
             try
             {
@@ -292,12 +292,13 @@ namespace DarkMessages.DesktopApp
                 {
                     if (InvokeRequired)
                     {
-                        Invoke(new Action(() => {
+                        Invoke(new Action(() =>
+                        {
                             tlpMessagesChat.Controls.Clear();
                             container!.flpQueryUserInitializer();
                             enableInputChatForm();
-                        } ));
-                        
+                        }));
+
                     }
                     else
                     {
@@ -340,11 +341,42 @@ namespace DarkMessages.DesktopApp
             isInputDisabled = true;
         }
 
-        public void enableInputChatForm() 
+        public void enableInputChatForm()
         {
             btnSendMessage.Enabled = true;
             rtbSendMessage.Enabled = true;
             isInputDisabled = false;
+        }
+
+
+        private async void TlpMessagesChat_MouseWheel(object sender, MouseEventArgs e)
+        {
+            currentRow = 0;
+            if (messagesCount > 7)
+            {
+                if (e.Delta > 0) //up
+                {
+                    await consultMessages(userName, chat.friendUsername ?? "", 7, --page);
+                }
+                else //down
+                {
+                    await consultMessages(userName, chat.friendUsername ?? "", 7, ++page);
+                }
+            }
+        }
+
+        private async void rtbSendMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
+                {
+                    await sendMessage(userName, chat.friendUsername ?? "", rtbSendMessage.Text);
+
+                    rtbSendMessage.Text = "";
+                }
+            }
+            
         }
     }
 

@@ -23,7 +23,7 @@ namespace DarkMessages.DesktopApp
         public string Title
         {
             get { return title; }
-            set { title = value; Invalidate(); }
+            set { title = value; UpdateButtonSize();  Invalidate(); }
         }
 
         public string Description
@@ -119,6 +119,21 @@ namespace DarkMessages.DesktopApp
         {
             if(this.DesignMode)
                 this.Invalidate();
+        }
+
+        private void UpdateButtonSize()
+        {
+            // Calcular el tamaño del texto principal
+            Size titleSize = TextRenderer.MeasureText(title, new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular));
+
+            // Calcular el tamaño del texto secundario
+            Size descriptionSize = TextRenderer.MeasureText(description, new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular));
+
+            // Ajustar el tamaño del botón para que pueda contener ambos textos
+            int width = Math.Max(titleSize.Width, descriptionSize.Width) + 30; // Añadir margen
+            //int height = titleSize.Height + descriptionSize.Height + 20; // Añadir margen entre textos
+
+            this.Size = new Size(width, this.Size.Height);
         }
     }
 }

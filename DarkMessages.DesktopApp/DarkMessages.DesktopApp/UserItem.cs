@@ -18,10 +18,13 @@ namespace DarkMessages.DesktopApp
         private string _description;
         private Image _icon;
         public MainPage container { get; set; }
-        public bool isContact { get; set; }
+        public bool isFriend { get; set; }
         public chat chat { get; set; }
         public string usernameFriend { get; set; }
         public string username { get; set; }
+        public bool isContact { get; set; }
+        public GroupSettingsForm? groupSettingsForm { get; set; }
+        public bool groupMember { get; set; }
 
         public UserItem()
         {
@@ -66,15 +69,24 @@ namespace DarkMessages.DesktopApp
 
         private void UserItem_MouseClick(object sender, MouseEventArgs e)
         {
-            if (isContact)
+            if (groupSettingsForm == null)
             {
-                container.ChatFormInitializer(username, chat, isContact);
+                if (isContact)
+                {
+                    container.ChatFormInitializer(username, chat, isFriend);
+                }
+                else
+                {
+                    container.ChatFormGroupInitializer(username, chat);
+                }
             }
             else 
             {
-                container.ChatFormGroupInitializer(username, chat);
+                if (!groupMember) 
+                {
+                    groupSettingsForm.AsignData(chat);
+                }
             }
-            
         }
     }
 }

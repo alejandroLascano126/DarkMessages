@@ -43,6 +43,7 @@ namespace DarkMessages.DesktopApp
         private int page;
         private int messagesCount;
         private int currentRow = 0;
+        private int rows = 6;
 
         public ChatFormGroup()
         {
@@ -56,13 +57,16 @@ namespace DarkMessages.DesktopApp
         {
             lblNameChat.Text = chat.name;
             messages = new List<groupMessage>() { };
+            messagesCount = await countGroupMessages();
+            page = (int)Math.Ceiling((double)messagesCount / rows);
+            page = (page == 0) ? 1 : page;
 
             if (string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(chat.friendUsername) && string.IsNullOrEmpty(chat.name))
             {
                 disableInputChatForm();
             }
             if (!isInputDisabled)
-                await consultMessages(7, 1);
+                await consultMessages(rows, page);
         }
 
         private async void btnSendMessage_Click(object sender, EventArgs e)
@@ -155,6 +159,7 @@ namespace DarkMessages.DesktopApp
                         }
                         else //many new messages
                         {
+                            insertLocalLastMessages(msg.messageContent);
                             tlpMessagesChat.Controls.Clear();
                             foreach (var message in rp.messages)
                             {
@@ -178,33 +183,33 @@ namespace DarkMessages.DesktopApp
 
         }
 
-        //private async Task<int> countMessages(string usernameSender, string usernameReceiver)
-        //{
-        //    try
-        //    {
-        //        string urlPost = "api/darkmsgs/countMessages";
-        //        rqCountMessages rqCountMessages = new rqCountMessages() { usernameSender = usernameSender, usernameReceiver = usernameReceiver };
-        //        var rqSerialized = JsonSerializer.Serialize(rqCountMessages);
-        //        HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
-        //        HttpResponseMessage response = await client.PostAsync(urlPost, content);
-        //        string responseBody = await response.Content.ReadAsStringAsync();
-        //        rpCountMessages rp = JsonSerializer.Deserialize<rpCountMessages>(responseBody) ?? new rpCountMessages();
-        //        if (rp.success)
-        //        {
-        //            Console.WriteLine("Messages count correctly");
-        //            return rp.count;
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Error");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error: {ex}");
-        //    }
-        //    return 0;
-        //}
+        private async Task<int> countGroupMessages()
+        {
+            try
+            {
+                string urlPost = "api/darkmsgs/countGroupMessages";
+                rqCountGroupMessages rqCountGroupMessages = new rqCountGroupMessages() { groupId = chat.entityId };
+                var rqSerialized = JsonSerializer.Serialize(rqCountGroupMessages);
+                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpCountMessages rp = JsonSerializer.Deserialize<rpCountMessages>(responseBody) ?? new rpCountMessages();
+                if (rp.success)
+                {
+                    Console.WriteLine("Messages count correctly");
+                    return rp.count;
+                }
+                else
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}");
+            }
+            return 0;
+        }
 
         private async void InitializeSignalR()
         {
@@ -231,10 +236,10 @@ namespace DarkMessages.DesktopApp
         {
             if (!isInputDisabled)
             {
-                //messagesCount = await countMessages(userName, receiver);
-                //page = (int)Math.Ceiling((double)messagesCount / 7);
-                //page = (page == 0) ? 1 : page;
-                await consultMessages(7, 1);
+                messagesCount = await countGroupMessages();
+                page = (int)Math.Ceiling((double)messagesCount / rows);
+                page = (page == 0) ? 1 : page;
+                await consultMessages(rows, page);
             }
         }
 
@@ -257,7 +262,7 @@ namespace DarkMessages.DesktopApp
                                     foreach (Control userItem in flpC.Controls)
                                     {
                                         UserItem usitem = (UserItem)userItem;
-                                        if (usitem.usernameFriend == chat.friendUsername)
+                                        if (usitem.name == chat.name)
                                         {
                                             usitem.description = lastMessage;
                                         }
@@ -343,7 +348,37 @@ namespace DarkMessages.DesktopApp
 
         private void panelUpChat_Click(object sender, EventArgs e)
         {
-            container!.GropSettingsFormInitializer();
+            container!.GroupSettingsFormInitializer(chat);
+        }
+
+        private async void TlpMessagesChat_MouseWheel(object sender, MouseEventArgs e)
+        {
+            currentRow = 0;
+            if (messagesCount > rows)
+            {
+                if (e.Delta > 0) //up
+                {
+                    await consultMessages(rows, --page);
+                }
+                else //down
+                {
+                    await consultMessages(rows, ++page);
+                }
+            }
+        }
+
+        private async void rtbSendMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
+                {
+                    await sendMessage(userName, chat.entityId, rtbSendMessage.Text);
+
+                    rtbSendMessage.Text = "";
+                }
+            }
+            
         }
     }
 

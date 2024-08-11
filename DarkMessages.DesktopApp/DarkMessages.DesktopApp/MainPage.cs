@@ -78,6 +78,7 @@ namespace DarkMessages.DesktopApp
         private void txtSearchFriends_Click(object sender, EventArgs e)
         {
             flpQueryUserInitializer();
+            usersQueryView.value = txtSearchFriends.Text;
         }
 
         public void flpQueryUserInitializer()
@@ -148,13 +149,16 @@ namespace DarkMessages.DesktopApp
             chatForm.Show();
         }
 
-        public void GropSettingsFormInitializer()
+        public void GroupSettingsFormInitializer(chat chat)
         {
             if (panelChat.Controls.Count > 0)
             {
                 panelChat.Controls.Clear();
             }
             GroupSettingsForm groupSettingsForm = new GroupSettingsForm();
+            groupSettingsForm.chat = chat;
+            groupSettingsForm.container = container;
+            groupSettingsForm.mainPage = this;
             groupSettingsForm.TopLevel = false;
             groupSettingsForm.Dock = DockStyle.Fill;
             panelChat.Controls.Add(groupSettingsForm);

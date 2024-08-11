@@ -63,6 +63,7 @@
             rtbSendMessage.Size = new Size(573, 43);
             rtbSendMessage.TabIndex = 2;
             rtbSendMessage.Text = "";
+            rtbSendMessage.KeyDown += rtbSendMessage_KeyDown;
             // 
             // btnSendMessage
             // 
@@ -110,8 +111,9 @@
             tlpMessagesChat.RowStyles.Add(new RowStyle());
             tlpMessagesChat.Size = new Size(713, 429);
             tlpMessagesChat.TabIndex = 4;
+            tlpMessagesChat.MouseWheel += TlpMessagesChat_MouseWheel;
             // 
-            // ChatForm
+            // ChatFormPrivate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -123,13 +125,15 @@
             Controls.Add(rtbSendMessage);
             Controls.Add(panelUpChat);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ChatForm";
+            Name = "ChatFormPrivate";
             Text = "ChatForm";
             Load += ChatForm_Load;
             panelUpChat.ResumeLayout(false);
             panelUpChat.PerformLayout();
             ResumeLayout(false);
         }
+
+
 
         #endregion
 

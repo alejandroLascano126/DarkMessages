@@ -64,6 +64,7 @@
             rtbSendMessage.Size = new Size(573, 43);
             rtbSendMessage.TabIndex = 2;
             rtbSendMessage.Text = "";
+            rtbSendMessage.KeyDown += rtbSendMessage_KeyDown;
             // 
             // btnSendMessage
             // 
@@ -112,6 +113,7 @@
             tlpMessagesChat.RowStyles.Add(new RowStyle());
             tlpMessagesChat.Size = new Size(713, 429);
             tlpMessagesChat.TabIndex = 4;
+            tlpMessagesChat.MouseWheel += TlpMessagesChat_MouseWheel;
             // 
             // ChatFormGroup
             // 
@@ -132,6 +134,7 @@
             panelUpChat.PerformLayout();
             ResumeLayout(false);
         }
+
 
         #endregion
 

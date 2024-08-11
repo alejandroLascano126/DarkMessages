@@ -244,6 +244,7 @@ namespace DarkMessages.Service.Objects
                         command.Parameters.AddWithValue("@groupId", rq.groupId);
                         command.Parameters.AddWithValue("@rows", rq.rows);
                         command.Parameters.AddWithValue("@page", rq.page);
+                        command.Parameters.AddWithValue("@option", rq.option);
                         SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
@@ -258,7 +259,12 @@ namespace DarkMessages.Service.Objects
                             rp.groupMembers = new List<groupMember>();
                             foreach (DataRow row in dataTable.Rows)
                             {
-                                groupMember groupMember = new groupMember() { idUser = Convert.ToInt32(row["idUser"]), username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, roleId = Convert.ToInt32(row["roleId"])};
+                                int roleId = 1;
+                                if (row.Table.Columns.Contains("roleId"))
+                                {
+                                    roleId = (row["roleId"] != DBNull.Value) ? Convert.ToInt32(row["roleId"]) : 1;
+                                }   
+                                groupMember groupMember = new groupMember() { idUser = Convert.ToInt32(row["idUser"]), username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, roleId = roleId };
                                 rp.groupMembers.Add(groupMember);
                             }
                         }
@@ -340,7 +346,61 @@ namespace DarkMessages.Service.Objects
         }
 
 
+        public async Task<rpCountMessages> countGroupMessages(rqCountGroupMessages rq)
+        {
+            rpCountMessages rp = new rpCountMessages();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("sp_countGroupMessages", connection))
+                    {
+                        command.Parameters.Clear();
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@groupId", rq.groupId);
+                        
 
+                        SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        SqlParameter countOutput = new SqlParameter("@count", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        command.Parameters.Add(responseOutput);
+                        command.Parameters.Add(countOutput);
+
+                        await command.ExecuteNonQueryAsync();
+
+                        int response = (int)responseOutput.Value;
+                        int count = (int)countOutput.Value;
+
+                        if (response == 0)
+                        {
+                            rp.count = count;
+                            rp.success = true;
+                        }
+                        else
+                        {
+                            rp.success = false;
+                            rp.count = 0;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                rp.success = false;
+                rp.count = 0;
+            }
+
+            return rp;
+
+
+        }
 
 
     }

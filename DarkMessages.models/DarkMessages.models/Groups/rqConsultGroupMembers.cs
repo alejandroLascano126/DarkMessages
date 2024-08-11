@@ -11,5 +11,6 @@ namespace DarkMessages.models.Groups
         public int groupId { get; set;}
         public int rows { get; set;}
         public int page { get; set; }
+        public string option { get; set; }
     }
 }
