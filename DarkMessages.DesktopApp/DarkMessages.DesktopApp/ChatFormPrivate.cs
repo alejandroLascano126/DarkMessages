@@ -2,6 +2,7 @@
 using DarkMessages.models.Friends;
 using DarkMessages.models.Login;
 using DarkMessages.models.Message;
+using DarkMessages.models.Notifications;
 using DarkMessages.models.SignUp;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json.Linq;
@@ -39,10 +40,15 @@ namespace DarkMessages.DesktopApp
         public rpConsultMessages rpConsultMessages { get; set; }
         private List<DarkMessages.models.Message.message> messages { get; set; }
         public MainPage? container { get; set; }
+        public bool isFriendRequest { get; set; } = false;
+        public bool isRequestSent { get; set; } = false;
+        public Notification notification { get; set; }
         HttpClient client = new HttpClient();
         private int page;
         private int messagesCount;
         private int currentRow = 0;
+        private int maxPage = 0;
+        private int minPage = 1;
 
         public ChatFormPrivate()
         {
@@ -59,6 +65,7 @@ namespace DarkMessages.DesktopApp
             messagesCount = await countMessages(userName, chat.friendUsername ?? "");
             page = (int)Math.Ceiling((double)messagesCount / 7);
             page = (page == 0) ? 1 : page;
+            maxPage = (int)Math.Ceiling((double)messagesCount / 7);
             messages = new List<DarkMessages.models.Message.message>() { };
 
             if (!isFriend)
@@ -277,12 +284,12 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async Task registerFriendship(string usernameFirst, string usernameSecond)
+        private async Task<bool> consultRegisterFriendship(string usernameFirst, string usernameSecond, string option)
         {
             try
             {
                 string urlPost = "api/darkmsgs/registerFriendship";
-                rqAddFriendship rqCountMessages = new rqAddFriendship() { usernameFirst = usernameFirst, usernameSecond = usernameSecond };
+                rqAddFriendship rqCountMessages = new rqAddFriendship() { usernameFirst = usernameFirst, usernameSecond = usernameSecond, option = option };
                 var rqSerialized = JsonSerializer.Serialize(rqCountMessages);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -294,18 +301,26 @@ namespace DarkMessages.DesktopApp
                     {
                         Invoke(new Action(() =>
                         {
-                            tlpMessagesChat.Controls.Clear();
-                            container!.flpQueryUserInitializer();
-                            enableInputChatForm();
+                            if (option == "REG") 
+                            {
+                                tlpMessagesChat.Controls.Clear();
+                                container!.flpQueryUserInitializer();
+                                enableInputChatForm();
+                            }
+                            
                         }));
 
                     }
                     else
                     {
-                        tlpMessagesChat.Controls.Clear();
-                        container!.flpQueryUserInitializer();
-                        enableInputChatForm();
+                        if (option == "REG")
+                        {
+                            tlpMessagesChat.Controls.Clear();
+                            container!.flpQueryUserInitializer();
+                            enableInputChatForm();
+                        }
                     }
+                    return rp.success;
                 }
                 else
                 {
@@ -316,22 +331,62 @@ namespace DarkMessages.DesktopApp
             {
                 MessageBox.Show($"Error: {ex}");
             }
+            return false;
         }
 
 
         private async void messageCellAddFriendClick(object sender, EventArgs e)
         {
-            await registerFriendship(userName, chat.friendUsername ?? "");
+            bool resp = await consultRegisterFriendship(userName, chat.friendUsername ?? "", "CON");
+            if (resp) 
+            {
+                tlpMessagesChat.Controls.Clear();
+                MessageCell messageCell = new MessageCell();
+                messageCell.TextAlign = ContentAlignment.MiddleCenter;
+                messageCell.Title = "request sent";
+                messageCell.Description = "";
+            }
+        }
+
+        private async void messageCellAcceptFriendRequest(object sender, EventArgs e) 
+        {
+            if (await deleteNotification()) 
+            {
+                await consultRegisterFriendship(userName, chat.friendUsername ?? "", "REG");
+            }
         }
 
         private void AddFriendButton()
         {
-            MessageCell messageCell = new MessageCell();
-            messageCell.TextAlign = ContentAlignment.MiddleCenter;
-            messageCell.Title = "Add Friend";
-            messageCell.Description = "";
-            messageCell.Click += messageCellAddFriendClick!;
-            tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
+            if (isFriendRequest)
+            {
+                MessageCell messageCell = new MessageCell();
+                messageCell.TextAlign = ContentAlignment.MiddleCenter;
+                messageCell.Title = "Accept request";
+                messageCell.Description = "";
+                messageCell.Click += messageCellAcceptFriendRequest!;
+                tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
+            }
+            else 
+            {
+                if (isRequestSent)
+                {
+                    MessageCell messageCell = new MessageCell();
+                    messageCell.TextAlign = ContentAlignment.MiddleCenter;
+                    messageCell.Title = "Request sent";
+                    messageCell.Description = "";
+                    tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
+                }
+                else 
+                {
+                    MessageCell messageCell = new MessageCell();
+                    messageCell.TextAlign = ContentAlignment.MiddleCenter;
+                    messageCell.Title = "Send request";
+                    messageCell.Description = "";
+                    messageCell.Click += messageCellAddFriendClick!;
+                    tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
+                }
+            }
         }
 
         public void disableInputChatForm()
@@ -356,11 +411,13 @@ namespace DarkMessages.DesktopApp
             {
                 if (e.Delta > 0) //up
                 {
-                    await consultMessages(userName, chat.friendUsername ?? "", 7, --page);
+                    if (pageScrollHelp(--page))
+                        await consultMessages(userName, chat.friendUsername ?? "", 7, page);
                 }
                 else //down
                 {
-                    await consultMessages(userName, chat.friendUsername ?? "", 7, ++page);
+                    if (pageScrollHelp(++page))
+                        await consultMessages(userName, chat.friendUsername ?? "", 7, page);
                 }
             }
         }
@@ -377,6 +434,48 @@ namespace DarkMessages.DesktopApp
                 }
             }
             
+        }
+
+        private bool pageScrollHelp(int value)
+        {
+            if (value < minPage)
+            {
+                page = 1;
+                return false;
+            }
+            if (value > maxPage)
+            {
+                page--;
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> deleteNotification()
+        {
+            try
+            {
+                string urlPost = "api/darkmsgs/mantNotifications";
+                rqMantNotifications rqMantNotifications = new rqMantNotifications() { username = container!.user.userName, rows = 0, page = 0, notificationId = notification.notificationId, option = "DEL" };
+                var rqSerialized = JsonSerializer.Serialize(rqMantNotifications);
+                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpMantNotifications rp = JsonSerializer.Deserialize<rpMantNotifications>(responseBody) ?? new rpMantNotifications();
+                if (rp.success)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Error. DeleteNotificaion");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}");
+            }
+            return false;
         }
     }
 

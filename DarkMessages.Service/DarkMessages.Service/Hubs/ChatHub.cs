@@ -1,6 +1,7 @@
 ﻿using DarkMessages.models.Friends;
 using DarkMessages.models.Groups;
 using DarkMessages.models.Message;
+using DarkMessages.models.Notifications;
 using DarkMessages.Service.Objects;
 using Microsoft.AspNetCore.SignalR;
 
@@ -29,8 +30,13 @@ namespace DarkMessages.Service.Hub
             Clients.All.SendAsync("ReceiveGroupMessages", rpConsultGroupMessages);
         }
 
-        
+        public void ConsultNotifications(object obj)
+        {
+            Clients.All.SendAsync("ReceiveNotifications", obj);
+        }
 
-        
+
+
+
     }
 }

@@ -36,6 +36,7 @@
             lblUsername = new Label();
             panel1 = new Panel();
             btnSettings = new CreateGroupButton();
+            btnNotifications = new CreateGroupButton();
             btnCreateGroup = new CreateGroupButton();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -104,6 +105,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientInactiveCaption;
+            panel1.Controls.Add(btnNotifications);
             panel1.Controls.Add(btnSettings);
             panel1.Controls.Add(btnCreateGroup);
             panel1.Controls.Add(txtSearchFriends);
@@ -121,13 +123,27 @@
             btnSettings.FlatAppearance.BorderSize = 0;
             btnSettings.FlatStyle = FlatStyle.Flat;
             btnSettings.ForeColor = Color.White;
-            btnSettings.Location = new Point(151, 79);
+            btnSettings.Location = new Point(173, 79);
             btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(95, 29);
+            btnSettings.Size = new Size(84, 29);
             btnSettings.TabIndex = 8;
             btnSettings.Text = "Settings";
             btnSettings.UseVisualStyleBackColor = false;
             btnSettings.Click += btnSettings_Click;
+            // 
+            // btnNotifications
+            // 
+            btnNotifications.BackColor = Color.DodgerBlue;
+            btnNotifications.FlatAppearance.BorderSize = 0;
+            btnNotifications.FlatStyle = FlatStyle.Flat;
+            btnNotifications.ForeColor = Color.White;
+            btnNotifications.Location = new Point(83, 79);
+            btnNotifications.Name = "btnNotifications";
+            btnNotifications.Size = new Size(84, 29);
+            btnNotifications.TabIndex = 9;
+            btnNotifications.Text = "News";
+            btnNotifications.UseVisualStyleBackColor = false;
+            btnNotifications.Click += btnNotifications_Click;
             // 
             // btnCreateGroup
             // 
@@ -135,9 +151,9 @@
             btnCreateGroup.FlatAppearance.BorderSize = 0;
             btnCreateGroup.FlatStyle = FlatStyle.Flat;
             btnCreateGroup.ForeColor = Color.White;
-            btnCreateGroup.Location = new Point(252, 79);
+            btnCreateGroup.Location = new Point(263, 79);
             btnCreateGroup.Name = "btnCreateGroup";
-            btnCreateGroup.Size = new Size(95, 29);
+            btnCreateGroup.Size = new Size(84, 29);
             btnCreateGroup.TabIndex = 7;
             btnCreateGroup.Text = "New Group";
             btnCreateGroup.UseVisualStyleBackColor = false;
@@ -171,5 +187,6 @@
         private Panel panel1;
         private CreateGroupButton btnCreateGroup;
         private CreateGroupButton btnSettings;
+        private CreateGroupButton btnNotifications;
     }
 }

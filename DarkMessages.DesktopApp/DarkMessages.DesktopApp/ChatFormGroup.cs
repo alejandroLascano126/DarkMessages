@@ -44,6 +44,8 @@ namespace DarkMessages.DesktopApp
         private int messagesCount;
         private int currentRow = 0;
         private int rows = 6;
+        private int maxPage = 0;
+        private int minPage = 1;
 
         public ChatFormGroup()
         {
@@ -60,6 +62,7 @@ namespace DarkMessages.DesktopApp
             messagesCount = await countGroupMessages();
             page = (int)Math.Ceiling((double)messagesCount / rows);
             page = (page == 0) ? 1 : page;
+            maxPage = (int)Math.Ceiling((double)messagesCount / rows);
 
             if (string.IsNullOrEmpty(userName) && string.IsNullOrEmpty(chat.friendUsername) && string.IsNullOrEmpty(chat.name))
             {
@@ -358,11 +361,13 @@ namespace DarkMessages.DesktopApp
             {
                 if (e.Delta > 0) //up
                 {
-                    await consultMessages(rows, --page);
+                    if (pageScrollHelp(--page))
+                        await consultMessages(rows, page);
                 }
                 else //down
                 {
-                    await consultMessages(rows, ++page);
+                    if (pageScrollHelp(++page))
+                        await consultMessages(rows, page);
                 }
             }
         }
@@ -379,6 +384,21 @@ namespace DarkMessages.DesktopApp
                 }
             }
             
+        }
+
+        private bool pageScrollHelp(int value)
+        {
+            if (value < minPage)
+            {
+                page = 1;
+                return false;
+            }
+            if (value > maxPage)
+            {
+                page--;
+                return false;
+            }
+            return true;
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using DarkMessages.models.Chats;
 using DarkMessages.models.Friends;
 using DarkMessages.models.Message;
+using DarkMessages.models.Notifications;
 using DarkMessages.models.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -34,11 +35,11 @@ namespace DarkMessages.DesktopApp
         private async void MainPage_Load(object sender, EventArgs e)
         {
             lblUsername.Text = container.user.name + " " + container.user.lastname;
-            ChatFormInitializer(null, null, true);
+            ChatFormInitializer(null, null, true, false, null, null);
             flpItemsUserInitializer();
         }
 
-        public void ChatFormInitializer(string? username, chat? chat, bool isFriend)
+        public void ChatFormInitializer(string? username, chat? chat, bool isFriend, bool isFriendRequest, Notification? notification, bool? isRequestSent)
         {
             if (panelChat.Controls.Count > 0)
             {
@@ -48,6 +49,9 @@ namespace DarkMessages.DesktopApp
             chatForm.userName = username ?? "";
             chatForm.chat = chat ?? new chat();
             chatForm.isFriend = isFriend;
+            chatForm.isFriendRequest = isFriendRequest;
+            chatForm.notification = notification ?? new Notification();
+            chatForm.isRequestSent = isRequestSent ?? false;
             chatForm.container = this;
             chatForm.TopLevel = false;
             chatForm.Dock = DockStyle.Fill;
@@ -105,12 +109,14 @@ namespace DarkMessages.DesktopApp
 
         private void btnAtrasFriends_Click(object sender, EventArgs e)
         {
+            lblFriends.Text = "Chats";
             flpItemsUserInitializer();
-            ChatFormInitializer(null, null, true);
+            //ChatFormInitializer(null, null, true);
         }
 
         private void btnCreateGroup_Click(object sender, EventArgs e)
         {
+            lblFriends.Text = "Groups";
             CreateGroupFormInitializer();
         }
 
@@ -171,6 +177,30 @@ namespace DarkMessages.DesktopApp
         {
             Close();
             container.SettingsFormInitializer();
+        }
+
+        public void NotificationsListInitializer()
+        {
+            btnBackFriends.Enabled = true;
+            if (panelUsers.Controls.Count > 0)
+            {
+                panelUsers.Controls.Clear();
+            }
+            NotificationsList notificationsList = new NotificationsList();
+            notificationsList.container = container;
+            notificationsList.mainPage = this;
+            notificationsList.TopLevel = false;
+            notificationsList.Dock = DockStyle.Fill;
+            panelUsers.Controls.Add(notificationsList);
+            notificationsList.Tag = notificationsList;
+            notificationsList.Size = panelUsers.Size;
+            notificationsList.Show();
+        }
+
+        private void btnNotifications_Click(object sender, EventArgs e)
+        {
+            lblFriends.Text = "News";
+            NotificationsListInitializer();
         }
     }
 }

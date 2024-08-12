@@ -10,5 +10,6 @@ namespace DarkMessages.models.Friends
     {
         public string usernameFirst { get; set; }
         public string usernameSecond { get; set; }
+        public string option { get; set; }
     }
 }

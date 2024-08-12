@@ -399,7 +399,21 @@ namespace DarkMessages.Service.Objects
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@value", rq.value);
                         command.Parameters.AddWithValue("@myUsername", rq.username);
-                        
+                        command.Parameters.AddWithValue("@rows", rq.rows);
+                        command.Parameters.AddWithValue("@page", rq.page);
+                        command.Parameters.AddWithValue("@option", rq.option);
+
+                        SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        SqlParameter countOutput = new SqlParameter("@count", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(responseOutput);
+                        command.Parameters.Add(countOutput);
+
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                         {
@@ -412,6 +426,7 @@ namespace DarkMessages.Service.Objects
                                 rp.users.Add(user ?? new User());
                             }
                         }
+                        rp.count = (countOutput.Value != DBNull.Value) ? (int)countOutput.Value : 0;
                         rp.success = true;
                     }
                 }
@@ -437,6 +452,7 @@ namespace DarkMessages.Service.Objects
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@usernameFirst", rq.usernameFirst);
                         command.Parameters.AddWithValue("@usernameSecond", rq.usernameSecond);
+                        command.Parameters.AddWithValue("@option", rq.option);
 
 
                         SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
@@ -452,13 +468,53 @@ namespace DarkMessages.Service.Objects
                         if (response == 0)
                         {
                             rp.success = true;
-                            rp.message = "You have a new Friend";
+                            rp.message = "";
                         }
                         else
                         {
                             rp.success = false;
-                            rp.message = "Error adding new Friend";
+                            rp.message = "Error";
                         }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                rp.success = false;
+                rp.message = ex.Message;
+            }
+            return rp;
+        }
+
+        public async Task<rpConsultfriendshipsRequests> conusltfriendshipsRequests(rqConsultfriendshipsRequests rq)
+        {
+            rpConsultfriendshipsRequests rp = new rpConsultfriendshipsRequests();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("sp_consultContactRequested", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@usernameSender", rq.usernameSender);
+                        command.Parameters.AddWithValue("@usernameReceiver", rq.usernameReceiver);
+                       
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            rp.friendshipsRequests = new List<friendshipsRequests>();
+                            foreach (DataRow row in dataTable.Rows)
+                            {
+                                friendshipsRequests friendshipsRequests = new() { usernameSender = row["usernameSender"].ToString()!, usernameReceiver = row["usernameReceiver"].ToString()! };
+                                rp.friendshipsRequests.Add(friendshipsRequests ?? new friendshipsRequests());
+                            }
+                        }
+                        if (rp.friendshipsRequests.Count > 0)
+                            rp.success = true;
+                        else 
+                            rp.success = false;
                     }
                 }
             }

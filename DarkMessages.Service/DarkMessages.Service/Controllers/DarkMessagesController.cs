@@ -12,6 +12,7 @@ using DarkMessages.models.Groups;
 using System.Net.NetworkInformation;
 using DarkMessages.models.Chats;
 using DarkMessages.models.Session;
+using DarkMessages.models.Notifications;
 
 namespace DarkMessages.Service.Controllers
 {
@@ -24,6 +25,7 @@ namespace DarkMessages.Service.Controllers
         GroupObj groupObj = new GroupObj();
         ChatObj chatObj = new ChatObj();
         SessionObj sessionObj = new SessionObj();   
+        NotificationObj notificationObj = new NotificationObj();
         private readonly IHubContext<ChatHub> _hubContext;
 
         public DarkMessagesController(IHubContext<ChatHub> hubContext)
@@ -115,6 +117,10 @@ namespace DarkMessages.Service.Controllers
         {
             rpAddFriendship rp = new rpAddFriendship();
             rp = await userObj.registerFriendship(rq);
+            if (rp.success)
+            {
+                await _hubContext.Clients.All.SendAsync("ReceiveNotifications", rp);
+            }
             return rp;
         }
 
@@ -203,6 +209,22 @@ namespace DarkMessages.Service.Controllers
         {
             rpCountChats rp = new rpCountChats();
             rp = await chatObj.countChats(rq);
+            return rp;
+        }
+
+        [HttpPost("mantNotifications")]
+        public async Task<rpMantNotifications> mantNotifications(rqMantNotifications rq)
+        {
+            rpMantNotifications rp = new rpMantNotifications();
+            rp = await notificationObj.mantNotifications(rq);
+            return rp;
+        }
+
+        [HttpPost("conusltfriendshipsRequests")]
+        public async Task<rpConsultfriendshipsRequests> conusltfriendshipsRequests(rqConsultfriendshipsRequests rq)
+        {
+            rpConsultfriendshipsRequests rp = new rpConsultfriendshipsRequests();
+            rp = await userObj.conusltfriendshipsRequests(rq);
             return rp;
         }
     }

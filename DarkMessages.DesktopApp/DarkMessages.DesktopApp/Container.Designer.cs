@@ -30,13 +30,14 @@
         {
             SuspendLayout();
             // 
-            // Form1
+            // Container
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1179, 658);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Container";
+            Text = "DarkMessages";
             ResumeLayout(false);
         }
 

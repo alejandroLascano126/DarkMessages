@@ -10,6 +10,9 @@ namespace DarkMessages.models.Usuarios
     {
         public string value { get; set; }
         public string username { get; set; }
+        public int rows { get; set; }
+        public int page { get; set; }
+        public string option { get; set; }
         
     }
 }

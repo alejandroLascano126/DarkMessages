@@ -1,11 +1,15 @@
 ﻿using DarkMessages.models.Chats;
+using DarkMessages.models.Friends;
+using DarkMessages.models.Message;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,10 +29,12 @@ namespace DarkMessages.DesktopApp
         public bool isContact { get; set; }
         public GroupSettingsForm? groupSettingsForm { get; set; }
         public bool groupMember { get; set; }
+        HttpClient client = new HttpClient();
 
         public UserItem()
         {
             InitializeComponent();
+            client.BaseAddress = new Uri(GlobalVariables.url);
         }
 
         [Category("Custom Props")]
@@ -67,13 +73,14 @@ namespace DarkMessages.DesktopApp
             this.BackColor = SystemColors.ActiveCaption;
         }
 
-        private void UserItem_MouseClick(object sender, MouseEventArgs e)
+        private async void UserItem_MouseClick(object sender, MouseEventArgs e)
         {
             if (groupSettingsForm == null)
             {
                 if (isContact)
                 {
-                    container.ChatFormInitializer(username, chat, isFriend);
+                    bool isRequestSent = await consultfriendshipsRequests();
+                    container.ChatFormInitializer(username, chat, isFriend, false, null, isRequestSent);
                 }
                 else
                 {
@@ -87,6 +94,35 @@ namespace DarkMessages.DesktopApp
                     groupSettingsForm.AsignData(chat);
                 }
             }
+        }
+
+        private async Task<bool> consultfriendshipsRequests()
+        {
+            try
+            {
+                string urlPost = "api/darkmsgs/conusltfriendshipsRequests";
+                
+                rqConsultfriendshipsRequests rqConsultfriendshipsRequests = new rqConsultfriendshipsRequests() { usernameSender = container.user.userName, usernameReceiver = usernameFriend };
+                var rqSerialized = JsonSerializer.Serialize(rqConsultfriendshipsRequests);
+                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpConsultChats rp = JsonSerializer.Deserialize<rpConsultChats>(responseBody) ?? new rpConsultChats();
+                if (rp.success)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}");
+            }
+
+            return false;
         }
     }
 }

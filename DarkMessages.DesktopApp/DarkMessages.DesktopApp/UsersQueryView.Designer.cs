@@ -38,6 +38,7 @@
             flpUsersQuery.Name = "flpUsersQuery";
             flpUsersQuery.Size = new Size(353, 452);
             flpUsersQuery.TabIndex = 0;
+            flpUsersQuery.MouseWheel += FlpUsersQuery_MouseWheel;
             // 
             // UsersQueryView
             // 
@@ -52,6 +53,7 @@
             Load += UsersQueryView_Load;
             ResumeLayout(false);
         }
+
 
         #endregion
 

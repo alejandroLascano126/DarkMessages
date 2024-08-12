@@ -20,6 +20,8 @@ namespace DarkMessages.DesktopApp
         public MainPage mainPage { get; set; }
         HttpClient client = new HttpClient();
         private string usernameSelected { get; set; }
+        private int rows = 30;
+        private int page = 1;
 
         public GroupSettingsForm()
         {
@@ -40,7 +42,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/consultGroupMembers";
-                rqConsultGroupMembers rqConsultGroupMembers = new rqConsultGroupMembers() { groupId = chat.entityId, rows = 10, page = 1, option = "ALL" };
+                rqConsultGroupMembers rqConsultGroupMembers = new rqConsultGroupMembers() { groupId = chat.entityId, rows = rows, page = 1, option = "ALL", value = "" };
                 var rqSerialized = JsonSerializer.Serialize(rqConsultGroupMembers);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -80,10 +82,11 @@ namespace DarkMessages.DesktopApp
 
         private async Task consultAddMembers()
         {
+            string filterValue = txtSelectedContact.Text;
             try
             {
                 string urlPost = "api/darkmsgs/consultGroupMembers";
-                rqConsultGroupMembers rqConsultGroupMembers = new rqConsultGroupMembers() { groupId = chat.entityId, rows = 10, page = 1, option = "ADD" };
+                rqConsultGroupMembers rqConsultGroupMembers = new rqConsultGroupMembers() { groupId = chat.entityId, rows = rows, page = 1, option = "FIL", value = filterValue };
                 var rqSerialized = JsonSerializer.Serialize(rqConsultGroupMembers);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -91,7 +94,10 @@ namespace DarkMessages.DesktopApp
                 rpConsultGroupMembers rp = JsonSerializer.Deserialize<rpConsultGroupMembers>(responseBody) ?? new rpConsultGroupMembers();
                 if (rp.success)
                 {
-                    Console.WriteLine("Friends consulted correctly");
+                    if (flpContacts.Controls.Count > 0)
+                    {
+                        flpContacts.Controls.Clear();
+                    }
                     foreach (var user in rp.groupMembers)
                     {
                         chat chat = new chat() { name = user.name + " " + user.lastname ?? "", friendUsername = user.username ?? "", email = user.email };
@@ -181,6 +187,22 @@ namespace DarkMessages.DesktopApp
         private void btnBack_Click(object sender, EventArgs e)
         {
             mainPage.ChatFormGroupInitializer(container.user.userName, chat);
+        }
+
+        private async void txtSelectedContact_Click(object sender, EventArgs e)
+        {
+            lblContacts.Text = "Contacts";
+            if (flpContacts.Controls.Count > 0)
+            {
+                flpContacts.Controls.Clear();
+            }
+            await consultAddMembers();
+        }
+
+        private async void txtSelectedContact_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSelectedContact.Text)) 
+                await consultAddMembers();
         }
     }
 }

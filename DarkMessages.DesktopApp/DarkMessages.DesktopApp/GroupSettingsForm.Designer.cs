@@ -75,6 +75,8 @@
             txtSelectedContact.Name = "txtSelectedContact";
             txtSelectedContact.Size = new Size(314, 32);
             txtSelectedContact.TabIndex = 10;
+            txtSelectedContact.Click += txtSelectedContact_Click;
+            txtSelectedContact.TextChanged += txtSelectedContact_TextChanged;
             // 
             // btnViewContacts
             // 

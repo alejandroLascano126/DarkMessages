@@ -21,7 +21,9 @@ namespace DarkMessages.DesktopApp
         HttpClient client = new HttpClient();
         private int page = 1;
         private int chatsCount;
-        int rows = 5;
+        private int rows = 5;
+        private int maxPage = 0;
+        private int minPage = 1;
 
         public ChatList()
         {
@@ -35,6 +37,8 @@ namespace DarkMessages.DesktopApp
             flpItemsUser.Size = Size;
 
             chatsCount = await countChats();
+            maxPage = (int)Math.Ceiling((double)chatsCount / rows);
+
             //page = (int)Math.Ceiling((double)chatsCount / rows);
             //page = (page == 0) ? 1 : page;
 
@@ -46,7 +50,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/consultChats";
-                rqConsultChats rqInsertMessage = new rqConsultChats() { username = container.user.userName, rows = _rows, page = _page };
+                rqConsultChats rqInsertMessage = new rqConsultChats() { username = container.user.userName, rows = _rows, page = _page, option = "ALL", chatId = 0 };
                 var rqSerialized = JsonSerializer.Serialize(rqInsertMessage);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -121,14 +125,31 @@ namespace DarkMessages.DesktopApp
             {
                 if (e.Delta > 0) //up
                 {
-                    await loadUserItems(rows, --page);
+                    if (pageScrollHelp(--page))
+                        await loadUserItems(rows, page);
                 }
                 else //down
                 {
-                    await loadUserItems(rows, ++page);
+                    if (pageScrollHelp(++page))
+                        await loadUserItems(rows, page);
                 }
             }
             
+        }
+
+        private bool pageScrollHelp(int value)
+        {
+            if (value < minPage)
+            {
+                page = 1;
+                return false;
+            }
+            if (value > maxPage)
+            {
+                page--;
+                return false;
+            }
+            return true;
         }
 
     }

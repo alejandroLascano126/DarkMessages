@@ -81,6 +81,7 @@
             // 
             // cbAccess
             // 
+            cbAccess.Enabled = false;
             cbAccess.Font = new Font("Segoe UI", 14F);
             cbAccess.FormattingEnabled = true;
             cbAccess.Location = new Point(102, 91);
