@@ -16,7 +16,7 @@ namespace DarkMessages.DesktopApp
         private string _title;
         private string _description;
 
-        public string NameUser 
+        public string NameUser
         {
             get { return _nameUser; }
             set { _nameUser = value; lblNameUser.Text = _nameUser; }
@@ -37,6 +37,13 @@ namespace DarkMessages.DesktopApp
         public GroupMessageCell()
         {
             InitializeComponent();
+
+        }
+
+        private void GroupMessageCell_Load(object sender, EventArgs e)
+        {
+            Width = messageCell.Width;
+            Invalidate();
         }
     }
 }

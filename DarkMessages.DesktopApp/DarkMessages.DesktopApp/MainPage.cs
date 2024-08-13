@@ -37,12 +37,12 @@ namespace DarkMessages.DesktopApp
         private async void MainPage_Load(object sender, EventArgs e)
         {
             lblUsername.Text = container.user.name + " " + container.user.lastname;
-            ChatFormInitializer(null, null, true, false, null, null);
+            ChatFormInitializer(null, null, true, false, null, null, null);
             colorSelectedButton("Chats");
             flpItemsUserInitializer();
         }
 
-        public void ChatFormInitializer(string? username, chat? chat, bool isFriend, bool isFriendRequest, Notification? notification, bool? isRequestSent)
+        public void ChatFormInitializer(string? username, chat? chat, bool isFriend, bool isFriendRequest, Notification? notification, bool? isRequestSent, NotificationsList? notificationsList)
         {
             if (panelChat.Controls.Count > 0)
             {
@@ -56,6 +56,7 @@ namespace DarkMessages.DesktopApp
             chatForm.notification = notification ?? new Notification();
             chatForm.isRequestSent = isRequestSent ?? false;
             chatForm.container = this;
+            chatForm.notificationsList = notificationsList ?? new NotificationsList();
             chatForm.TopLevel = false;
             chatForm.Dock = DockStyle.Fill;
             panelChat.Controls.Add(chatForm);
@@ -228,7 +229,7 @@ namespace DarkMessages.DesktopApp
             if (panelChat.Controls.ContainsKey("SettingsForm"))
             {
                 panelChat.Controls.Clear();
-                ChatFormInitializer(null, null, true, false, null, null);
+                ChatFormInitializer(null, null, true, false, null, null, null);
             }
             else 
             {

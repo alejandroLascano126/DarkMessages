@@ -85,8 +85,8 @@ namespace DarkMessages.DesktopApp
             bool resp = await QuitSession();
             if (resp)
             {
+                mainPage.Close();
                 container.LoginUserPageInitializer();
-                Close();
             }
             else 
             {

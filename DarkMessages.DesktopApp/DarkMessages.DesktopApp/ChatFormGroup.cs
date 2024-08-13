@@ -43,7 +43,7 @@ namespace DarkMessages.DesktopApp
         private int page;
         private int messagesCount;
         private int currentRow = 0;
-        private int rows = 6;
+        private int rows = 5;
         private int maxPage = 0;
         private int minPage = 1;
 

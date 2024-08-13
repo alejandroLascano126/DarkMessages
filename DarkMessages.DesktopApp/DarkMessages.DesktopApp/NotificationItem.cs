@@ -24,12 +24,8 @@ namespace DarkMessages.DesktopApp
         public Notification notification { get; set; }
         public MainPage mainPage { get; set; }
         public chat chat { get; set; }
+        public NotificationsList NotificationsList { get; set; }
         HttpClient client = new HttpClient();
-
-
-
-
-
 
         public NotificatioItm()
         {
@@ -75,43 +71,26 @@ namespace DarkMessages.DesktopApp
 
         private async void UserItem_MouseClick(object sender, MouseEventArgs e)
         {
-            mainPage.ChatFormInitializer(container.user.userName, chat, false, true, notification, null);
+            switch (notification.typeId) 
+            {
+                case 1:
+                    mainPage.ChatFormInitializer(container.user.userName, chat, false, true, notification, null, NotificationsList);
+                    break;
+                case 2:
+                    mainPage.ChatFormInitializer(container.user.userName, chat, true, false, notification, null, NotificationsList);
+                    break;
+                case 3:
+                    mainPage.ChatFormInitializer(container.user.userName, chat, true, false, notification, null, NotificationsList);
+                    break;
+                case 4:
+                    mainPage.ChatFormGroupInitializer(container.user.userName, chat);
+                    break;
+                case 5:
+                    mainPage.ChatFormInitializer(container.user.userName, chat, true, false, notification, null, NotificationsList);
+                    break;
+                default: 
+                    break;
+            }
         }
-
-        //private async Task<chat> consultChat()
-        //{
-        //    try
-        //    {
-        //        string urlPost = "api/darkmsgs/consultChats";
-        //        rqConsultChats rqInsertMessage = new rqConsultChats() { username = container.user.userName, rows = 0, page = 0, option = "ONE", chatId = 0 };
-        //        var rqSerialized = JsonSerializer.Serialize(rqInsertMessage);
-        //        HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
-        //        HttpResponseMessage response = await client.PostAsync(urlPost, content);
-        //        string responseBody = await response.Content.ReadAsStringAsync();
-        //        rpConsultChats rp = JsonSerializer.Deserialize<rpConsultChats>(responseBody) ?? new rpConsultChats();
-        //        if (rp.success)
-        //        {
-        //            if (rp.chats.Count > 0)
-        //            {
-        //                foreach (var chat in rp.chats)
-        //                {
-        //                    return chat;
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Error");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error: {ex}");
-        //    }
-
-        //    return new chat();
-        //}
-
-
     }
 }

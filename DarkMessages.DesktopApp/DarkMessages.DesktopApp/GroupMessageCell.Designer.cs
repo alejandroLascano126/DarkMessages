@@ -41,7 +41,7 @@
             messageCell.ForeColor = Color.White;
             messageCell.Location = new Point(0, 18);
             messageCell.Name = "messageCell";
-            messageCell.Size = new Size(150, 50);
+            messageCell.Size = new Size(30, 50);
             messageCell.TabIndex = 0;
             messageCell.Title = null;
             messageCell.UseVisualStyleBackColor = false;
@@ -64,6 +64,7 @@
             Controls.Add(messageCell);
             Name = "GroupMessageCell";
             Size = new Size(152, 69);
+            Load += GroupMessageCell_Load;
             ResumeLayout(false);
             PerformLayout();
         }

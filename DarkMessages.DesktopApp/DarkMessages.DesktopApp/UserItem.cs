@@ -80,7 +80,7 @@ namespace DarkMessages.DesktopApp
                 if (isContact)
                 {
                     bool isRequestSent = await consultfriendshipsRequests();
-                    container.ChatFormInitializer(username, chat, isFriend, false, null, isRequestSent);
+                    container.ChatFormInitializer(username, chat, isFriend, false, null, isRequestSent, null);
                 }
                 else
                 {

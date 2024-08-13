@@ -72,23 +72,59 @@ namespace DarkMessages.DesktopApp
                                 string username = "";
                                 string name = "";
                                 string email = "";
+                                string groupName = "";
+                                string groupId = "";
+                                string userIdRelated = "";
+                                string description =  "";
                                 JObject infoData = JObject.Parse(notification.infoJson);
-                                if (infoData != null && infoData.ContainsKey("usernameFirst")) 
-                                {
-                                    username = infoData["usernameFirst"]!.ToString();
-                                    name = infoData["completeName"]!.ToString();
-                                    email = infoData["email"]!.ToString(); 
-                                }
 
-                                chat chat = new chat() { name = name, friendUsername = username, email = email };
+                                chat chat = new chat();
+
                                 NotificatioItm notificatioItm = new NotificatioItm();
                                 notificatioItm.name = notification.title;
                                 notificatioItm.description = notification.description;
                                 notificatioItm.notification = notification;
                                 notificatioItm.mainPage = mainPage;
-                                notificatioItm.chat = chat;
                                 notificatioItm.container = container;
 
+                                switch (notification.typeId) 
+                                {
+                                     case 1 :
+                                     case 2 :
+                                        if (infoData != null && infoData.ContainsKey("usernameFirst"))
+                                        {
+                                            username = infoData["usernameFirst"]!.ToString();
+                                            name = infoData["completeName"]!.ToString();
+                                            email = infoData["email"]!.ToString();
+                                            chat = new chat() { name = name, friendUsername = username, email = email };
+                                        }
+                                        break;
+                                     case 3 :
+                                        break;
+                                     case 4 :
+                                        if (infoData != null && infoData.ContainsKey("description"))
+                                        {
+                                            groupName = infoData["groupName"]!.ToString();
+                                            groupId = infoData["groupId"]!.ToString();
+                                            userIdRelated = infoData["userIdRelated"]!.ToString();
+                                            description = infoData["description"]!.ToString();
+                                            chat = new chat() { name = groupName, entityId = Convert.ToInt32(groupId), userIdRelated = Convert.ToInt32(userIdRelated), description = description };
+                                        }
+                                        break;
+                                     case 5 :
+                                        if (infoData != null && infoData.ContainsKey("usernameFirst"))
+                                        {
+                                            username = infoData["usernameFirst"]!.ToString();
+                                            name = infoData["completeName"]!.ToString();
+                                            email = infoData["email"]!.ToString();
+                                            chat = new chat() { name = name, friendUsername = username, email = email };
+                                        }
+                                        break;
+                                }
+
+                                
+                                notificatioItm.chat = chat;
+                                notificatioItm.NotificationsList = this;
                                 flpNotifications.Controls.Add(notificatioItm);
                             }
                         }

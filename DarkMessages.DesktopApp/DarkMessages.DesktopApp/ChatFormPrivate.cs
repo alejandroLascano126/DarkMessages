@@ -43,6 +43,7 @@ namespace DarkMessages.DesktopApp
         public bool isFriendRequest { get; set; } = false;
         public bool isRequestSent { get; set; } = false;
         public Notification notification { get; set; }
+        public NotificationsList? notificationsList { get; set; }
         HttpClient client = new HttpClient();
         private int page;
         private int messagesCount;
@@ -81,6 +82,15 @@ namespace DarkMessages.DesktopApp
 
             if (!isInputDisabled)
                 await consultMessages(userName, chat.friendUsername ?? "", 7, page);
+
+            if (notification != null) 
+            {
+                if (notification.typeId == 2 || notification.typeId == 3) 
+                {
+                    if (await deleteNotification())
+                        await notificationsList!.loadNotifications(5,1);
+                }
+            }
 
         }
 
