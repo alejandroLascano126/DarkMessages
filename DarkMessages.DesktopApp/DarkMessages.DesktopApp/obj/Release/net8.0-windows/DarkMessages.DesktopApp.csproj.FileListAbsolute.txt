@@ -31,7 +31,6 @@ C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.Deskto
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Release\net8.0-windows\DarkMessages.models.dll
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Release\net8.0-windows\DarkMessages.models.pdb
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.csproj.AssemblyReference.cache
-C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.ChatForm.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.Container.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.LoginForm.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.MainPage.resources
@@ -51,7 +50,6 @@ C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.Deskto
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.pdb
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.genruntimeconfig.cache
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\ref\DarkMessages.DesktopApp.dll
-C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.FriendsList.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.MessageCell.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.UsersQueryView.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\bin\Release\net8.0-windows\appSettings.json
@@ -118,3 +116,13 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Rel
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\ref\DarkMessages.DesktopApp.dll
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.NotificatioItm.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.NotificationsList.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.ChatFormGroup.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.ChatFormPrivate.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.ChatList.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.CreateGroupButton.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.CreateGroupForm.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.GroupMessageCell.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.GroupSettingsForm.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.NotificatioItm.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.NotificationsList.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.SettingsForm.resources

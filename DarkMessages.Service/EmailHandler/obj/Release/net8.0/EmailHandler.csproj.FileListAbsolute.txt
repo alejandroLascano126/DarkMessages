@@ -21,3 +21,15 @@ E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\bin\Release\net8.0\Em
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\bin\Release\net8.0\EmailHandler.pdb
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Release\net8.0\ref\EmailHandler.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.sourcelink.json
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\bin\Release\net8.0\EmailHandler.deps.json
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\bin\Release\net8.0\EmailHandler.dll
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\bin\Release\net8.0\EmailHandler.pdb
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.AssemblyInfoInputs.cache
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.AssemblyInfo.cs
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.csproj.CoreCompileInputs.cache
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.sourcelink.json
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.dll
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\refint\EmailHandler.dll
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\EmailHandler.pdb
+C:\Proyectos personales\DarkMessages\DarkMessages.Service\EmailHandler\obj\Release\net8.0\ref\EmailHandler.dll

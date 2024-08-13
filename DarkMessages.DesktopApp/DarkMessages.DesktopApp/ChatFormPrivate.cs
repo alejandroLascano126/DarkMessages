@@ -42,7 +42,7 @@ namespace DarkMessages.DesktopApp
         public MainPage? container { get; set; }
         public bool isFriendRequest { get; set; } = false;
         public bool isRequestSent { get; set; } = false;
-        public Notification notification { get; set; }
+        public Notification? notification { get; set; }
         public NotificationsList? notificationsList { get; set; }
         HttpClient client = new HttpClient();
         private int page;
@@ -353,16 +353,20 @@ namespace DarkMessages.DesktopApp
                 tlpMessagesChat.Controls.Clear();
                 MessageCell messageCell = new MessageCell();
                 messageCell.TextAlign = ContentAlignment.MiddleCenter;
-                messageCell.Title = "request sent";
+                messageCell.Title = "Request sent";
                 messageCell.Description = "";
+                tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
             }
         }
 
         private async void messageCellAcceptFriendRequest(object sender, EventArgs e) 
         {
-            if (await deleteNotification()) 
+            if (notification != null) 
             {
-                await consultRegisterFriendship(userName, chat.friendUsername ?? "", "REG");
+                if (await deleteNotification())
+                {
+                    await consultRegisterFriendship(userName, chat.friendUsername ?? "", "REG");
+                }
             }
         }
 
@@ -466,7 +470,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/mantNotifications";
-                rqMantNotifications rqMantNotifications = new rqMantNotifications() { username = container!.user.userName, rows = 0, page = 0, notificationId = notification.notificationId, option = "DEL" };
+                rqMantNotifications rqMantNotifications = new rqMantNotifications() { username = container!.user.userName, rows = 0, page = 0, notificationId = notification!.notificationId, option = "DEL" };
                 var rqSerialized = JsonSerializer.Serialize(rqMantNotifications);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);

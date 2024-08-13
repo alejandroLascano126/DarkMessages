@@ -79,8 +79,9 @@ namespace DarkMessages.DesktopApp
             {
                 if (isContact)
                 {
-                    bool isRequestSent = await consultfriendshipsRequests();
-                    container.ChatFormInitializer(username, chat, isFriend, false, null, isRequestSent, null);
+                    bool isRequestSent = await consultfriendshipsRequests(container.user.userName, usernameFriend);
+                    bool isAcceptRequestAvailable = await consultfriendshipsRequests(usernameFriend, container.user.userName);
+                    container.ChatFormInitializer(username, chat, isFriend, isAcceptRequestAvailable, null, isRequestSent, null);
                 }
                 else
                 {
@@ -96,13 +97,13 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async Task<bool> consultfriendshipsRequests()
+        private async Task<bool> consultfriendshipsRequests(string usernameSender, string usernameReceiver)
         {
             try
             {
                 string urlPost = "api/darkmsgs/conusltfriendshipsRequests";
                 
-                rqConsultfriendshipsRequests rqConsultfriendshipsRequests = new rqConsultfriendshipsRequests() { usernameSender = container.user.userName, usernameReceiver = usernameFriend };
+                rqConsultfriendshipsRequests rqConsultfriendshipsRequests = new rqConsultfriendshipsRequests() { usernameSender = usernameSender, usernameReceiver = usernameReceiver };
                 var rqSerialized = JsonSerializer.Serialize(rqConsultfriendshipsRequests);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);

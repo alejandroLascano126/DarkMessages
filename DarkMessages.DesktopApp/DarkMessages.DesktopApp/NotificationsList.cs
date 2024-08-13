@@ -146,9 +146,12 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async void loadNew() 
+        private async void loadNewAsync() 
         {
-            await loadNotifications(rows, 1);
+            if(container != null) 
+            {
+                await loadNotifications(rows, 1);
+            }
         } 
 
 
@@ -160,11 +163,11 @@ namespace DarkMessages.DesktopApp
             {
                 if (InvokeRequired)
                 {
-                    Invoke(new Action(() => loadNew()));
+                    Invoke(new Action(() => loadNewAsync()));
                 }
                 else
                 {
-                    loadNew();
+                    loadNewAsync();
                 }
             });
             await hubConnection.StartAsync();
