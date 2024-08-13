@@ -70,7 +70,7 @@ namespace DarkMessages.DesktopApp
                 this.user = user!;
             MainPage mainPage = new MainPage();
             mainPage.container = this;
-            mainPage.user = user!;
+            mainPage.user = this.user!;
             mainPage.TopLevel = false;
             mainPage.Dock = DockStyle.Fill;
             Controls.Add(mainPage);
@@ -135,17 +135,17 @@ namespace DarkMessages.DesktopApp
             
         }
 
-        public void SettingsFormInitializer() 
-        {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.container = this;
-            settingsForm.user = user;
-            settingsForm.TopLevel = false;
-            settingsForm.Dock = DockStyle.Fill;
-            this.Controls.Add(settingsForm);
-            this.Tag = settingsForm;
-            settingsForm.Size = this.Size;
-            settingsForm.Show();
-        }
+        //public void SettingsFormInitializer() 
+        //{
+        //    SettingsForm settingsForm = new SettingsForm();
+        //    settingsForm.container = this;
+        //    settingsForm.user = user;
+        //    settingsForm.TopLevel = false;
+        //    settingsForm.Dock = DockStyle.Fill;
+        //    this.Controls.Add(settingsForm);
+        //    this.Tag = settingsForm;
+        //    settingsForm.Size = this.Size;
+        //    settingsForm.Show();
+        //}
     }
 }

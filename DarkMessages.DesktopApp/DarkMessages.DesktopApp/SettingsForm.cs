@@ -14,6 +14,7 @@ namespace DarkMessages.DesktopApp
         HttpClient client = new HttpClient();
         public Container container { get; set; }
         public User user { get; set; }
+        public MainPage mainPage { get; set; }
         public SettingsForm()
         {
             InitializeComponent();
@@ -91,12 +92,6 @@ namespace DarkMessages.DesktopApp
             {
                 MessageBox.Show("Session wasn't quit");
             }
-        }
-
-        private void btnBack_Click(object sender, EventArgs e) 
-        {
-            Close();
-            container.MainPageInitializer(user);
         }
     }
 }

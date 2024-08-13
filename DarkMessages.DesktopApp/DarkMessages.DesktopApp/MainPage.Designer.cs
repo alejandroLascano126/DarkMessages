@@ -28,28 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblFriends = new Label();
             panelChat = new Panel();
             panelUsers = new Panel();
             txtSearchFriends = new TextBox();
-            btnBackFriends = new Button();
+            btnSettings = new Button();
             lblUsername = new Label();
             panel1 = new Panel();
-            btnSettings = new CreateGroupButton();
-            btnNotifications = new CreateGroupButton();
+            btnContacts = new CreateGroupButton();
             btnCreateGroup = new CreateGroupButton();
+            btnNotifications = new CreateGroupButton();
+            btnChats = new CreateGroupButton();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblFriends
-            // 
-            lblFriends.AutoSize = true;
-            lblFriends.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            lblFriends.Location = new Point(13, 81);
-            lblFriends.Name = "lblFriends";
-            lblFriends.Size = new Size(52, 21);
-            lblFriends.TabIndex = 1;
-            lblFriends.Text = "Chats";
             // 
             // panelChat
             // 
@@ -72,25 +62,29 @@
             txtSearchFriends.Font = new Font("Segoe UI", 14F);
             txtSearchFriends.Location = new Point(13, 40);
             txtSearchFriends.Name = "txtSearchFriends";
-            txtSearchFriends.Size = new Size(297, 32);
+            txtSearchFriends.PlaceholderText = " Search";
+            txtSearchFriends.Size = new Size(334, 32);
             txtSearchFriends.TabIndex = 4;
             txtSearchFriends.Click += txtSearchFriends_Click;
             txtSearchFriends.TextChanged += txtSearchFriends_TextChanged;
             // 
-            // btnBackFriends
+            // btnSettings
             // 
-            btnBackFriends.BackColor = SystemColors.GradientInactiveCaption;
-            btnBackFriends.BackgroundImage = Properties.Resources.replay_10080194;
-            btnBackFriends.BackgroundImageLayout = ImageLayout.Stretch;
-            btnBackFriends.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
-            btnBackFriends.FlatAppearance.BorderSize = 0;
-            btnBackFriends.FlatStyle = FlatStyle.Flat;
-            btnBackFriends.Location = new Point(316, 41);
-            btnBackFriends.Name = "btnBackFriends";
-            btnBackFriends.Size = new Size(31, 32);
-            btnBackFriends.TabIndex = 5;
-            btnBackFriends.UseVisualStyleBackColor = false;
-            btnBackFriends.Click += btnAtrasFriends_Click;
+            btnSettings.BackColor = SystemColors.GradientInactiveCaption;
+            btnSettings.BackgroundImage = Properties.Resources.more_options;
+            btnSettings.BackgroundImageLayout = ImageLayout.Stretch;
+            btnSettings.Cursor = Cursors.Hand;
+            btnSettings.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
+            btnSettings.FlatAppearance.BorderSize = 0;
+            btnSettings.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnSettings.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Location = new Point(316, 9);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(31, 32);
+            btnSettings.TabIndex = 5;
+            btnSettings.UseVisualStyleBackColor = false;
+            btnSettings.Click += btnSettings_Click;
             // 
             // lblUsername
             // 
@@ -105,45 +99,31 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientInactiveCaption;
-            panel1.Controls.Add(btnNotifications);
-            panel1.Controls.Add(btnSettings);
+            panel1.Controls.Add(btnContacts);
             panel1.Controls.Add(btnCreateGroup);
             panel1.Controls.Add(txtSearchFriends);
             panel1.Controls.Add(lblUsername);
-            panel1.Controls.Add(btnBackFriends);
-            panel1.Controls.Add(lblFriends);
+            panel1.Controls.Add(btnNotifications);
+            panel1.Controls.Add(btnSettings);
+            panel1.Controls.Add(btnChats);
             panel1.Location = new Point(33, 48);
             panel1.Name = "panel1";
             panel1.Size = new Size(360, 116);
             panel1.TabIndex = 4;
             // 
-            // btnSettings
+            // btnContacts
             // 
-            btnSettings.BackColor = Color.DodgerBlue;
-            btnSettings.FlatAppearance.BorderSize = 0;
-            btnSettings.FlatStyle = FlatStyle.Flat;
-            btnSettings.ForeColor = Color.White;
-            btnSettings.Location = new Point(173, 79);
-            btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(84, 29);
-            btnSettings.TabIndex = 8;
-            btnSettings.Text = "Settings";
-            btnSettings.UseVisualStyleBackColor = false;
-            btnSettings.Click += btnSettings_Click;
-            // 
-            // btnNotifications
-            // 
-            btnNotifications.BackColor = Color.DodgerBlue;
-            btnNotifications.FlatAppearance.BorderSize = 0;
-            btnNotifications.FlatStyle = FlatStyle.Flat;
-            btnNotifications.ForeColor = Color.White;
-            btnNotifications.Location = new Point(83, 79);
-            btnNotifications.Name = "btnNotifications";
-            btnNotifications.Size = new Size(84, 29);
-            btnNotifications.TabIndex = 9;
-            btnNotifications.Text = "News";
-            btnNotifications.UseVisualStyleBackColor = false;
-            btnNotifications.Click += btnNotifications_Click;
+            btnContacts.BackColor = Color.DodgerBlue;
+            btnContacts.FlatAppearance.BorderSize = 0;
+            btnContacts.FlatStyle = FlatStyle.Flat;
+            btnContacts.ForeColor = Color.White;
+            btnContacts.Location = new Point(98, 78);
+            btnContacts.Name = "btnContacts";
+            btnContacts.Size = new Size(79, 29);
+            btnContacts.TabIndex = 8;
+            btnContacts.Text = "Contacts";
+            btnContacts.UseVisualStyleBackColor = false;
+            btnContacts.Click += btnContacts_Click;
             // 
             // btnCreateGroup
             // 
@@ -151,13 +131,41 @@
             btnCreateGroup.FlatAppearance.BorderSize = 0;
             btnCreateGroup.FlatStyle = FlatStyle.Flat;
             btnCreateGroup.ForeColor = Color.White;
-            btnCreateGroup.Location = new Point(263, 79);
+            btnCreateGroup.Location = new Point(268, 78);
             btnCreateGroup.Name = "btnCreateGroup";
-            btnCreateGroup.Size = new Size(84, 29);
+            btnCreateGroup.Size = new Size(79, 29);
             btnCreateGroup.TabIndex = 7;
             btnCreateGroup.Text = "New Group";
             btnCreateGroup.UseVisualStyleBackColor = false;
             btnCreateGroup.Click += btnCreateGroup_Click;
+            // 
+            // btnNotifications
+            // 
+            btnNotifications.BackColor = Color.DodgerBlue;
+            btnNotifications.FlatAppearance.BorderSize = 0;
+            btnNotifications.FlatStyle = FlatStyle.Flat;
+            btnNotifications.ForeColor = Color.White;
+            btnNotifications.Location = new Point(183, 78);
+            btnNotifications.Name = "btnNotifications";
+            btnNotifications.Size = new Size(79, 29);
+            btnNotifications.TabIndex = 9;
+            btnNotifications.Text = "News";
+            btnNotifications.UseVisualStyleBackColor = false;
+            btnNotifications.Click += btnNotifications_Click;
+            // 
+            // btnChats
+            // 
+            btnChats.BackColor = Color.DodgerBlue;
+            btnChats.FlatAppearance.BorderSize = 0;
+            btnChats.FlatStyle = FlatStyle.Flat;
+            btnChats.ForeColor = Color.White;
+            btnChats.Location = new Point(13, 78);
+            btnChats.Name = "btnChats";
+            btnChats.Size = new Size(79, 29);
+            btnChats.TabIndex = 10;
+            btnChats.Text = "Chats";
+            btnChats.UseVisualStyleBackColor = false;
+            btnChats.Click += btnChats_Click;
             // 
             // MainPage
             // 
@@ -178,15 +186,15 @@
         }
 
         #endregion
-        private Label lblFriends;
         private Panel panelChat;
         private Panel panelUsers;
         private TextBox txtSearchFriends;
-        private Button btnBackFriends;
+        private Button btnSettings;
         private Label lblUsername;
         private Panel panel1;
         private CreateGroupButton btnCreateGroup;
-        private CreateGroupButton btnSettings;
+        private CreateGroupButton btnContacts;
         private CreateGroupButton btnNotifications;
+        private CreateGroupButton btnChats;
     }
 }

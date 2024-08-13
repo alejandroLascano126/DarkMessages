@@ -30,7 +30,6 @@
         {
             btnQuitSession = new CreateGroupButton();
             label1 = new Label();
-            btnBack = new CreateGroupButton();
             SuspendLayout();
             // 
             // btnQuitSession
@@ -39,9 +38,9 @@
             btnQuitSession.FlatAppearance.BorderSize = 0;
             btnQuitSession.FlatStyle = FlatStyle.Flat;
             btnQuitSession.ForeColor = Color.White;
-            btnQuitSession.Location = new Point(82, 105);
+            btnQuitSession.Location = new Point(45, 71);
             btnQuitSession.Name = "btnQuitSession";
-            btnQuitSession.Size = new Size(133, 35);
+            btnQuitSession.Size = new Size(106, 35);
             btnQuitSession.TabIndex = 0;
             btnQuitSession.Text = "Log out";
             btnQuitSession.UseVisualStyleBackColor = false;
@@ -51,33 +50,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(82, 61);
+            label1.Location = new Point(45, 33);
             label1.Name = "label1";
             label1.Size = new Size(84, 25);
             label1.TabIndex = 1;
             label1.Text = "Settings";
-            // 
-            // btnBack
-            // 
-            btnBack.BackColor = Color.Silver;
-            btnBack.FlatAppearance.BorderSize = 0;
-            btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(970, 534);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(133, 35);
-            btnBack.TabIndex = 2;
-            btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += btnBack_Click;
             // 
             // SettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1175, 622);
-            Controls.Add(btnBack);
+            ClientSize = new Size(771, 544);
             Controls.Add(label1);
             Controls.Add(btnQuitSession);
             FormBorderStyle = FormBorderStyle.None;
@@ -91,6 +75,5 @@
 
         private CreateGroupButton btnQuitSession;
         private Label label1;
-        private CreateGroupButton btnBack;
     }
 }

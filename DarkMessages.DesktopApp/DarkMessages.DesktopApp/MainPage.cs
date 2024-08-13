@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace DarkMessages.DesktopApp
         public User user { get; set; }
         HttpClient client = new HttpClient();
         UsersQueryView usersQueryView = new UsersQueryView();
+        private string buttonSelectedBefore;
         public MainPage()
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace DarkMessages.DesktopApp
         {
             lblUsername.Text = container.user.name + " " + container.user.lastname;
             ChatFormInitializer(null, null, true, false, null, null);
+            colorSelectedButton("Chats");
             flpItemsUserInitializer();
         }
 
@@ -56,14 +59,13 @@ namespace DarkMessages.DesktopApp
             chatForm.TopLevel = false;
             chatForm.Dock = DockStyle.Fill;
             panelChat.Controls.Add(chatForm);
-            panelChat.Tag = chatForm;
+            chatForm.Tag = chatForm;
             chatForm.Size = panelChat.Size;
             chatForm.Show();
         }
 
         public void flpItemsUserInitializer()
         {
-            btnBackFriends.Enabled = false;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -74,7 +76,7 @@ namespace DarkMessages.DesktopApp
             friendsList.TopLevel = false;
             friendsList.Dock = DockStyle.Fill;
             panelUsers.Controls.Add(friendsList);
-            panelUsers.Tag = friendsList;
+            friendsList.Tag = friendsList;
             friendsList.Size = panelUsers.Size;
             friendsList.Show();
         }
@@ -87,7 +89,6 @@ namespace DarkMessages.DesktopApp
 
         public void flpQueryUserInitializer()
         {
-            btnBackFriends.Enabled = true;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -107,22 +108,16 @@ namespace DarkMessages.DesktopApp
             usersQueryView.value = txtSearchFriends.Text;
         }
 
-        private void btnAtrasFriends_Click(object sender, EventArgs e)
-        {
-            lblFriends.Text = "Chats";
-            flpItemsUserInitializer();
-            //ChatFormInitializer(null, null, true);
-        }
+
 
         private void btnCreateGroup_Click(object sender, EventArgs e)
         {
-            lblFriends.Text = "Groups";
+            colorSelectedButton("New Group");
             CreateGroupFormInitializer();
         }
 
         public void CreateGroupFormInitializer()
         {
-            btnBackFriends.Enabled = true;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -168,20 +163,14 @@ namespace DarkMessages.DesktopApp
             groupSettingsForm.TopLevel = false;
             groupSettingsForm.Dock = DockStyle.Fill;
             panelChat.Controls.Add(groupSettingsForm);
-            panelChat.Tag = groupSettingsForm;
+            groupSettingsForm.Tag = groupSettingsForm;
             groupSettingsForm.Size = panelChat.Size;
             groupSettingsForm.Show();
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            Close();
-            container.SettingsFormInitializer();
-        }
 
         public void NotificationsListInitializer()
         {
-            btnBackFriends.Enabled = true;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -199,8 +188,99 @@ namespace DarkMessages.DesktopApp
 
         private void btnNotifications_Click(object sender, EventArgs e)
         {
-            lblFriends.Text = "News";
+            colorSelectedButton("News");
             NotificationsListInitializer();
+        }
+
+        public void SettingsFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.container = container;
+            settingsForm.user = user;
+            settingsForm.mainPage = this;
+            settingsForm.TopLevel = false;
+            settingsForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(settingsForm);
+            settingsForm.Tag = settingsForm;
+            settingsForm.Size = panelChat.Size;
+            settingsForm.Show();
+        }
+
+        private void btnChats_Click(object sender, EventArgs e)
+        {
+            colorSelectedButton("Chats");
+            flpItemsUserInitializer();
+        }
+
+        private void btnContacts_Click(object sender, EventArgs e)
+        {
+            colorSelectedButton("Contacts");
+            flpQueryUserInitializer();
+            usersQueryView.value = txtSearchFriends.Text;
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            if (panelChat.Controls.ContainsKey("SettingsForm"))
+            {
+                panelChat.Controls.Clear();
+                ChatFormInitializer(null, null, true, false, null, null);
+            }
+            else 
+            {
+                SettingsFormInitializer();
+            }
+            
+        }
+
+        private void colorSelectedButton(string buttonName) 
+        {
+            if (!string.IsNullOrEmpty(buttonSelectedBefore) && buttonName != buttonSelectedBefore) 
+            {
+                DeselectButton(buttonSelectedBefore);
+            }
+            buttonSelectedBefore = buttonName;
+            switch (buttonName) 
+            {
+                case "Chats":
+                    btnChats.BackColor = SystemColors.Highlight;
+                    break;
+                case "Contacts":
+                    btnContacts.BackColor = SystemColors.Highlight;
+                    break;
+                case "News":
+                    btnNotifications.BackColor = SystemColors.Highlight;
+                    break;
+                case "New Group":
+                    btnCreateGroup.BackColor = SystemColors.Highlight;
+                    break;
+
+            }
+        }
+
+
+        private void DeselectButton(string buttonName) 
+        {
+            switch (buttonName)
+            {
+                case "Chats":
+                    btnChats.BackColor = Color.DodgerBlue;
+                    break;
+                case "Contacts":
+                    btnContacts.BackColor = Color.DodgerBlue;
+                    break;
+                case "News":
+                    btnNotifications.BackColor = Color.DodgerBlue;
+                    break;
+                case "New Group":
+                    btnCreateGroup.BackColor = Color.DodgerBlue;
+                    break;
+
+            }
         }
     }
 }

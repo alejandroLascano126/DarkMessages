@@ -67,26 +67,23 @@ namespace DarkMessages.DesktopApp
                     Console.WriteLine("Friends consulted correctly");
                     if (rp.users != null)
                     {
-                        if (rp.users.Count > 0) 
+                        if (flpUsersQuery.Controls.Count > 0)
                         {
-                            if (flpUsersQuery.Controls.Count > 0)
-                            {
-                                flpUsersQuery.Controls.Clear();
-                            }
-                            foreach (var user in rp.users)
-                            {
-                                chat chat = new chat() { name = user.name ?? "", friendUsername = user.userName ?? "", email = user.email };
-                                UserItem item = new UserItem();
-                                item.name = $"{user.name} {user.lastname}" ?? "";
-                                item.description = (user.isFriend) ? "Friend" : "";
-                                item.username = container.user.userName;
-                                item.chat = chat;
-                                item.usernameFriend = user.userName ?? "";
-                                item.isFriend = user.isFriend;
-                                item.isContact = true;
-                                item.container = mainPage;
-                                flpUsersQuery.Controls.Add(item);
-                            }
+                            flpUsersQuery.Controls.Clear();
+                        }
+                        foreach (var user in rp.users)
+                        {
+                            chat chat = new chat() { name = user.name ?? "", friendUsername = user.userName ?? "", email = user.email };
+                            UserItem item = new UserItem();
+                            item.name = $"{user.name} {user.lastname}" ?? "";
+                            item.description = (user.isFriend) ? "Friend" : "";
+                            item.username = container.user.userName;
+                            item.chat = chat;
+                            item.usernameFriend = user.userName ?? "";
+                            item.isFriend = user.isFriend;
+                            item.isContact = true;
+                            item.container = mainPage;
+                            flpUsersQuery.Controls.Add(item);
                         }
                     }
                     else 
