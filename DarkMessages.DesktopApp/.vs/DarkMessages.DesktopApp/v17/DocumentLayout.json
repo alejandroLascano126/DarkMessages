@@ -3,28 +3,44 @@
   "WorkspaceRootPath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\darkmessages.desktopapp\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\darkmessages.desktopapp\\usersqueryview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\usersqueryview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\darkmessages.desktopapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\darkmessages.desktopapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\darkmessages.desktopapp\\useritem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\useritem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\usersqueryview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\usersqueryview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\chatformprivate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\darkmessages.desktopapp\\chatformprivate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\chatformprivate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.desktopapp\\darkmessages.desktopapp\\notificationitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\darkmessages.desktopapp\\notificationitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\notificationitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\darkmessages.desktopapp\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\mainpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,37 +50,88 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appSettings.json",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\appSettings.json",
               "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\appSettings.json",
               "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\appSettings.json",
               "RelativeToolTip": "DarkMessages.DesktopApp\\appSettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAcAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-13T15:43:39.112Z",
+              "WhenOpened": "2024-08-14T22:05:20.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\LoginForm.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\LoginForm.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\LoginForm.cs",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\LoginForm.cs",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAcwIIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T21:47:51.867Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LoginForm.cs [Design]",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\LoginForm.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\LoginForm.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\LoginForm.cs [Design]",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\LoginForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T21:47:45.97Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\Program.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\Program.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\Program.cs",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\Program.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAA9wCkAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T21:46:01.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DarkMessages.DesktopApp",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwDgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-13T22:09:33.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "UsersQueryView.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\UsersQueryView.cs",
               "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\UsersQueryView.cs",
               "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\UsersQueryView.cs",
               "RelativeToolTip": "DarkMessages.DesktopApp\\UsersQueryView.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAmwEoAAAAZAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAtwCkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-13T15:34:49.149Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "NotificationItem.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\NotificationItem.cs",
               "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\NotificationItem.cs",
@@ -72,12 +139,11 @@
               "RelativeToolTip": "DarkMessages.DesktopApp\\NotificationItem.cs",
               "ViewState": "AQIAAD0AAAAAAAAAAAAYwEcAAABPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T15:15:37.515Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T15:15:37.515Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "ChatFormPrivate.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\ChatFormPrivate.cs",
               "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\ChatFormPrivate.cs",
@@ -85,25 +151,24 @@
               "RelativeToolTip": "DarkMessages.DesktopApp\\ChatFormPrivate.cs",
               "ViewState": "AQIAAEIBAAAAAAAAAAAAwEYBAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T14:44:16.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T14:44:16.849Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "MainPage.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\MainPage.cs",
               "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\MainPage.cs",
               "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\MainPage.cs",
               "RelativeToolTip": "DarkMessages.DesktopApp\\MainPage.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAiwKkAAAAJAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAlwBsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T14:39:56.263Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "UserItem.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\UserItem.cs",
               "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\UserItem.cs",
@@ -111,8 +176,7 @@
               "RelativeToolTip": "DarkMessages.DesktopApp\\UserItem.cs",
               "ViewState": "AQIAAEEAAAAAAAAAAAAswEoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T14:39:25.333Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-12T14:39:25.333Z"
             }
           ]
         }

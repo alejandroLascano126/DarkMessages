@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj": {}
+    "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj": {}
   },
   "projects": {
-    "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj": {
+    "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj",
+        "projectUniqueName": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj",
         "projectName": "ConsoleTest",
-        "projectPath": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj",
-        "packagesPath": "C:\\Users\\aleja\\.nuget\\packages\\",
-        "outputPath": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\ConsoleTest\\obj\\",
+        "projectPath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj",
+        "packagesPath": "C:\\Users\\usrTechsoft\\.nuget\\packages\\",
+        "outputPath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\ConsoleTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\aleja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\usrTechsoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -48,6 +52,12 @@
             "MailKit": {
               "target": "Package",
               "version": "[4.7.0, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.3, )",
+              "autoReferenced": true
             },
             "Microsoft.Office.Interop.Outlook": {
               "target": "Package",
@@ -65,12 +75,31 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.3, 8.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.3, 8.0.3]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.3, 8.0.3]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
         }
       }
     }

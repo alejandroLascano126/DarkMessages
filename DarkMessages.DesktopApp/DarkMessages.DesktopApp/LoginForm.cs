@@ -166,6 +166,7 @@ namespace DarkMessages.DesktopApp
         public int userId { get; set; }
         public string name { get; set; }
         public string lastname { get; set; }
+        public bool isDevelopment { get; set; }
     }
 
     public class Root

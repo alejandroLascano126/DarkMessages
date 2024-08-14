@@ -1,0 +1,2 @@
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\ConsoleTest\bin\Release\net8.0\win-x64\publish\ConsoleTest.pdb
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\ConsoleTest\bin\Release\net8.0\win-x64\publish\ConsoleTest.exe
