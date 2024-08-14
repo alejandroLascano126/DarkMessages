@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+	<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
   </PropertyGroup>
 	
   <ItemGroup>
@@ -31,9 +32,7 @@
     <Compile Update="ChatFormGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="CreateGroupButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Update="CreateGroupButton.cs" />
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -3,6 +3,7 @@ using DarkMessages.models.Friends;
 using DarkMessages.models.Groups;
 using DarkMessages.models.Login;
 using DarkMessages.models.Message;
+using DarkMessages.models.Notifications;
 using DarkMessages.models.SignUp;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json.Linq;
@@ -32,8 +33,8 @@ namespace DarkMessages.DesktopApp
 {
     public partial class ChatFormGroup : Form
     {
-        public string userName { get; set; }
-        public chat chat { get; set; }
+        public string? userName { get; set; }
+        public chat? chat { get; set; }
         private bool isInputDisabled { get; set; } = false;
         private HubConnection hubConnection;
         public rpConsultMessages rpConsultMessages { get; set; }
@@ -52,12 +53,17 @@ namespace DarkMessages.DesktopApp
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
             InitializeSignalR();
-
         }
 
         private async void ChatForm_Load(object sender, EventArgs e)
         {
-            lblNameChat.Text = chat.name;
+            if (GlobalVariables.chat != null)
+            {
+                chat = GlobalVariables.chat;
+                userName = GlobalVariables.username!;
+            }
+
+            lblNameChat.Text = chat!.name;
             messages = new List<groupMessage>() { };
             messagesCount = await countGroupMessages();
             page = (int)Math.Ceiling((double)messagesCount / rows);
@@ -70,6 +76,8 @@ namespace DarkMessages.DesktopApp
             }
             if (!isInputDisabled)
                 await consultMessages(rows, page);
+
+            saveStateCache();
         }
 
         private async void btnSendMessage_Click(object sender, EventArgs e)
@@ -77,7 +85,7 @@ namespace DarkMessages.DesktopApp
 
             if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
             {
-                await sendMessage(userName, chat.entityId, rtbSendMessage.Text);
+                await sendMessage(userName!, chat!.entityId, rtbSendMessage.Text);
 
                 rtbSendMessage.Text = "";
             }
@@ -142,7 +150,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/consultGroupMessages";
-                rqConsultGroupMessages rqConsultMessages = new rqConsultGroupMessages() { groupId = chat.entityId, rows = rows, page = page };
+                rqConsultGroupMessages rqConsultMessages = new rqConsultGroupMessages() { groupId = chat!.entityId, rows = rows, page = page };
                 var rqSerialized = JsonSerializer.Serialize(rqConsultMessages);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -191,7 +199,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/countGroupMessages";
-                rqCountGroupMessages rqCountGroupMessages = new rqCountGroupMessages() { groupId = chat.entityId };
+                rqCountGroupMessages rqCountGroupMessages = new rqCountGroupMessages() { groupId = chat!.entityId };
                 var rqSerialized = JsonSerializer.Serialize(rqCountGroupMessages);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
@@ -265,7 +273,7 @@ namespace DarkMessages.DesktopApp
                                     foreach (Control userItem in flpC.Controls)
                                     {
                                         UserItem usitem = (UserItem)userItem;
-                                        if (usitem.name == chat.name)
+                                        if (usitem.name == chat!.name)
                                         {
                                             usitem.description = lastMessage;
                                         }
@@ -351,7 +359,7 @@ namespace DarkMessages.DesktopApp
 
         private void panelUpChat_Click(object sender, EventArgs e)
         {
-            container!.GroupSettingsFormInitializer(chat);
+            container!.GroupSettingsFormInitializer(chat!);
         }
 
         private async void TlpMessagesChat_MouseWheel(object sender, MouseEventArgs e)
@@ -378,7 +386,7 @@ namespace DarkMessages.DesktopApp
             {
                 if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
                 {
-                    await sendMessage(userName, chat.entityId, rtbSendMessage.Text);
+                    await sendMessage(userName!, chat!.entityId, rtbSendMessage.Text);
 
                     rtbSendMessage.Text = "";
                 }
@@ -399,6 +407,16 @@ namespace DarkMessages.DesktopApp
                 return false;
             }
             return true;
+        }
+
+        private void saveStateCache()
+        {
+            if (!string.IsNullOrEmpty(chat!.name))
+            {
+                GlobalVariables.chat = chat;
+                GlobalVariables.username = container!.user.userName;
+                GlobalVariables.chatType = ChatType.groupChat;
+            }
         }
     }
 

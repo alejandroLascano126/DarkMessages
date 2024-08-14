@@ -1,6 +1,9 @@
 ﻿using DarkMessages.DesktopApp.Helpers;
+using DarkMessages.models.Chats;
+using DarkMessages.models.Notifications;
 using DarkMessages.models.Session;
 using DarkMessages.models.Usuarios;
+using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Text;
 using System.Text.Json;
@@ -49,6 +52,7 @@ namespace DarkMessages.DesktopApp
                         root.appSettings.name = "";
                         root.appSettings.lastname = "";
 
+                        container.user = null;
 
                         var options = new JsonSerializerOptions { WriteIndented = true };
                         string updatedJsonText = JsonSerializer.Serialize(root, options);
@@ -58,9 +62,16 @@ namespace DarkMessages.DesktopApp
                         GlobalVariables.userId = 0;
                         GlobalVariables.name = "";
                         GlobalVariables.lastname = "";
+                        GlobalVariables.username = null;
+                        GlobalVariables.chat= null;
+                        GlobalVariables.isFriend= null;
+                        GlobalVariables.isFriendRequest= null;
+                        GlobalVariables.notification= null;
+                        GlobalVariables.isRequestSent= null;
+                        GlobalVariables.notificationsList= null;
+                        GlobalVariables.chatType = null;
 
                         return true;
-
                     }
                     else
                     {

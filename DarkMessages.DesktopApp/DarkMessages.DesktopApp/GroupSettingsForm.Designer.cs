@@ -182,6 +182,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(770, 543);
+            Controls.Add(btnViewContacts);
             Controls.Add(btnBack);
             Controls.Add(lblResponseMessage);
             Controls.Add(flpContacts);
@@ -190,7 +191,6 @@
             Controls.Add(lblContacts);
             Controls.Add(lblDescription);
             Controls.Add(txtDescription);
-            Controls.Add(btnViewContacts);
             Controls.Add(txtSelectedContact);
             Controls.Add(btnAddContact);
             Controls.Add(label1);

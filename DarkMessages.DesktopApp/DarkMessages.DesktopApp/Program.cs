@@ -1,4 +1,7 @@
 using System;
+using System.Net.NetworkInformation;
+using DarkMessages.models.Chats;
+using DarkMessages.models.Notifications;
 using Microsoft.Extensions.Configuration;
 
 namespace DarkMessages.DesktopApp
@@ -23,6 +26,7 @@ namespace DarkMessages.DesktopApp
             GlobalVariables.userId = Convert.ToInt32(configuration["appSettings:userId"]!);
             GlobalVariables.name = configuration["appSettings:name"]!;
             GlobalVariables.lastname = configuration["appSettings:lastname"]!;
+            GlobalVariables.isDevelopment = Convert.ToBoolean(configuration["appSettings:isDevelopment"]!);
 
 
 
@@ -41,5 +45,16 @@ namespace DarkMessages.DesktopApp
         public static int userId { get; set; }
         public static string name { get; set; }
         public static string lastname { get; set; }
+        public static string? username { get; set; }
+        public static chat? chat { get; set; }
+        public static bool? isFriend { get; set; }
+        public static bool? isFriendRequest { get; set; }
+        public static Notification? notification { get; set; }
+        public static bool? isRequestSent { get; set; }
+        public static NotificationsList? notificationsList { get; set; }
+        public static ChatType? chatType { get; set; }
+        public static bool isDevelopment { get; set; }
     }
+
+    public enum ChatType{privateChat, groupChat }
 }

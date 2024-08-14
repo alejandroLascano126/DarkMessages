@@ -3,6 +3,7 @@ using DarkMessages.models.Friends;
 using DarkMessages.models.Message;
 using DarkMessages.models.Notifications;
 using DarkMessages.models.Usuarios;
+using Microsoft.AspNetCore.Connections.Features;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +45,8 @@ namespace DarkMessages.DesktopApp
 
         public void ChatFormInitializer(string? username, chat? chat, bool isFriend, bool isFriendRequest, Notification? notification, bool? isRequestSent, NotificationsList? notificationsList)
         {
+            if(chat != null)
+                resetStateCache();
             if (panelChat.Controls.Count > 0)
             {
                 panelChat.Controls.Clear();
@@ -135,6 +138,9 @@ namespace DarkMessages.DesktopApp
 
         public void ChatFormGroupInitializer(string username, chat chat)
         {
+            if (!string.IsNullOrEmpty(username) && chat != null)
+                resetStateCache();
+            
             if (panelChat.Controls.Count > 0)
             {
                 panelChat.Controls.Clear();
@@ -229,7 +235,12 @@ namespace DarkMessages.DesktopApp
             if (panelChat.Controls.ContainsKey("SettingsForm"))
             {
                 panelChat.Controls.Clear();
-                ChatFormInitializer(null, null, true, false, null, null, null);
+                if(GlobalVariables.chatType == ChatType.privateChat)
+                    ChatFormInitializer(null, null, true, false, null, null, null);
+                if (GlobalVariables.chatType == ChatType.groupChat)
+                    ChatFormGroupInitializer(null,null);
+                else
+                    ChatFormInitializer(null, null, true, false, null, null, null);
             }
             else 
             {
@@ -282,6 +293,18 @@ namespace DarkMessages.DesktopApp
                     break;
 
             }
+        }
+
+        private void resetStateCache() 
+        {
+            GlobalVariables.chat = null;
+            GlobalVariables.isFriend = null;
+            GlobalVariables.notification = null;
+            GlobalVariables.notificationsList = null;
+            GlobalVariables.username = null;
+            GlobalVariables.isFriendRequest = null;
+            GlobalVariables.isRequestSent = null;
+            GlobalVariables.chatType = null;
         }
     }
 }

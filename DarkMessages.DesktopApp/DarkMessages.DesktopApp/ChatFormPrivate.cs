@@ -61,6 +61,14 @@ namespace DarkMessages.DesktopApp
 
         private async void ChatForm_Load(object sender, EventArgs e)
         {
+            if (GlobalVariables.chat != null) 
+            {
+                chat = GlobalVariables.chat;
+                isFriend = GlobalVariables.isFriend ?? false;
+                userName = GlobalVariables.username ?? string.Empty;
+            }
+
+
             lblNameChat.Text = chat.name;
 
             messagesCount = await countMessages(userName, chat.friendUsername ?? "");
@@ -92,6 +100,7 @@ namespace DarkMessages.DesktopApp
                 }
             }
 
+            saveStateCache();
         }
 
         private async void btnSendMessage_Click(object sender, EventArgs e)
@@ -490,6 +499,21 @@ namespace DarkMessages.DesktopApp
                 MessageBox.Show($"Error: {ex}");
             }
             return false;
+        }
+
+        private void saveStateCache() 
+        {
+            if (!string.IsNullOrEmpty(chat.name)) 
+            {
+                GlobalVariables.chat = chat;
+                GlobalVariables.isFriend = isFriend;
+                GlobalVariables.notification = notification;
+                GlobalVariables.notificationsList = notificationsList;
+                GlobalVariables.username = container!.user.userName;
+                GlobalVariables.isFriendRequest = isFriendRequest;
+                GlobalVariables.isRequestSent = isRequestSent;
+                GlobalVariables.chatType = ChatType.privateChat;
+            }
         }
     }
 

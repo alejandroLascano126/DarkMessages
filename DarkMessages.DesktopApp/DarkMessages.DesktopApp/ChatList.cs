@@ -76,6 +76,22 @@ namespace DarkMessages.DesktopApp
                             item.isFriend = (!string.IsNullOrEmpty(chat.friendUsername)) ? true : false;
                             item.isContact = chat.typeChatId == 1 ? true : false;
                             item.container = mainPage;
+                            if (GlobalVariables.isDevelopment)
+                            {
+                                string groupRelativePath = @"..\..\..\resources\multiple-users-silhouette.png";
+                                string privateRelativePath = @"..\..\..\resources\user-solid.png";
+                                string fullPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, (item.isContact) ? privateRelativePath : groupRelativePath));
+                                item.icon = Image.FromFile(fullPath);
+                            }
+                            else 
+                            {
+                                string groupRelativePath = @"resources\multiple-users-silhouette.png";
+                                string privateRelativePath = @"resources\user-solid.png";
+                                string fullPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, (item.isContact) ? privateRelativePath : groupRelativePath));
+                                item.icon = Image.FromFile(fullPath);
+                            }
+
+                            
                             flpItemsUser.Controls.Add(item);
                         }
                     }

@@ -51,6 +51,7 @@
             txtPasswordLogin.BackColor = SystemColors.HighlightText;
             txtPasswordLogin.Location = new Point(273, 127);
             txtPasswordLogin.Name = "txtPasswordLogin";
+            txtPasswordLogin.PasswordChar = '*';
             txtPasswordLogin.Size = new Size(100, 23);
             txtPasswordLogin.TabIndex = 1;
             // 

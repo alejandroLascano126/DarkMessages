@@ -59,7 +59,7 @@ namespace DarkMessages.DesktopApp
         public Image icon
         {
             get { return icon; }
-            set { _icon = value; }
+            set { _icon = value; picboxUserItem.Image = _icon; }
         }
 
 

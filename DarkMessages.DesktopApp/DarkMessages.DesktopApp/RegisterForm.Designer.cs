@@ -34,6 +34,10 @@
             label4 = new Label();
             label5 = new Label();
             groupBox1 = new GroupBox();
+            txtLastname = new TextBox();
+            txtName = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
             cbCountry = new ComboBox();
             cbLanguages = new ComboBox();
             btnBackRegister = new Button();
@@ -41,10 +45,6 @@
             txtRemail = new TextBox();
             txtRpassword = new TextBox();
             txtRusername = new TextBox();
-            label6 = new Label();
-            label7 = new Label();
-            txtName = new TextBox();
-            txtLastname = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -118,6 +118,38 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Register user";
             // 
+            // txtLastname
+            // 
+            txtLastname.Location = new Point(251, 56);
+            txtLastname.Name = "txtLastname";
+            txtLastname.Size = new Size(171, 23);
+            txtLastname.TabIndex = 17;
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(52, 56);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(171, 23);
+            txtName.TabIndex = 16;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(251, 38);
+            label7.Name = "label7";
+            label7.Size = new Size(55, 15);
+            label7.TabIndex = 15;
+            label7.Text = "lastname";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(52, 38);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 15);
+            label6.TabIndex = 14;
+            label6.Text = "name";
+            // 
             // cbCountry
             // 
             cbCountry.FormattingEnabled = true;
@@ -167,6 +199,7 @@
             // 
             txtRpassword.Location = new Point(251, 100);
             txtRpassword.Name = "txtRpassword";
+            txtRpassword.PasswordChar = '*';
             txtRpassword.Size = new Size(171, 23);
             txtRpassword.TabIndex = 6;
             // 
@@ -176,38 +209,6 @@
             txtRusername.Name = "txtRusername";
             txtRusername.Size = new Size(171, 23);
             txtRusername.TabIndex = 5;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(52, 38);
-            label6.Name = "label6";
-            label6.Size = new Size(37, 15);
-            label6.TabIndex = 14;
-            label6.Text = "name";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(251, 38);
-            label7.Name = "label7";
-            label7.Size = new Size(55, 15);
-            label7.TabIndex = 15;
-            label7.Text = "lastname";
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(52, 56);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(171, 23);
-            txtName.TabIndex = 16;
-            // 
-            // txtLastname
-            // 
-            txtLastname.Location = new Point(251, 56);
-            txtLastname.Name = "txtLastname";
-            txtLastname.Size = new Size(171, 23);
-            txtLastname.TabIndex = 17;
             // 
             // RegisterForm
             // 
