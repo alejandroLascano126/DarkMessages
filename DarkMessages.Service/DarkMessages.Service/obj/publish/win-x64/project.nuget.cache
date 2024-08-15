@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uWBbG58mwou46toRD+qHjQz6n5+XcS0RH7TRMmjeberk3YrLB0/mUvlNyniDC9BaVjwhIi2v89eyD3lvkcXPAA==",
+  "dgSpecHash": "TKRB5w9f4LUC6QMJyZYHlgZlDid0QXmmDs/H55YkcQy41XETYTdgrAoSqRXGGJy9GBCqXQsgaOjBMgBph8rE2g==",
   "success": true,
   "projectFilePath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\DarkMessages.Service\\DarkMessages.Service.csproj",
   "expectedPackageFiles": [
@@ -97,10 +97,7 @@
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.threading.channels\\4.5.0\\system.threading.channels.4.5.0.nupkg.sha512",
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.3\\microsoft.netcore.app.runtime.win-x64.8.0.3.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.3.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.3\\microsoft.aspnetcore.app.runtime.win-x64.8.0.3.nupkg.sha512"
+    "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }

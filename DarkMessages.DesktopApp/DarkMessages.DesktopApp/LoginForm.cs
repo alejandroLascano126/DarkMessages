@@ -64,10 +64,10 @@ namespace DarkMessages.DesktopApp
                     Close();
                     MessageBox.Show(rpLogin.message);
                     int id = Convert.ToInt32(rpLogin.id);
-                    User user = new User() { Id = id, userName = username, name = rpLogin.name, lastname = rpLogin.lastname };
+                    User user = new User() { Id = id, userName = username, name = rpLogin.name, lastname = rpLogin.lastname, email = rpLogin.email };
                     if (GlobalVariables.emailValidation)
                     {
-                        InitSession(username, id, rpLogin.name, rpLogin.lastname);
+                        InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
                         bool follow = await LoginSession(username);
                         if (!follow) 
                         {
@@ -77,7 +77,7 @@ namespace DarkMessages.DesktopApp
                     }
                     else 
                     {
-                        InitSession(username, id, rpLogin.name, rpLogin.lastname);
+                        InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
                         bool follow = await LoginSession(username);
                         if (!follow)
                         {
@@ -131,7 +131,7 @@ namespace DarkMessages.DesktopApp
         }
 
 
-        public void InitSession(string lastUsername, int userId, string name, string lastname)
+        public void InitSession(string lastUsername, int userId, string name, string lastname, string email)
         {
             if (string.IsNullOrEmpty(GlobalVariables.lastUsername))
             {
@@ -143,6 +143,7 @@ namespace DarkMessages.DesktopApp
                 root.appSettings.userId = userId;
                 root.appSettings.name = name;
                 root.appSettings.lastname = lastname;
+                root.appSettings.email = email;
 
                 var options = new JsonSerializerOptions { WriteIndented = true };
                 string updatedJsonText = JsonSerializer.Serialize(root, options);
@@ -152,6 +153,7 @@ namespace DarkMessages.DesktopApp
                 GlobalVariables.userId = userId;
                 GlobalVariables.name = name;
                 GlobalVariables.lastname = lastname;
+                GlobalVariables.email = email;
             }
         }
     }
@@ -166,6 +168,7 @@ namespace DarkMessages.DesktopApp
         public int userId { get; set; }
         public string name { get; set; }
         public string lastname { get; set; }
+        public string email { get; set; }
         public bool isDevelopment { get; set; }
     }
 

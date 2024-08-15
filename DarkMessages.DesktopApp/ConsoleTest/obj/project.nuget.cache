@@ -1,19 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "dqJeJhrPplpVSf+N4VFWUYzvUz4yLP0J8ybxHzDzU32qvzRWWccMpjPYInU2X+D11Hx7wCxMmR6MUxdXabKNFQ==",
+  "dgSpecHash": "R4sJka55FEKX9sMximicC5nXqvLoVHrRRn0a69SMWYYb5XG8Hu4/W2MlBp2H/xUhhDJKKmi9KmKLn3z+k0eH7w==",
   "success": true,
   "projectFilePath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.DesktopApp\\ConsoleTest\\ConsoleTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\mailkit\\4.7.0\\mailkit.4.7.0.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.3\\microsoft.net.illink.tasks.8.0.3.nupkg.sha512",
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.office.interop.outlook\\15.0.4797.1004\\microsoft.office.interop.outlook.15.0.4797.1004.nupkg.sha512",
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\mimekit\\4.7.0\\mimekit.4.7.0.nupkg.sha512",
     "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.formats.asn1\\8.0.0\\system.formats.asn1.8.0.0.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.0\\system.security.cryptography.pkcs.8.0.0.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.3\\microsoft.netcore.app.runtime.win-x64.8.0.3.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.3.nupkg.sha512",
-    "C:\\Users\\usrTechsoft\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.3\\microsoft.aspnetcore.app.runtime.win-x64.8.0.3.nupkg.sha512"
+    "C:\\Users\\usrTechsoft\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.0\\system.security.cryptography.pkcs.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

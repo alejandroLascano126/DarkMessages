@@ -27,6 +27,8 @@ namespace DarkMessages.DesktopApp
         HttpClient client = new HttpClient();
         UsersQueryView usersQueryView = new UsersQueryView();
         private string buttonSelectedBefore;
+        private string buttonSelected = "Chats";
+        private TabType tabSelected { get; set; }
         public MainPage()
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace DarkMessages.DesktopApp
 
         public void ChatFormInitializer(string? username, chat? chat, bool isFriend, bool isFriendRequest, Notification? notification, bool? isRequestSent, NotificationsList? notificationsList)
         {
-            if(chat != null)
+            if (chat != null)
                 resetStateCache();
             if (panelChat.Controls.Count > 0)
             {
@@ -70,6 +72,7 @@ namespace DarkMessages.DesktopApp
 
         public void flpItemsUserInitializer()
         {
+            tabSelected = TabType.chats;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -93,6 +96,7 @@ namespace DarkMessages.DesktopApp
 
         public void flpQueryUserInitializer()
         {
+            tabSelected = TabType.contacts;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -112,16 +116,16 @@ namespace DarkMessages.DesktopApp
             usersQueryView.value = txtSearchFriends.Text;
         }
 
-
-
         private void btnCreateGroup_Click(object sender, EventArgs e)
         {
+            buttonSelected = "New Group";
             colorSelectedButton("New Group");
             CreateGroupFormInitializer();
         }
 
         public void CreateGroupFormInitializer()
         {
+            tabSelected = TabType.group;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -140,7 +144,7 @@ namespace DarkMessages.DesktopApp
         {
             if (!string.IsNullOrEmpty(username) && chat != null)
                 resetStateCache();
-            
+
             if (panelChat.Controls.Count > 0)
             {
                 panelChat.Controls.Clear();
@@ -178,6 +182,7 @@ namespace DarkMessages.DesktopApp
 
         public void NotificationsListInitializer()
         {
+            tabSelected = TabType.news;
             if (panelUsers.Controls.Count > 0)
             {
                 panelUsers.Controls.Clear();
@@ -195,6 +200,7 @@ namespace DarkMessages.DesktopApp
 
         private void btnNotifications_Click(object sender, EventArgs e)
         {
+            buttonSelected = "News";
             colorSelectedButton("News");
             NotificationsListInitializer();
         }
@@ -219,12 +225,14 @@ namespace DarkMessages.DesktopApp
 
         private void btnChats_Click(object sender, EventArgs e)
         {
+            buttonSelected = "Chats";
             colorSelectedButton("Chats");
             flpItemsUserInitializer();
         }
 
         private void btnContacts_Click(object sender, EventArgs e)
         {
+            buttonSelected = "Contacts";
             colorSelectedButton("Contacts");
             flpQueryUserInitializer();
             usersQueryView.value = txtSearchFriends.Text;
@@ -232,31 +240,34 @@ namespace DarkMessages.DesktopApp
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            if (panelChat.Controls.ContainsKey("SettingsForm"))
+            if (panelUsers.Controls.ContainsKey("SettingsList"))
             {
                 panelChat.Controls.Clear();
-                if(GlobalVariables.chatType == ChatType.privateChat)
+                if (GlobalVariables.chatType == ChatType.privateChat)
                     ChatFormInitializer(null, null, true, false, null, null, null);
                 if (GlobalVariables.chatType == ChatType.groupChat)
-                    ChatFormGroupInitializer(null,null);
+                    ChatFormGroupInitializer(null, null);
                 else
                     ChatFormInitializer(null, null, true, false, null, null, null);
+
+                selectedTab(tabSelected);
             }
-            else 
+            else
             {
-                SettingsFormInitializer();
+                DeselectButton(buttonSelected);
+                SettingsListInitializer();
             }
-            
+
         }
 
-        private void colorSelectedButton(string buttonName) 
+        private void colorSelectedButton(string buttonName)
         {
-            if (!string.IsNullOrEmpty(buttonSelectedBefore) && buttonName != buttonSelectedBefore) 
+            if (!string.IsNullOrEmpty(buttonSelectedBefore) && buttonName != buttonSelectedBefore)
             {
                 DeselectButton(buttonSelectedBefore);
             }
             buttonSelectedBefore = buttonName;
-            switch (buttonName) 
+            switch (buttonName)
             {
                 case "Chats":
                     btnChats.BackColor = SystemColors.Highlight;
@@ -275,7 +286,7 @@ namespace DarkMessages.DesktopApp
         }
 
 
-        private void DeselectButton(string buttonName) 
+        private void DeselectButton(string buttonName)
         {
             switch (buttonName)
             {
@@ -295,7 +306,7 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private void resetStateCache() 
+        private void resetStateCache()
         {
             GlobalVariables.chat = null;
             GlobalVariables.isFriend = null;
@@ -306,5 +317,102 @@ namespace DarkMessages.DesktopApp
             GlobalVariables.isRequestSent = null;
             GlobalVariables.chatType = null;
         }
+
+        public void SettingsListInitializer()
+        {
+            if (panelUsers.Controls.Count > 0)
+            {
+                panelUsers.Controls.Clear();
+            }
+            SettingsList settingsList = new SettingsList();
+            settingsList.container = container;
+            settingsList.mainPage = this;
+            settingsList.TopLevel = false;
+            panelUsers.Controls.Add(settingsList);
+            settingsList.Tag = settingsList;
+            settingsList.Size = panelUsers.Size;
+            settingsList.Show();
+        }
+
+        private void selectedTab(TabType tabType) 
+        {
+            switch (tabType) 
+            {
+                case TabType.chats:
+                    colorSelectedButton("Chats");
+                    flpItemsUserInitializer();
+                    break;
+                case TabType.contacts:
+                    colorSelectedButton("Contacts");
+                    flpQueryUserInitializer();
+                    break;
+                case TabType.news:
+                    colorSelectedButton("News");
+                    NotificationsListInitializer();
+                    break;
+                case TabType.group:
+                    colorSelectedButton("New Group");
+                    CreateGroupFormInitializer();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void ProfileInformationFormInitializer() 
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            ProfileInformationForm profileInformationForm = new ProfileInformationForm();
+            profileInformationForm.container = container;
+            profileInformationForm.user = user;
+            profileInformationForm.mainPage = this;
+            profileInformationForm.TopLevel = false;
+            profileInformationForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(profileInformationForm);
+            profileInformationForm.Tag = profileInformationForm;
+            profileInformationForm.Size = panelChat.Size;
+            profileInformationForm.Show();
+        }
+
+        public void AccouuntInformationFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            AccountInformationForm accountInformationForm = new AccountInformationForm();
+            accountInformationForm.container = container;
+            accountInformationForm.user = user;
+            accountInformationForm.mainPage = this;
+            accountInformationForm.TopLevel = false;
+            accountInformationForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(accountInformationForm);
+            accountInformationForm.Tag = accountInformationForm;
+            accountInformationForm.Size = panelChat.Size;
+            accountInformationForm.Show();
+        }
+
+        public void PrivacyFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            PrivacyForm privacyForm = new PrivacyForm();
+            privacyForm.container = container;
+            privacyForm.user = user;
+            privacyForm.mainPage = this;
+            privacyForm.TopLevel = false;
+            privacyForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(privacyForm);
+            privacyForm.Tag = privacyForm;
+            privacyForm.Size = panelChat.Size;
+            privacyForm.Show();
+        }
+
+
     }
 }

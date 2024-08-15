@@ -26,6 +26,7 @@ namespace DarkMessages.DesktopApp
             GlobalVariables.userId = Convert.ToInt32(configuration["appSettings:userId"]!);
             GlobalVariables.name = configuration["appSettings:name"]!;
             GlobalVariables.lastname = configuration["appSettings:lastname"]!;
+            GlobalVariables.email = configuration["appSettings:email"]!;
             GlobalVariables.isDevelopment = Convert.ToBoolean(configuration["appSettings:isDevelopment"]!);
 
 
@@ -54,7 +55,10 @@ namespace DarkMessages.DesktopApp
         public static NotificationsList? notificationsList { get; set; }
         public static ChatType? chatType { get; set; }
         public static bool isDevelopment { get; set; }
+        public static TabType tabType { get; set; }
+        public static string email { get; set; }
     }
 
-    public enum ChatType{privateChat, groupChat }
+    public enum ChatType{ privateChat, groupChat }
+    public enum TabType{ chats, contacts, news, group}
 }

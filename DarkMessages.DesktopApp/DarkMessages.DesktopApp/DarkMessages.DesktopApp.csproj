@@ -32,7 +32,22 @@
     <Compile Update="ChatFormGroup.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ProfileInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingsForms\PrivacyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingsForms\AccountInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CreateGroupButton.cs" />
+    <Compile Update="SettingItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
