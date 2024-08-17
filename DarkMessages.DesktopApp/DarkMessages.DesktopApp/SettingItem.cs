@@ -81,8 +81,10 @@ namespace DarkMessages.DesktopApp
                     mainPage.PrivacyFormInitializer();
                     break ;
                 case "Friends":
+                    mainPage.FriendsFormInitializer();
                     break;
                 case "Group":
+                    mainPage.GroupsFormInitializer();
                     break;
                 case "Settings":
                     mainPage.SettingsFormInitializer();

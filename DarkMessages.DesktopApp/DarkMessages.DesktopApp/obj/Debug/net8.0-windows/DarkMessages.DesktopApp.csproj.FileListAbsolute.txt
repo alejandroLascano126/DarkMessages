@@ -131,3 +131,6 @@ C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.Deskto
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.ProfileInformationForm.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.AccountInformationForm.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.PrivacyForm.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.FriendsForm.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.GroupsForm.resources
+C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.securityCodeSettingsForm.resources

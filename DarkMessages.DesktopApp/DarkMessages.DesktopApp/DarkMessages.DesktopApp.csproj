@@ -35,10 +35,19 @@
     <Compile Update="ProfileInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SettingsForms\FriendsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingsForms\GroupsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SettingsForms\PrivacyForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SettingsForms\AccountInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SettingsForms\securityCodeSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SettingsList.cs">

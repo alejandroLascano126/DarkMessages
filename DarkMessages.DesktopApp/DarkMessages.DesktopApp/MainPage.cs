@@ -26,6 +26,7 @@ namespace DarkMessages.DesktopApp
         public User user { get; set; }
         HttpClient client = new HttpClient();
         UsersQueryView usersQueryView = new UsersQueryView();
+        SettingsList settingsList = new SettingsList();
         private string buttonSelectedBefore;
         private string buttonSelected = "Chats";
         private TabType tabSelected { get; set; }
@@ -90,8 +91,8 @@ namespace DarkMessages.DesktopApp
 
         private void txtSearchFriends_Click(object sender, EventArgs e)
         {
-            flpQueryUserInitializer();
-            usersQueryView.value = txtSearchFriends.Text;
+            //flpQueryUserInitializer();
+            //usersQueryView.value = txtSearchFriends.Text;
         }
 
         public void flpQueryUserInitializer()
@@ -113,7 +114,10 @@ namespace DarkMessages.DesktopApp
 
         private void txtSearchFriends_TextChanged(object sender, EventArgs e)
         {
-            usersQueryView.value = txtSearchFriends.Text;
+            if(usersQueryView.mainPage != null)
+                usersQueryView.value = txtSearchFriends.Text;
+            if(settingsList.mainPage != null)
+                settingsList.value = txtSearchFriends.Text;
         }
 
         private void btnCreateGroup_Click(object sender, EventArgs e)
@@ -324,7 +328,7 @@ namespace DarkMessages.DesktopApp
             {
                 panelUsers.Controls.Clear();
             }
-            SettingsList settingsList = new SettingsList();
+            settingsList = new SettingsList();
             settingsList.container = container;
             settingsList.mainPage = this;
             settingsList.TopLevel = false;
@@ -413,6 +417,58 @@ namespace DarkMessages.DesktopApp
             privacyForm.Show();
         }
 
+        public void FriendsFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            FriendsForm friendsForm = new FriendsForm();
+            friendsForm.container = container;
+            friendsForm.user = user;
+            friendsForm.mainPage = this;
+            friendsForm.TopLevel = false;
+            friendsForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(friendsForm);
+            friendsForm.Tag = friendsForm;
+            friendsForm.Size = panelChat.Size;
+            friendsForm.Show();
+        }
 
+        public void GroupsFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            GroupsForm groupsForm = new GroupsForm();
+            groupsForm.container = container;
+            groupsForm.user = user;
+            groupsForm.mainPage = this;
+            groupsForm.TopLevel = false;
+            groupsForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(groupsForm);
+            groupsForm.Tag = groupsForm;
+            groupsForm.Size = panelChat.Size;
+            groupsForm.Show();
+        }
+
+        public void SecurityCodeSettingsFormInitializer() 
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            SecurityCodeSettingsForm securityCodeSettingsForm = new SecurityCodeSettingsForm();
+            securityCodeSettingsForm.container = container;
+            securityCodeSettingsForm.user = user;
+            securityCodeSettingsForm.mainPage = this;
+            securityCodeSettingsForm.TopLevel = false;
+            securityCodeSettingsForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(securityCodeSettingsForm);
+            securityCodeSettingsForm.Tag = securityCodeSettingsForm;
+            securityCodeSettingsForm.Size = panelChat.Size;
+            securityCodeSettingsForm.Show();
+        }
     }
 }

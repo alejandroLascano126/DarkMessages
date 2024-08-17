@@ -18,6 +18,7 @@ namespace DarkMessages.DesktopApp
         public Container container { get; set; }
         public User user { get; set; }
         public MainPage mainPage { get; set; }
+        public bool isAuthenticated { get; set; } = false;
         public ProfileInformationForm()
         {
             InitializeComponent();
@@ -29,6 +30,15 @@ namespace DarkMessages.DesktopApp
             txtName.Text = GlobalVariables.name;
             txtLastname.Text = GlobalVariables.lastname;
             txtEmail.Text = GlobalVariables.email;
+        }
+
+        private void btnSaveInfo_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text != GlobalVariables.name || txtLastname.Text != GlobalVariables.lastname
+                || txtEmail.Text != GlobalVariables.email) 
+            {
+                mainPage.SecurityCodeSettingsFormInitializer();
+            }
         }
     }
 }

@@ -232,7 +232,7 @@ namespace DarkMessages.Service.Objects
             return rp;
         }
 
-        private async Task<bool> RegisterSecurityCodeDB(rqValidateSecurityCode rq) 
+        public async Task<bool> RegisterSecurityCodeDB(rqValidateSecurityCode rq) 
         {
             try 
             {

@@ -13,6 +13,7 @@ using System.Net.NetworkInformation;
 using DarkMessages.models.Chats;
 using DarkMessages.models.Session;
 using DarkMessages.models.Notifications;
+using DarkMessages.models.Token;
 
 namespace DarkMessages.Service.Controllers
 {
@@ -26,6 +27,7 @@ namespace DarkMessages.Service.Controllers
         ChatObj chatObj = new ChatObj();
         SessionObj sessionObj = new SessionObj();   
         NotificationObj notificationObj = new NotificationObj();
+        TokenObj tokenObj = new TokenObj();
         private readonly IHubContext<ChatHub> _hubContext;
 
         public DarkMessagesController(IHubContext<ChatHub> hubContext)
@@ -225,6 +227,14 @@ namespace DarkMessages.Service.Controllers
         {
             rpConsultfriendshipsRequests rp = new rpConsultfriendshipsRequests();
             rp = await userObj.conusltfriendshipsRequests(rq);
+            return rp;
+        }
+
+        [HttpPost("SendSecurityCode")]
+        public async Task<rpSendToken> SendSecurityCode(rqSendToken rq)
+        {
+            rpSendToken rp = new rpSendToken();
+            rp = await tokenObj.SendSecurityCode(rq);
             return rp;
         }
     }

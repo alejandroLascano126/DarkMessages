@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.service\\darkmessages.service\\controllers\\darkmessagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\controllers\\darkmessagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.service\\darkmessages.service\\objects\\tokenobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\objects\\tokenobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.service\\darkmessages.service\\objects\\userobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\objects\\userobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DarkMessagesController.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
+              "RelativeToolTip": "DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
+              "ViewState": "AQIAANMAAAAAAAAAAAAQwN8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T15:35:44.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TokenObj.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\DarkMessages.Service\\Objects\\TokenObj.cs",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\TokenObj.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\DarkMessages.Service\\Objects\\TokenObj.cs",
+              "RelativeToolTip": "DarkMessages.Service\\Objects\\TokenObj.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T14:40:13.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserObj.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\DarkMessages.Service\\Objects\\UserObj.cs",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\UserObj.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\DarkMessages.Service\\Objects\\UserObj.cs",
+              "RelativeToolTip": "DarkMessages.Service\\Objects\\UserObj.cs",
+              "ViewState": "AQIAAPsAAAAAAAAAAAAuwD0BAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T14:39:05.953Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

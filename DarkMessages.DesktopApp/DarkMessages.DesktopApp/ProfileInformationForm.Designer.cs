@@ -31,13 +31,11 @@
             lblProfileInfo = new Label();
             btnSaveInfo = new CreateGroupButton();
             label1 = new Label();
-            label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             txtName = new TextBox();
             txtLastname = new TextBox();
             txtEmail = new TextBox();
-            cbCountries = new ComboBox();
             SuspendLayout();
             // 
             // lblProfileInfo
@@ -62,6 +60,7 @@
             btnSaveInfo.TabIndex = 3;
             btnSaveInfo.Text = "Save";
             btnSaveInfo.UseVisualStyleBackColor = false;
+            btnSaveInfo.Click += btnSaveInfo_Click;
             // 
             // label1
             // 
@@ -72,16 +71,6 @@
             label1.Size = new Size(64, 25);
             label1.TabIndex = 4;
             label1.Text = "Name";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label2.Location = new Point(45, 288);
-            label2.Name = "label2";
-            label2.Size = new Size(86, 25);
-            label2.TabIndex = 5;
-            label2.Text = "Country";
             // 
             // label3
             // 
@@ -133,30 +122,17 @@
             txtEmail.Size = new Size(640, 32);
             txtEmail.TabIndex = 13;
             // 
-            // cbCountries
-            // 
-            cbCountries.BackColor = SystemColors.InactiveCaption;
-            cbCountries.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbCountries.Font = new Font("Segoe UI", 14F);
-            cbCountries.FormattingEnabled = true;
-            cbCountries.Location = new Point(45, 345);
-            cbCountries.Name = "cbCountries";
-            cbCountries.Size = new Size(230, 33);
-            cbCountries.TabIndex = 14;
-            // 
             // ProfileInformationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(771, 544);
-            Controls.Add(cbCountries);
             Controls.Add(txtEmail);
             Controls.Add(txtLastname);
             Controls.Add(txtName);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnSaveInfo);
             Controls.Add(lblProfileInfo);
@@ -173,12 +149,10 @@
         private CreateGroupButton btnSaveInfo;
         private Label lblProfileInfo;
         private Label label1;
-        private Label label2;
         private Label label3;
         private Label label4;
         private TextBox txtName;
         private TextBox txtLastname;
         private TextBox txtEmail;
-        private ComboBox cbCountries;
     }
 }

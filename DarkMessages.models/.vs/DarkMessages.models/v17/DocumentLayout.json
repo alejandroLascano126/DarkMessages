@@ -3,11 +3,31 @@
   "WorkspaceRootPath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\darkmessages.models\\friends\\friend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.models\\darkmessages.models\\token\\rpvalidatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\token\\rpvalidatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.models\\darkmessages.models\\token\\rqvalidatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\token\\rqvalidatetoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\darkmessages.models\\login\\rqvalidatesecuritycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\login\\rqvalidatesecuritycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.models\\darkmessages.models\\token\\rqsendtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\token\\rqsendtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.models\\darkmessages.models\\token\\rpsendtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\token\\rpsendtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.models\\darkmessages.models\\friends\\friend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\friends\\friend.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|c:\\proyectos personales\\darkmessages\\darkmessages.models\\darkmessages.models\\message\\rqinsertmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\darkmessages.models\\message\\rqinsertmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\message\\rqinsertmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -51,16 +71,8 @@
       "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\message\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\darkmessages.models\\login\\rqvalidatesecuritycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\login\\rqvalidatesecuritycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\darkmessages.models\\signup\\rpsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\signup\\rpsignup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\darkmessages.models\\login\\rpvalidatesecuritycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|solutionrelative:darkmessages.models\\login\\rpvalidatesecuritycode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6974596B-5731-4D64-B9F6-CF6781C55C47}|DarkMessages.models\\DarkMessages.models.csproj|C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\darkmessages.models\\users\\rquserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,11 +102,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 0,
+              "Title": "rpValidateToken.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\rpValidateToken.cs",
+              "RelativeDocumentMoniker": "DarkMessages.models\\Token\\rpValidateToken.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\rpValidateToken.cs",
+              "RelativeToolTip": "DarkMessages.models\\Token\\rpValidateToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T15:19:24.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RqValidateToken.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\RqValidateToken.cs",
+              "RelativeDocumentMoniker": "DarkMessages.models\\Token\\RqValidateToken.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\RqValidateToken.cs",
+              "RelativeToolTip": "DarkMessages.models\\Token\\RqValidateToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T14:43:07.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "rpSendToken.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\rpSendToken.cs",
+              "RelativeDocumentMoniker": "DarkMessages.models\\Token\\rpSendToken.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\rpSendToken.cs",
+              "RelativeToolTip": "DarkMessages.models\\Token\\rpSendToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T14:42:48.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "rqSendToken.cs",
+              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\rqSendToken.cs",
+              "RelativeDocumentMoniker": "DarkMessages.models\\Token\\rqSendToken.cs",
+              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Token\\rqSendToken.cs",
+              "RelativeToolTip": "DarkMessages.models\\Token\\rqSendToken.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T14:42:38.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "rpCountMessages.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Message\\rpCountMessages.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Message\\rpCountMessages.cs",
@@ -106,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "rqCountMessages.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Message\\rqCountMessages.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Message\\rqCountMessages.cs",
@@ -118,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "friend.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Friends\\friend.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Friends\\friend.cs",
@@ -131,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "rqConsultFriends.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Friends\\rqConsultFriends.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Friends\\rqConsultFriends.cs",
@@ -143,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "message.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Message\\message.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Message\\message.cs",
@@ -155,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "rpConsultMessages.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Message\\rpConsultMessages.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Message\\rpConsultMessages.cs",
@@ -167,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "rqConsultMessages.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Message\\rqConsultMessages.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Message\\rqConsultMessages.cs",
@@ -179,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 14,
               "Title": "rpInsertMessage.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Message\\rpInsertMessage.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Message\\rpInsertMessage.cs",
@@ -191,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "rqInsertMessage.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Message\\rqInsertMessage.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Message\\rqInsertMessage.cs",
@@ -199,12 +263,11 @@
               "RelativeToolTip": "DarkMessages.models\\Message\\rqInsertMessage.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T21:43:05.288Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T21:43:05.288Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "rqSignUp.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\SignUp\\rqSignUp.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\SignUp\\rqSignUp.cs",
@@ -216,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "rpConsultFriends.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Friends\\rpConsultFriends.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Friends\\rpConsultFriends.cs",
@@ -228,31 +291,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "rpValidateSecurityCode.cs",
-              "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Login\\rpValidateSecurityCode.cs",
-              "RelativeDocumentMoniker": "DarkMessages.models\\Login\\rpValidateSecurityCode.cs",
-              "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Login\\rpValidateSecurityCode.cs",
-              "RelativeToolTip": "DarkMessages.models\\Login\\rpValidateSecurityCode.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T21:43:05.29Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "rqValidateSecurityCode.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Login\\rqValidateSecurityCode.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Login\\rqValidateSecurityCode.cs",
               "ToolTip": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Login\\rqValidateSecurityCode.cs",
               "RelativeToolTip": "DarkMessages.models\\Login\\rqValidateSecurityCode.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T21:43:05.29Z"
+              "WhenOpened": "2024-08-06T21:43:05.29Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "BaseResponse.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\BaseResponse.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\BaseResponse.cs",
@@ -264,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "rpSignUp.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\SignUp\\rpSignUp.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\SignUp\\rpSignUp.cs",
@@ -276,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "rpLogin.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Login\\rpLogin.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Login\\rpLogin.cs",
@@ -288,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "rqLogin.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Login\\rqLogin.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Login\\rqLogin.cs",
@@ -300,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Users\\User.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Users\\User.cs",
@@ -312,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "rpUserQuery.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Users\\rpUserQuery.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Users\\rpUserQuery.cs",
@@ -324,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "rqUserQuery.cs",
               "DocumentMoniker": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.models\\DarkMessages.models\\Users\\rqUserQuery.cs",
               "RelativeDocumentMoniker": "DarkMessages.models\\Users\\rqUserQuery.cs",
