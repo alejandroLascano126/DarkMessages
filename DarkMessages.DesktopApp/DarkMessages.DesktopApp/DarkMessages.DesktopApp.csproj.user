@@ -37,6 +37,9 @@
     <Compile Update="NotificationsList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ProfileInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -453,22 +453,70 @@ namespace DarkMessages.DesktopApp
             groupsForm.Show();
         }
 
-        public void SecurityCodeSettingsFormInitializer() 
+        public async Task<bool> SecurityCodeSettingsFormInitializerAsync(string followingPage)
         {
             if (panelChat.Controls.Count > 0)
             {
                 panelChat.Controls.Clear();
             }
+
+            var taskCompletionSource = new TaskCompletionSource<bool>();
+
             SecurityCodeSettingsForm securityCodeSettingsForm = new SecurityCodeSettingsForm();
             securityCodeSettingsForm.container = container;
             securityCodeSettingsForm.user = user;
             securityCodeSettingsForm.mainPage = this;
+            securityCodeSettingsForm.followingPage = followingPage;
             securityCodeSettingsForm.TopLevel = false;
             securityCodeSettingsForm.Dock = DockStyle.Fill;
             panelChat.Controls.Add(securityCodeSettingsForm);
             securityCodeSettingsForm.Tag = securityCodeSettingsForm;
             securityCodeSettingsForm.Size = panelChat.Size;
+
+            securityCodeSettingsForm.FormClosed += (s, e) =>
+            {
+                taskCompletionSource.SetResult(securityCodeSettingsForm.result);
+            };
+
             securityCodeSettingsForm.Show();
+
+            return await taskCompletionSource.Task;
+        }
+
+        public void UpdatePasswordFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            UpdatePasswordForm updatePasswordForm = new UpdatePasswordForm();
+            updatePasswordForm.container = container;
+            updatePasswordForm.user = user;
+            updatePasswordForm.mainPage = this;
+            updatePasswordForm.TopLevel = false;
+            updatePasswordForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(updatePasswordForm);
+            updatePasswordForm.Tag = updatePasswordForm;
+            updatePasswordForm.Size = panelChat.Size;
+            updatePasswordForm.Show();
+        }
+
+        public void UpdateUsernameFormInitializer()
+        {
+            if (panelChat.Controls.Count > 0)
+            {
+                panelChat.Controls.Clear();
+            }
+            UpdateUsernameForm updateUsernameForm = new UpdateUsernameForm();
+            updateUsernameForm.container = container;
+            updateUsernameForm.user = user;
+            updateUsernameForm.mainPage = this;
+            updateUsernameForm.TopLevel = false;
+            updateUsernameForm.Dock = DockStyle.Fill;
+            panelChat.Controls.Add(updateUsernameForm);
+            updateUsernameForm.Tag = updateUsernameForm;
+            updateUsernameForm.Size = panelChat.Size;
+            updateUsernameForm.Show();
         }
     }
 }

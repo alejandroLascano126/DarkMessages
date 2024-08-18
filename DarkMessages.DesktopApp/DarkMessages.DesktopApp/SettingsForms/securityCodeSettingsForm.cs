@@ -25,6 +25,8 @@ namespace DarkMessages.DesktopApp
         public User user { get; set; }
         public Container container { get; set; }
         public MainPage mainPage { get; set; }
+        public bool result { get; set; }
+        public string followingPage { get; set; }
         private int contadorTimer = 59;
         public SecurityCodeSettingsForm()
         {
@@ -89,12 +91,15 @@ namespace DarkMessages.DesktopApp
                 string message = Convert.ToString(jsonResponse["message"]) ?? "";
                 if (success)
                 {
-                    MessageBox.Show(message);                    
+                    MessageBox.Show(message);  
+                    result = true;
                     Close();
-                    mainPage.ProfileInformationFormInitializer();
+                    navigatePage();
+
                 }
                 else
                 {
+                    result = false;
                     MessageBox.Show(message);
                 }
             }
@@ -131,13 +136,30 @@ namespace DarkMessages.DesktopApp
 
         private void btnBackSecCode_Click(object sender, EventArgs e)
         {
+            result = false;
             Close();
-            container.LoginUserPageInitializer();
+            mainPage.ProfileInformationFormInitializer();
         }
 
         private async void SecurityCodeSettingsForm_Load(object sender, EventArgs e)
         {
             await ResendSecurityCode();
         }
+
+        private void navigatePage() 
+        {
+            switch (followingPage) 
+            {
+                case "Profile_info":
+                    mainPage.ProfileInformationFormInitializer();
+                    break;
+                case "Account_info":
+                    mainPage.AccouuntInformationFormInitializer();
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }

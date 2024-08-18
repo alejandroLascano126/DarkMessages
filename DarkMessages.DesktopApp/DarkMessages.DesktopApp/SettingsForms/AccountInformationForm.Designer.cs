@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             lblAccountInfo = new Label();
+            flpOptions = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // lblAccountInfo
@@ -41,16 +42,25 @@
             lblAccountInfo.TabIndex = 1;
             lblAccountInfo.Text = "Account Info";
             // 
+            // flpOptions
+            // 
+            flpOptions.Location = new Point(48, 87);
+            flpOptions.Name = "flpOptions";
+            flpOptions.Size = new Size(647, 390);
+            flpOptions.TabIndex = 2;
+            // 
             // AccountInformationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(771, 544);
+            Controls.Add(flpOptions);
             Controls.Add(lblAccountInfo);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AccountInformationForm";
             Text = "SetingsForm";
+            Load += AccountInformationForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -59,5 +69,6 @@
 
         private CreateGroupButton btnQuitSession;
         private Label lblAccountInfo;
+        private FlowLayoutPanel flpOptions;
     }
 }

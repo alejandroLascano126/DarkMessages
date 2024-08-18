@@ -69,7 +69,7 @@ namespace DarkMessages.DesktopApp
                     {
                         InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
                         bool follow = await LoginSession(username);
-                        if (!follow) 
+                        if (follow) 
                         {
                             container!.SecurityCodePageInitializer(user, "login_user");
                         }
@@ -79,7 +79,7 @@ namespace DarkMessages.DesktopApp
                     {
                         InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
                         bool follow = await LoginSession(username);
-                        if (!follow)
+                        if (follow)
                         {
                             container!.MainPageInitializer(user);
                         }
@@ -108,7 +108,7 @@ namespace DarkMessages.DesktopApp
                 string ip = ConnectionHelper.getMachineIp();
 
                 string urlPost = "api/darkmsgs/LoginSession";
-                rqLoginSession rqLogin = new rqLoginSession() { ip_name = ip, username = username, saveSession = true };
+                rqLoginSession rqLogin = new rqLoginSession() { ip_name = ip, username = username, saveSession = true, option = "LOG" };
                 var rqLoginSerialized = JsonSerializer.Serialize(rqLogin);
                 HttpContent content = new StringContent(rqLoginSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);

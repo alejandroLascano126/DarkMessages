@@ -32,15 +32,16 @@
             txtPasswordLogin = new TextBox();
             lblUsernameLogin = new Label();
             lblPasswordLogin = new Label();
-            btnLogin = new Button();
-            btnRegister = new Button();
             groupBox1 = new GroupBox();
+            btnLogin = new CreateGroupButton();
+            btnRegister = new CreateGroupButton();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // txtUsernameLogin
             // 
             txtUsernameLogin.BackColor = SystemColors.HighlightText;
+            txtUsernameLogin.BorderStyle = BorderStyle.FixedSingle;
             txtUsernameLogin.Location = new Point(273, 84);
             txtUsernameLogin.Name = "txtUsernameLogin";
             txtUsernameLogin.Size = new Size(100, 23);
@@ -49,6 +50,7 @@
             // txtPasswordLogin
             // 
             txtPasswordLogin.BackColor = SystemColors.HighlightText;
+            txtPasswordLogin.BorderStyle = BorderStyle.FixedSingle;
             txtPasswordLogin.Location = new Point(273, 127);
             txtPasswordLogin.Name = "txtPasswordLogin";
             txtPasswordLogin.PasswordChar = '*';
@@ -75,34 +77,13 @@
             lblPasswordLogin.TabIndex = 3;
             lblPasswordLogin.Text = "password";
             // 
-            // btnLogin
-            // 
-            btnLogin.BackColor = SystemColors.Info;
-            btnLogin.Location = new Point(348, 221);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(75, 23);
-            btnLogin.TabIndex = 4;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = false;
-            btnLogin.Click += button1_Click;
-            // 
-            // btnRegister
-            // 
-            btnRegister.BackColor = SystemColors.Info;
-            btnRegister.Location = new Point(255, 221);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(75, 23);
-            btnRegister.TabIndex = 5;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = false;
-            btnRegister.Click += btnRegister_Click;
-            // 
             // groupBox1
             // 
+            groupBox1.BackColor = SystemColors.GradientActiveCaption;
+            groupBox1.Controls.Add(btnLogin);
             groupBox1.Controls.Add(txtUsernameLogin);
             groupBox1.Controls.Add(btnRegister);
             groupBox1.Controls.Add(lblUsernameLogin);
-            groupBox1.Controls.Add(btnLogin);
             groupBox1.Controls.Add(txtPasswordLogin);
             groupBox1.Controls.Add(lblPasswordLogin);
             groupBox1.Location = new Point(362, 179);
@@ -112,11 +93,39 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Login";
             // 
+            // btnLogin
+            // 
+            btnLogin.BackColor = Color.DodgerBlue;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.ForeColor = Color.White;
+            btnLogin.Location = new Point(343, 218);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(79, 29);
+            btnLogin.TabIndex = 12;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += button1_Click;
+            // 
+            // btnRegister
+            // 
+            btnRegister.BackColor = Color.DodgerBlue;
+            btnRegister.FlatAppearance.BorderSize = 0;
+            btnRegister.FlatStyle = FlatStyle.Flat;
+            btnRegister.ForeColor = Color.White;
+            btnRegister.Location = new Point(246, 218);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(79, 29);
+            btnRegister.TabIndex = 11;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(1156, 628);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -133,8 +142,8 @@
         private TextBox txtPasswordLogin;
         private Label lblUsernameLogin;
         private Label lblPasswordLogin;
-        private Button btnLogin;
-        private Button btnRegister;
         private GroupBox groupBox1;
+        private CreateGroupButton btnRegister;
+        private CreateGroupButton btnLogin;
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8odwzuLKSWUgcXTHwIt+ok5ftt7J/IWeySZRvXiRtiS190+IUNlqYpn+BnmCUcgRmO1LWtsOSqHAsOgqGhB2EQ==",
+  "dgSpecHash": "Z6tSC7B86OQ=",
   "success": true,
-  "projectFilePath": "C:\\Proyectos personales\\DarkMessages\\DarkMessages.Service\\EmailHandler\\EmailHandler.csproj",
+  "projectFilePath": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\EmailHandler\\EmailHandler.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

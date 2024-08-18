@@ -142,9 +142,9 @@ E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DarkMessages.Service.props
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\staticwebassets.pack.json
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\scopedcss\bundle\DarkMessages.Service.styles.css
-E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\DarkMessages.Service.csproj.CopyComplete
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\DarkMessages.Service.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\refint\DarkMessages.Service.dll
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\DarkMessages.Service.pdb
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\DarkMessages.Service.genruntimeconfig.cache
 E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\ref\DarkMessages.Service.dll
+E:\DarkMessenger Desktop\DarkMessages.Service\DarkMessages.Service\obj\Debug\net8.0\DarkMess.590E7EB0.Up2Date

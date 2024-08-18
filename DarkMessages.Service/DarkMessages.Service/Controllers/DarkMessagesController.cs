@@ -14,6 +14,7 @@ using DarkMessages.models.Chats;
 using DarkMessages.models.Session;
 using DarkMessages.models.Notifications;
 using DarkMessages.models.Token;
+using DarkMessages.models.Users;
 
 namespace DarkMessages.Service.Controllers
 {
@@ -195,6 +196,13 @@ namespace DarkMessages.Service.Controllers
         {
             rpLoginSession rp = new rpLoginSession();
             rp = await sessionObj.LoginSession(rq);
+            if (rp.success) 
+            {
+                rpMantSession rpMantSession = new rpMantSession();
+                await _hubContext.Clients.All.SendAsync("ReceiveUsersOnlineStatus", rpMantSession);
+            }
+                
+
             return rp;
         }
 
@@ -235,6 +243,27 @@ namespace DarkMessages.Service.Controllers
         {
             rpSendToken rp = new rpSendToken();
             rp = await tokenObj.SendSecurityCode(rq);
+            return rp;
+        }
+
+        [HttpPost("updateUserInfo")]
+        public async Task<rpUpdUserInfo> updateUserInfo(rqUpdUserInfo rq)
+        {
+            rpUpdUserInfo rp = new rpUpdUserInfo();
+            rp = await userObj.updateUserInfo(rq);
+            return rp;
+        }
+
+        [HttpPost("MantSession")]
+        public async Task<rpMantSession> MantSession(rqMantSession rq)
+        {
+            rpMantSession rp = new rpMantSession();
+            rp = await sessionObj.MantSession(rq);
+            if (rp.success && rq.option == "UPD")
+            {
+                rpMantSession rpMantSession = new rpMantSession();
+                await _hubContext.Clients.All.SendAsync("ReceiveUsersOnlineStatus", rpMantSession);
+            }
             return rp;
         }
     }

@@ -15,7 +15,6 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.AssemblyInfo.cs
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.csproj.CoreCompileInputs.cache
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.sourcelink.json
-E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.csproj.CopyComplete
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.dll
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\refint\ConsoleTest.dll
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.pdb
@@ -44,3 +43,4 @@ C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\ConsoleTest\obj\Rel
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.pdb
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleTest.genruntimeconfig.cache
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ref\ConsoleTest.dll
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\ConsoleTest\obj\Release\net8.0\ConsoleT.0EB5926D.Up2Date

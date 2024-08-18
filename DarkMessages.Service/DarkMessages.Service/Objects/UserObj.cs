@@ -3,6 +3,7 @@ using DarkMessages.models.Friends;
 using DarkMessages.models.Login;
 using DarkMessages.models.Message;
 using DarkMessages.models.SignUp;
+using DarkMessages.models.Users;
 using DarkMessages.models.Usuarios;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Data.SqlClient;
@@ -515,6 +516,72 @@ namespace DarkMessages.Service.Objects
                             rp.success = true;
                         else 
                             rp.success = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                rp.success = false;
+                rp.message = ex.Message;
+            }
+            return rp;
+        }
+
+        public async Task<rpUpdUserInfo> updateUserInfo(rqUpdUserInfo rq)
+        {
+            rpUpdUserInfo rp = new rpUpdUserInfo();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("sp_update_userInfo", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@userId", rq.userId);
+                        command.Parameters.AddWithValue("@name", rq.name);
+                        command.Parameters.AddWithValue("@lastname", rq.lastname);
+                        command.Parameters.AddWithValue("@email", rq.email);
+                        command.Parameters.AddWithValue("@username", rq.username);
+                        command.Parameters.AddWithValue("@password", rq.password);
+                        command.Parameters.AddWithValue("@ActualPassword", rq.actualPassword);
+
+
+                        SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        command.Parameters.Add(responseOutput);
+                        int respValue = await command.ExecuteNonQueryAsync();
+
+                        int response = (int)responseOutput.Value;
+
+                        if (response == 0)
+                        {
+                            rp.success = true;
+                            rp.message = "User successfully updated";
+                        }
+                        else if (response == 1)
+                        {
+                            rp.success = false;
+                            rp.message = "Error";
+                        }
+                        else if (response == 2)
+                        {
+                            rp.success = false;
+                            rp.message = "Incorrect Password";
+                        }
+                        else if (response == 3)
+                        {
+                            rp.success = false;
+                            rp.message = "Username already used";
+                        }
+                        else 
+                        {
+                            rp.success = false;
+                            rp.message = "Error";
+                        }
                     }
                 }
             }

@@ -1,4 +1,5 @@
 using DarkMessages.DesktopApp.Helpers;
+using DarkMessages.models.Chats;
 using DarkMessages.models.Login;
 using DarkMessages.models.Session;
 using DarkMessages.models.Usuarios;
@@ -23,7 +24,7 @@ namespace DarkMessages.DesktopApp
         }
 
 
-        public void LoginUserPageInitializer() 
+        public void LoginUserPageInitializer()
         {
             LoginForm loginForm = new LoginForm
             {
@@ -37,7 +38,7 @@ namespace DarkMessages.DesktopApp
             loginForm.Show();
         }
 
-        public void SecurityCodePageInitializer(User user, string? otp) 
+        public void SecurityCodePageInitializer(User user, string? otp)
         {
             this.user = user;
             SecurityCodeForm securityCodeForm = new SecurityCodeForm();
@@ -52,7 +53,7 @@ namespace DarkMessages.DesktopApp
             securityCodeForm.Show();
         }
 
-        public void RegisterUserPageInitializer() 
+        public void RegisterUserPageInitializer()
         {
             RegisterForm registerForm = new RegisterForm();
             registerForm.container = this;
@@ -64,9 +65,9 @@ namespace DarkMessages.DesktopApp
             registerForm.Show();
         }
 
-        public void MainPageInitializer(User? user) 
+        public void MainPageInitializer(User? user)
         {
-            if(this.user == null && user != null)
+            if (this.user == null && user != null)
                 this.user = user!;
             MainPage mainPage = new MainPage();
             mainPage.container = this;
@@ -91,7 +92,7 @@ namespace DarkMessages.DesktopApp
                 user = new User() { Id = id, userName = username, name = name, lastname = lastname };
                 MainPageInitializer(user);
             }
-            else 
+            else
             {
                 LoginUserPageInitializer();
             }
@@ -127,12 +128,46 @@ namespace DarkMessages.DesktopApp
                     return false;
                 }
             }
-            else 
+            else
             {
                 return false;
             }
 
-            
+
+        }
+
+        private async void Container_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(user != null)
+                 await SetOnlineStatus();
+        }
+
+
+        private async Task SetOnlineStatus()
+        {
+            string ip = ConnectionHelper.getMachineIp();
+            try
+            {
+                string urlPost = "api/darkmsgs/MantSession";
+                rqMantSession rqMantSession = new rqMantSession() { username = user.userName ?? "", option = "UPD", ipName = ip, onlineStatus = false };
+                var rqSerialized = JsonSerializer.Serialize(rqMantSession);
+                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpMantSession rp = JsonSerializer.Deserialize<rpMantSession>(responseBody) ?? new rpMantSession();
+                if (rp.success)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}");
+            }
         }
 
         //public void SettingsFormInitializer() 

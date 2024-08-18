@@ -3,6 +3,7 @@ using DarkMessages.models.Friends;
 using DarkMessages.models.Login;
 using DarkMessages.models.Message;
 using DarkMessages.models.Notifications;
+using DarkMessages.models.Session;
 using DarkMessages.models.SignUp;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json.Linq;
@@ -70,6 +71,7 @@ namespace DarkMessages.DesktopApp
 
 
             lblNameChat.Text = chat.name;
+            lblOnlineStatus.Text = "";
 
             messagesCount = await countMessages(userName, chat.friendUsername ?? "");
             page = (int)Math.Ceiling((double)messagesCount / 7);
@@ -88,8 +90,12 @@ namespace DarkMessages.DesktopApp
                 disableInputChatForm();
             }
 
-            if (!isInputDisabled)
+            if (!isInputDisabled) 
+            {
+                await ConsultOnlineStatus();
                 await consultMessages(userName, chat.friendUsername ?? "", 7, page);
+            }
+                
 
             if (notification != null) 
             {
@@ -255,6 +261,18 @@ namespace DarkMessages.DesktopApp
                 }
             });
 
+            hubConnection.On<rpMantSession>("ReceiveUsersOnlineStatus", (incominggMessage) => 
+            {
+                if (InvokeRequired)
+                {
+                   Invoke(new Action(() => ConsultOnlineStatus()));
+                }
+                else
+                {
+                    ConsultOnlineStatus();
+                }
+            });
+
             await hubConnection.StartAsync();
         }
 
@@ -414,6 +432,7 @@ namespace DarkMessages.DesktopApp
 
         public void disableInputChatForm()
         {
+            lblOnlineStatus.Enabled = false;
             btnSendMessage.Enabled = false;
             rtbSendMessage.Enabled = false;
             isInputDisabled = true;
@@ -515,6 +534,40 @@ namespace DarkMessages.DesktopApp
                 GlobalVariables.chatType = ChatType.privateChat;
             }
         }
+
+        private async Task ConsultOnlineStatus() 
+        {
+            try
+            {
+                string urlPost = "api/darkmsgs/MantSession";
+                rqMantSession rqMantSession = new rqMantSession() { username = chat.friendUsername ?? "", option = "CON", onlineStatus = true };
+                var rqSerialized = JsonSerializer.Serialize(rqMantSession);
+               HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpMantSession rp = JsonSerializer.Deserialize<rpMantSession>(responseBody) ?? new rpMantSession();
+                if (rp.success)
+                {
+                    if (rp.sessions.Count > 0)
+                    {
+                        Invoke(() => lblOnlineStatus.Text = "Online");
+                    }
+                    else 
+                    {
+                        Invoke(() => lblOnlineStatus.Text = "Offline");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}");
+            }
+        }
+
     }
 
 

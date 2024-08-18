@@ -38,6 +38,7 @@
             ClientSize = new Size(1179, 658);
             Name = "Container";
             Text = "DarkMessages";
+            FormClosed += Container_FormClosed;
             ResumeLayout(false);
         }
 

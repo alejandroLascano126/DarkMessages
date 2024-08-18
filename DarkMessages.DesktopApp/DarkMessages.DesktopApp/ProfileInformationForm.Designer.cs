@@ -116,6 +116,7 @@
             // 
             txtEmail.BackColor = SystemColors.InactiveCaption;
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
+            txtEmail.Enabled = false;
             txtEmail.Font = new Font("Segoe UI", 14F);
             txtEmail.Location = new Point(45, 236);
             txtEmail.Name = "txtEmail";

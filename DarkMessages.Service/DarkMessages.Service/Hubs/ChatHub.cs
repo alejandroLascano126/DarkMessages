@@ -2,6 +2,7 @@
 using DarkMessages.models.Groups;
 using DarkMessages.models.Message;
 using DarkMessages.models.Notifications;
+using DarkMessages.models.Session;
 using DarkMessages.Service.Objects;
 using Microsoft.AspNetCore.SignalR;
 
@@ -33,6 +34,11 @@ namespace DarkMessages.Service.Hub
         public void ConsultNotifications(object obj)
         {
             Clients.All.SendAsync("ReceiveNotifications", obj);
+        }
+
+        public void ConsultUsersOnlineStatus(rpMantSession rpMantSession)
+        {
+            Clients.All.SendAsync("ReceiveUsersOnlineStatus", rpMantSession);
         }
 
 

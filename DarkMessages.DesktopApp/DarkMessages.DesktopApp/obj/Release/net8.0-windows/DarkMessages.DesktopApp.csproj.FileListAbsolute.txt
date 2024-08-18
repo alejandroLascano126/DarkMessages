@@ -54,7 +54,6 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Rel
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.AssemblyInfo.cs
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.csproj.CoreCompileInputs.cache
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.sourcelink.json
-E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.csproj.CopyComplete
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.dll
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\refint\DarkMessages.DesktopApp.dll
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.pdb
@@ -131,3 +130,15 @@ C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.Deskto
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.AccountInformationForm.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.PrivacyForm.resources
 C:\Proyectos personales\DarkMessages\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.SettingsList.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.OptionItem.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.ProfileInformationForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.SettingItem.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.AccountInformationForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.FriendsForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.GroupsForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.PrivacyForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.SecurityCodeSettingsForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.UpdatePasswordForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.UpdateUsernameForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.SettingsList.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMess.41910493.Up2Date

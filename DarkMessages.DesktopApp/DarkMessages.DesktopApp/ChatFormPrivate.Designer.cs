@@ -30,6 +30,7 @@
         {
             lblNameChat = new Label();
             panelUpChat = new Panel();
+            lblOnlineStatus = new Label();
             rtbSendMessage = new RichTextBox();
             btnSendMessage = new Button();
             tlpMessagesChat = new TableLayoutPanel();
@@ -40,7 +41,7 @@
             // 
             lblNameChat.AutoSize = true;
             lblNameChat.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            lblNameChat.Location = new Point(25, 9);
+            lblNameChat.Location = new Point(25, 4);
             lblNameChat.Name = "lblNameChat";
             lblNameChat.Size = new Size(68, 28);
             lblNameChat.TabIndex = 0;
@@ -49,11 +50,22 @@
             // panelUpChat
             // 
             panelUpChat.BackColor = SystemColors.GradientActiveCaption;
+            panelUpChat.Controls.Add(lblOnlineStatus);
             panelUpChat.Controls.Add(lblNameChat);
             panelUpChat.Location = new Point(0, 0);
             panelUpChat.Name = "panelUpChat";
             panelUpChat.Size = new Size(801, 47);
             panelUpChat.TabIndex = 1;
+            // 
+            // lblOnlineStatus
+            // 
+            lblOnlineStatus.AutoSize = true;
+            lblOnlineStatus.ForeColor = Color.White;
+            lblOnlineStatus.Location = new Point(26, 30);
+            lblOnlineStatus.Name = "lblOnlineStatus";
+            lblOnlineStatus.Size = new Size(42, 15);
+            lblOnlineStatus.TabIndex = 1;
+            lblOnlineStatus.Text = "Online";
             // 
             // rtbSendMessage
             // 
@@ -142,5 +154,6 @@
         private RichTextBox rtbSendMessage;
         private Button btnSendMessage;
         private TableLayoutPanel tlpMessagesChat;
+        private Label lblOnlineStatus;
     }
 }
