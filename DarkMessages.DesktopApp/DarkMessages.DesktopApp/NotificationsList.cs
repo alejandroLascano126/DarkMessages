@@ -159,7 +159,7 @@ namespace DarkMessages.DesktopApp
         {
             hubConnection = new HubConnectionBuilder().WithUrl($"{GlobalVariables.url}chathub").Build();
 
-            hubConnection.On<rpConsultMessages>("ReceiveNotifications", (incominggMessage) =>
+            hubConnection.On<NotificatioItm>("ReceiveNotifications", (incominggMessage) =>
             {
                 if (InvokeRequired)
                 {

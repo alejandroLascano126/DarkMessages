@@ -138,8 +138,8 @@ namespace DarkMessages.DesktopApp
 
         private async void Container_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(user != null)
-                 await SetOnlineStatus();
+            if (user != null)
+                await SetOnlineStatus();
         }
 
 
@@ -157,11 +157,11 @@ namespace DarkMessages.DesktopApp
                 rpMantSession rp = JsonSerializer.Deserialize<rpMantSession>(responseBody) ?? new rpMantSession();
                 if (rp.success)
                 {
-                    
+
                 }
                 else
                 {
-                    
+
                 }
             }
             catch (Exception ex)
@@ -169,6 +169,7 @@ namespace DarkMessages.DesktopApp
                 MessageBox.Show($"Error: {ex}");
             }
         }
+
 
         //public void SettingsFormInitializer() 
         //{

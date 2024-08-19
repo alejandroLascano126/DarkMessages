@@ -265,11 +265,11 @@ namespace DarkMessages.DesktopApp
             {
                 if (InvokeRequired)
                 {
-                   Invoke(new Action(() => ConsultOnlineStatus()));
+                   Invoke(new Action(() => ConsultOnlineStatusAsync()));
                 }
                 else
                 {
-                    ConsultOnlineStatus();
+                    ConsultOnlineStatusAsync();
                 }
             });
 
@@ -566,6 +566,12 @@ namespace DarkMessages.DesktopApp
             {
                 MessageBox.Show($"Error: {ex}");
             }
+        }
+
+        private async void ConsultOnlineStatusAsync() 
+        {
+            if(!isInputDisabled)
+                await ConsultOnlineStatus();
         }
 
     }

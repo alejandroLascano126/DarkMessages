@@ -59,6 +59,11 @@ namespace DarkMessages.Service.Objects
                         {
                             rp.success = true;
                         }
+                        else if (response == 4) 
+                        {
+                            rp.success = false;
+                            rp.message = "You already have one session";
+                        }
                         else
                         {
                             rp.success = false;

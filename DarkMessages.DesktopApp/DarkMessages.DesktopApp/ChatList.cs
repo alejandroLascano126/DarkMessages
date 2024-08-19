@@ -78,20 +78,10 @@ namespace DarkMessages.DesktopApp
                             item.container = mainPage;
                             if (GlobalVariables.isDevelopment)
                             {
-                                string groupRelativePath = @"..\..\..\resources\multiple-users-silhouette.png";
-                                string privateRelativePath = @"..\..\..\resources\user-solid.png";
-                                string fullPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, (item.isContact) ? privateRelativePath : groupRelativePath));
-                                item.icon = Image.FromFile(fullPath);
+                                Bitmap groupBitmap = Properties.Resources.multiple_users_silhouette;
+                                Bitmap privateBitmap = Properties.Resources.user_solid;
+                                item.icon = (item.isContact) ? privateBitmap : groupBitmap;
                             }
-                            else 
-                            {
-                                string groupRelativePath = @"resources\multiple-users-silhouette.png";
-                                string privateRelativePath = @"resources\user-solid.png";
-                                string fullPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, (item.isContact) ? privateRelativePath : groupRelativePath));
-                                item.icon = Image.FromFile(fullPath);
-                            }
-
-                            
                             flpItemsUser.Controls.Add(item);
                         }
                     }

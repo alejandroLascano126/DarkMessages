@@ -77,6 +77,7 @@ namespace DarkMessages.Service.Controllers
             if (rp.success)
             {
                 await _hubContext.Clients.All.SendAsync("ReceiveMessages", rp);
+                await _hubContext.Clients.All.SendAsync("ReceiveNotifications", new Notification());
             }
             return rp;
         }
@@ -142,6 +143,10 @@ namespace DarkMessages.Service.Controllers
         {
             rpRegisterGroupMember rp = new rpRegisterGroupMember();
             rp = await groupObj.registerGroupMember(rq);
+            if (rp.success) 
+            {
+                await _hubContext.Clients.All.SendAsync("ReceiveNotifications", new Notification());
+            }
             return rp;
         }
 
@@ -153,6 +158,7 @@ namespace DarkMessages.Service.Controllers
             if (rp.success)
             {
                 await _hubContext.Clients.All.SendAsync("ReceiveGroupMessages", rp);
+                await _hubContext.Clients.All.SendAsync("ReceiveNotifications", new Notification());
             }
             return rp;
         }

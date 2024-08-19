@@ -61,31 +61,37 @@ namespace DarkMessages.DesktopApp
                 rpLogin rpLogin = JsonSerializer.Deserialize<rpLogin>(responseBody) ?? new rpLogin();
                 if (rpLogin.success)
                 {
-                    Close();
-                    MessageBox.Show(rpLogin.message);
                     int id = Convert.ToInt32(rpLogin.id);
                     User user = new User() { Id = id, userName = username, name = rpLogin.name, lastname = rpLogin.lastname, email = rpLogin.email };
+                    InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
+                    rpLoginSession resp = await LoginSession(username);
                     if (GlobalVariables.emailValidation)
                     {
-                        InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
-                        bool follow = await LoginSession(username);
-                        if (follow) 
+                        if (resp.success) 
                         {
+                            MessageBox.Show(rpLogin.message);
+                            Close();
                             container!.SecurityCodePageInitializer(user, "login_user");
                         }
-                        
+                        else
+                        {
+                            MessageBox.Show(resp.message);
+                        }
+
                     }
                     else 
                     {
-                        InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
-                        bool follow = await LoginSession(username);
-                        if (follow)
+                        if (resp.success)
                         {
+                            MessageBox.Show(rpLogin.message);
+                            Close();
                             container!.MainPageInitializer(user);
                         }
+                        else 
+                        {
+                            MessageBox.Show(resp.message);
+                        }
                     }
-
-                    
                 }
                 else
                 {
@@ -101,8 +107,9 @@ namespace DarkMessages.DesktopApp
 
 
 
-        private async Task<bool> LoginSession(string username)
+        private async Task<rpLoginSession> LoginSession(string username)
         {
+            rpLoginSession rpLoginSession = new rpLoginSession();  
             try
             {
                 string ip = ConnectionHelper.getMachineIp();
@@ -113,20 +120,12 @@ namespace DarkMessages.DesktopApp
                 HttpContent content = new StringContent(rqLoginSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
                 string responseBody = await response.Content.ReadAsStringAsync();
-                rpLoginSession rpLoginSession = JsonSerializer.Deserialize<rpLoginSession>(responseBody) ?? new rpLoginSession();
-                if (rpLoginSession.success)
-                {
-                    return true;
-                  
-                }
-                else
-                {
-                    return false;
-                }
+                rpLoginSession = JsonSerializer.Deserialize<rpLoginSession>(responseBody) ?? new rpLoginSession();
+                return rpLoginSession; 
             }
             catch (Exception ex)
             {
-                return false;
+                return rpLoginSession;
             }
         }
 

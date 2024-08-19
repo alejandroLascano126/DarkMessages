@@ -1,0 +1,2 @@
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\publish\ConsoleTest.pdb
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\publish\ConsoleTest.exe

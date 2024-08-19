@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\objects\\sessionobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\objects\\sessionobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +19,8 @@
       "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\objects\\userobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\objects\\userobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\objects\\tokenobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\objects\\tokenobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\objects\\chatobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\objects\\chatobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -65,84 +61,65 @@
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Program.cs",
               "RelativeDocumentMoniker": "DarkMessages.Service\\Program.cs",
               "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Program.cs",
               "RelativeToolTip": "DarkMessages.Service\\Program.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAACQAAAAkAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACUAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T05:17:07.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SessionObj.cs",
-              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\SessionObj.cs",
-              "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\SessionObj.cs",
-              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\SessionObj.cs",
-              "RelativeToolTip": "DarkMessages.Service\\Objects\\SessionObj.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAtwEwAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T04:58:26.034Z",
+              "WhenOpened": "2024-08-18T23:29:14.586Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ChatHub.cs",
-              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Hubs\\ChatHub.cs",
-              "RelativeDocumentMoniker": "DarkMessages.Service\\Hubs\\ChatHub.cs",
-              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Hubs\\ChatHub.cs",
-              "RelativeToolTip": "DarkMessages.Service\\Hubs\\ChatHub.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAACgAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-18T04:40:51.361Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "DarkMessagesController.cs",
               "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
               "RelativeDocumentMoniker": "DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
               "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
               "RelativeToolTip": "DarkMessages.Service\\Controllers\\DarkMessagesController.cs",
-              "ViewState": "AQIAAOUAAAAAAAAAAAAqwAQBAAAtAAAA",
+              "ViewState": "AQIAALAAAAAAAAAAAAAAAKAAAABkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T15:35:44.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-18T18:22:10.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TokenObj.cs",
-              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\TokenObj.cs",
-              "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\TokenObj.cs",
-              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\TokenObj.cs",
-              "RelativeToolTip": "DarkMessages.Service\\Objects\\TokenObj.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAxwAgAAAAZAAAA",
+              "DocumentIndex": 3,
+              "Title": "ChatHub.cs",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Hubs\\ChatHub.cs",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\Hubs\\ChatHub.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Hubs\\ChatHub.cs",
+              "RelativeToolTip": "DarkMessages.Service\\Hubs\\ChatHub.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACMAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T14:40:13.871Z"
+              "WhenOpened": "2024-08-18T18:21:23.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SessionObj.cs",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\SessionObj.cs",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\SessionObj.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\SessionObj.cs",
+              "RelativeToolTip": "DarkMessages.Service\\Objects\\SessionObj.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-18T18:01:34.953Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UserObj.cs",
-              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\UserObj.cs",
-              "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\UserObj.cs",
-              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\UserObj.cs",
-              "RelativeToolTip": "DarkMessages.Service\\Objects\\UserObj.cs",
-              "ViewState": "AQIAANwBAAAAAAAAAAAkwAACAAAdAAAA",
+              "Title": "ChatObj.cs",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\ChatObj.cs",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\ChatObj.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\ChatObj.cs",
+              "RelativeToolTip": "DarkMessages.Service\\Objects\\ChatObj.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwAYAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T14:39:05.953Z"
+              "WhenOpened": "2024-08-18T17:56:11.008Z"
             }
           ]
         }

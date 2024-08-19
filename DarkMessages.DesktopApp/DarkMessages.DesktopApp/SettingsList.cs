@@ -17,6 +17,7 @@ using System.Resources;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Configuration;
 using Newtonsoft.Json.Linq;
+using System.Collections;
 
 namespace DarkMessages.DesktopApp
 {
@@ -33,24 +34,26 @@ namespace DarkMessages.DesktopApp
 
         }
         HttpClient client = new HttpClient();
-        string[] settingsNames = { "Profile Information", "Account Information", "Privacy", "Friends", "Group", "Settings" };
-        string[] settingsPhotoDir = 
+        
+        Dictionary<string, Bitmap> settingsItems = new Dictionary<string, Bitmap>() 
         {
-            @"..\..\..\resources\profile-information_24638.png",
-            @"..\..\..\resources\vecteezy_user-account-icon-for-your-design-only_21079672.png",
-            @"..\..\..\resources\pngwinggroup.com.png",
-            @"..\..\..\resources\pngwing.com.png",
-            @"..\..\..\resources\multiple-users-silhouette.png",
-            @"..\..\..\resources\more-info-icon.png"
+            { "Profile Information", Properties.Resources.profile_information_24638},
+            { "Account Information", Properties.Resources.vecteezy_user_account_icon_for_your_design_only_21079672},
+            { "Privacy", Properties.Resources.pngwinggroup_com},
+            { "Friends", Properties.Resources.pngwing_com},
+            { "Group", Properties.Resources.multiple_users_silhouette},
+            { "Settings", Properties.Resources.more_info_icon}
+
         };
 
         List<SettingItem> settingItems = new List<SettingItem>();
+        List<string> itemNames = new List<string>();
         private int page = 1;
         private int settingsCount = 6;
         private int rows = 5;
         private int maxPage = 2;
         private int minPage = 1;
-
+        
         public SettingsList()
         {
             InitializeComponent();
@@ -60,6 +63,7 @@ namespace DarkMessages.DesktopApp
 
         private void SettingsList_Load(object sender, EventArgs e)
         {
+            itemNames = new List<string>(settingsItems.Keys);
             loadSettingsList(5,1, _value);
         }
 
@@ -76,19 +80,21 @@ namespace DarkMessages.DesktopApp
             int maxRows = ((rows * page) > settingsCount) ? settingsCount : (rows * page);
             int minRows = (rows * page) - rows;
 
+            
+
             if (GlobalVariables.isDevelopment) 
             {
-                
                 for (int i = minRows; i < maxRows; i++)
                 {
                     SettingItem item = new SettingItem();
-                    item.name = settingsNames[i];
-                    string fullPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, settingsPhotoDir[i]));
-                    item.icon = Image.FromFile(fullPath);
+                    item.name = itemNames[i];
+                    item.icon = settingsItems[itemNames[i]];
                     item.mainPage = mainPage;
                     item.container = container;
                     settingItems.Add(item);
                 }
+                
+
                 if (!string.IsNullOrEmpty(value))
                 {
                     foreach (SettingItem settingItem in settingItems)

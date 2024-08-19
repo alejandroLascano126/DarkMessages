@@ -31,9 +31,9 @@ namespace DarkMessages.Service.Hub
             Clients.All.SendAsync("ReceiveGroupMessages", rpConsultGroupMessages);
         }
 
-        public void ConsultNotifications(object obj)
+        public void ConsultNotifications(Notification notification)
         {
-            Clients.All.SendAsync("ReceiveNotifications", obj);
+            Clients.All.SendAsync("ReceiveNotifications", notification);
         }
 
         public void ConsultUsersOnlineStatus(rpMantSession rpMantSession)
