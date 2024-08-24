@@ -40,20 +40,20 @@
             // 
             // txtName
             // 
-            txtName.BackColor = SystemColors.ControlLightLight;
+            txtName.BackColor = SystemColors.InactiveCaption;
             txtName.BorderStyle = BorderStyle.FixedSingle;
             txtName.Font = new Font("Segoe UI", 14F);
-            txtName.Location = new Point(102, 51);
+            txtName.Location = new Point(22, 58);
             txtName.Name = "txtName";
-            txtName.Size = new Size(230, 32);
+            txtName.Size = new Size(310, 32);
             txtName.TabIndex = 5;
             // 
             // txtDescription
             // 
-            txtDescription.BackColor = SystemColors.ControlLightLight;
+            txtDescription.BackColor = SystemColors.InactiveCaption;
             txtDescription.BorderStyle = BorderStyle.FixedSingle;
             txtDescription.Font = new Font("Segoe UI", 14F);
-            txtDescription.Location = new Point(22, 168);
+            txtDescription.Location = new Point(22, 185);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(310, 161);
@@ -63,7 +63,7 @@
             // 
             lblname.AutoSize = true;
             lblname.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblname.Location = new Point(22, 53);
+            lblname.Location = new Point(22, 30);
             lblname.Name = "lblname";
             lblname.Size = new Size(64, 25);
             lblname.TabIndex = 7;
@@ -73,7 +73,7 @@
             // 
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblDescription.Location = new Point(22, 140);
+            lblDescription.Location = new Point(22, 157);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(114, 25);
             lblDescription.TabIndex = 8;
@@ -81,16 +81,18 @@
             // 
             // cbAccess
             // 
+            cbAccess.BackColor = SystemColors.InactiveCaption;
             cbAccess.Enabled = false;
             cbAccess.Font = new Font("Segoe UI", 14F);
             cbAccess.FormattingEnabled = true;
-            cbAccess.Location = new Point(102, 91);
+            cbAccess.Location = new Point(22, 121);
             cbAccess.Name = "cbAccess";
-            cbAccess.Size = new Size(230, 33);
+            cbAccess.Size = new Size(310, 33);
             cbAccess.TabIndex = 10;
             // 
             // btnCreateGroup
             // 
+            btnCreateGroup.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCreateGroup.BackColor = Color.DodgerBlue;
             btnCreateGroup.FlatAppearance.BorderSize = 0;
             btnCreateGroup.FlatStyle = FlatStyle.Flat;
@@ -107,7 +109,7 @@
             // 
             btnAccess.AutoSize = true;
             btnAccess.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnAccess.Location = new Point(22, 94);
+            btnAccess.Location = new Point(22, 93);
             btnAccess.Name = "btnAccess";
             btnAccess.Size = new Size(69, 25);
             btnAccess.TabIndex = 13;
@@ -117,7 +119,7 @@
             // 
             lblMensaje.AutoSize = true;
             lblMensaje.Font = new Font("Segoe UI", 10F);
-            lblMensaje.Location = new Point(27, 341);
+            lblMensaje.Location = new Point(22, 349);
             lblMensaje.Name = "lblMensaje";
             lblMensaje.Size = new Size(59, 19);
             lblMensaje.TabIndex = 14;

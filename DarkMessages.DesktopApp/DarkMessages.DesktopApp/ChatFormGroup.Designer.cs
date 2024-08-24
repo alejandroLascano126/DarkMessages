@@ -82,7 +82,7 @@
             // 
             // tlpMessagesChat
             // 
-            tlpMessagesChat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tlpMessagesChat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tlpMessagesChat.AutoScroll = true;
             tlpMessagesChat.AutoSize = true;
             tlpMessagesChat.BackColor = SystemColors.GradientInactiveCaption;
@@ -117,13 +117,13 @@
             tlpMessagesChat.RowStyles.Add(new RowStyle());
             tlpMessagesChat.Size = new Size(746, 429);
             tlpMessagesChat.TabIndex = 4;
+            tlpMessagesChat.ClientSizeChanged += tlpMessagesChat_ClientSizeChanged;
             tlpMessagesChat.MouseWheel += TlpMessagesChat_MouseWheel;
             // 
             // ChatFormGroup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(770, 543);
             Controls.Add(tlpMessagesChat);

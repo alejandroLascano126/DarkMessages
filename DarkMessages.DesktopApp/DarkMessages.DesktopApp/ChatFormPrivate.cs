@@ -54,7 +54,7 @@ namespace DarkMessages.DesktopApp
         private int minPage = 1;
         private int rows = 8;
 
-        private int itemHeight = 50;
+        private int itemHeight = 69;
         private Size lastsize = new Size();
 
         public ChatFormPrivate()
@@ -107,7 +107,7 @@ namespace DarkMessages.DesktopApp
                 if (notification.typeId == 2 || notification.typeId == 3)
                 {
                     if (await deleteNotification())
-                        await notificationsList!.loadNotifications(5, 1);
+                        notificationsList!.loadNewAsync();
                 }
             }
 

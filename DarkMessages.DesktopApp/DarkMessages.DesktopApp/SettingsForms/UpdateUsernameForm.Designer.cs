@@ -47,6 +47,7 @@
             // 
             // txtUsername
             // 
+            txtUsername.Anchor = AnchorStyles.None;
             txtUsername.BackColor = SystemColors.InactiveCaption;
             txtUsername.BorderStyle = BorderStyle.FixedSingle;
             txtUsername.Font = new Font("Segoe UI", 14F);
@@ -57,6 +58,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label1.Location = new Point(332, 229);
@@ -67,6 +69,8 @@
             // 
             // btnSaveInfo
             // 
+            btnSaveInfo.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSaveInfo.AutoSize = true;
             btnSaveInfo.BackColor = Color.DodgerBlue;
             btnSaveInfo.FlatAppearance.BorderSize = 0;
             btnSaveInfo.FlatStyle = FlatStyle.Flat;
@@ -81,6 +85,8 @@
             // 
             // btnBack
             // 
+            btnBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnBack.AutoSize = true;
             btnBack.BackColor = Color.DodgerBlue;
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatStyle = FlatStyle.Flat;

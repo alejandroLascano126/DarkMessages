@@ -107,6 +107,7 @@ namespace DarkMessages.DesktopApp
             usersQueryView.TopLevel = false;
             usersQueryView.value = "";
             panelUsers.Controls.Add(usersQueryView);
+            usersQueryView.Dock = DockStyle.Fill;
             usersQueryView.Tag = usersQueryView;
             usersQueryView.Size = panelUsers.Size;
             usersQueryView.Show();
@@ -138,6 +139,7 @@ namespace DarkMessages.DesktopApp
             createGroupForm.TopLevel = false;
             createGroupForm.user = user;
             panelUsers.Controls.Add(createGroupForm);
+            createGroupForm.Dock = DockStyle.Fill;
             createGroupForm.Tag = createGroupForm;
             createGroupForm.Size = panelUsers.Size;
             createGroupForm.Show();
@@ -333,6 +335,7 @@ namespace DarkMessages.DesktopApp
             settingsList.mainPage = this;
             settingsList.TopLevel = false;
             panelUsers.Controls.Add(settingsList);
+            settingsList.Dock = DockStyle.Fill;
             settingsList.Tag = settingsList;
             settingsList.Size = panelUsers.Size;
             settingsList.Show();

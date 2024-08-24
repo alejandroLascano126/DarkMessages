@@ -168,28 +168,9 @@ namespace DarkMessages.DesktopApp
                 return;
 
             page = 1;
-            if (lastsize.Height < Size.Height)
-            {
-                int difference = (int)(Size.Height - lastsize.Height);
-                if (difference > itemHeight)
-                {
-                    lastsize = Size;
-                    int rowsPlus = difference / itemHeight;
-                    rows += rowsPlus;
-                    await loadUserItems(rows, page);
-                }
-            }
-            else 
-            {
-                int difference = (int)(Size.Height - lastsize.Height);
-                if (difference < itemHeight)
-                {
-                    lastsize = Size;
-                    int rowsMinus = difference / itemHeight;
-                    rows += rowsMinus;
-                    await loadUserItems(rows, page);
-                }
-            }
+            rows = (Size.Height / itemHeight) - 1;
+            lastsize.Height = Size.Height;
+            await loadUserItems(rows, page);
         }
     }
 }

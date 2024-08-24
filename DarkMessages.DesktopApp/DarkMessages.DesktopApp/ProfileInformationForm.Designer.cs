@@ -40,6 +40,7 @@
             // 
             // lblProfileInfo
             // 
+            lblProfileInfo.Anchor = AnchorStyles.None;
             lblProfileInfo.AutoSize = true;
             lblProfileInfo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblProfileInfo.Location = new Point(45, 33);
@@ -50,6 +51,7 @@
             // 
             // btnSaveInfo
             // 
+            btnSaveInfo.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSaveInfo.BackColor = Color.DodgerBlue;
             btnSaveInfo.FlatAppearance.BorderSize = 0;
             btnSaveInfo.FlatStyle = FlatStyle.Flat;
@@ -64,6 +66,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label1.Location = new Point(45, 84);
@@ -74,6 +77,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label3.Location = new Point(45, 188);
@@ -84,6 +88,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label4.Location = new Point(371, 84);
@@ -94,6 +99,7 @@
             // 
             // txtName
             // 
+            txtName.Anchor = AnchorStyles.None;
             txtName.BackColor = SystemColors.InactiveCaption;
             txtName.BorderStyle = BorderStyle.FixedSingle;
             txtName.Font = new Font("Segoe UI", 14F);
@@ -104,6 +110,7 @@
             // 
             // txtLastname
             // 
+            txtLastname.Anchor = AnchorStyles.None;
             txtLastname.BackColor = SystemColors.InactiveCaption;
             txtLastname.BorderStyle = BorderStyle.FixedSingle;
             txtLastname.Font = new Font("Segoe UI", 14F);
@@ -114,6 +121,7 @@
             // 
             // txtEmail
             // 
+            txtEmail.Anchor = AnchorStyles.None;
             txtEmail.BackColor = SystemColors.InactiveCaption;
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Enabled = false;

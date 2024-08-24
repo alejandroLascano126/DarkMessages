@@ -44,6 +44,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label1.Location = new Point(17, 35);
@@ -54,6 +55,7 @@
             // 
             // btnAddContact
             // 
+            btnAddContact.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddContact.BackColor = Color.DodgerBlue;
             btnAddContact.FlatAppearance.BorderSize = 0;
             btnAddContact.FlatStyle = FlatStyle.Flat;
@@ -68,6 +70,7 @@
             // 
             // txtSelectedContact
             // 
+            txtSelectedContact.Anchor = AnchorStyles.None;
             txtSelectedContact.BackColor = SystemColors.InactiveCaption;
             txtSelectedContact.BorderStyle = BorderStyle.FixedSingle;
             txtSelectedContact.Font = new Font("Segoe UI", 14F);
@@ -80,6 +83,7 @@
             // 
             // btnViewContacts
             // 
+            btnViewContacts.Anchor = AnchorStyles.None;
             btnViewContacts.BackColor = Color.DodgerBlue;
             btnViewContacts.FlatAppearance.BorderSize = 0;
             btnViewContacts.FlatStyle = FlatStyle.Flat;
@@ -94,6 +98,7 @@
             // 
             // txtDescription
             // 
+            txtDescription.Anchor = AnchorStyles.None;
             txtDescription.BackColor = SystemColors.InactiveCaption;
             txtDescription.BorderStyle = BorderStyle.FixedSingle;
             txtDescription.Font = new Font("Segoe UI", 14F);
@@ -105,6 +110,7 @@
             // 
             // lblDescription
             // 
+            lblDescription.Anchor = AnchorStyles.None;
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblDescription.Location = new Point(17, 178);
@@ -115,6 +121,7 @@
             // 
             // lblContacts
             // 
+            lblContacts.Anchor = AnchorStyles.None;
             lblContacts.AutoSize = true;
             lblContacts.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblContacts.Location = new Point(358, 35);
@@ -125,6 +132,7 @@
             // 
             // txtTitle
             // 
+            txtTitle.Anchor = AnchorStyles.None;
             txtTitle.BackColor = SystemColors.InactiveCaption;
             txtTitle.BorderStyle = BorderStyle.FixedSingle;
             txtTitle.Font = new Font("Segoe UI", 14F);
@@ -135,6 +143,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label3.Location = new Point(17, 108);
@@ -145,6 +154,7 @@
             // 
             // flpContacts
             // 
+            flpContacts.Anchor = AnchorStyles.None;
             flpContacts.BackColor = SystemColors.InactiveCaption;
             flpContacts.BorderStyle = BorderStyle.FixedSingle;
             flpContacts.Location = new Point(358, 66);
@@ -154,6 +164,7 @@
             // 
             // lblResponseMessage
             // 
+            lblResponseMessage.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblResponseMessage.AutoSize = true;
             lblResponseMessage.Font = new Font("Segoe UI", 10F);
             lblResponseMessage.Location = new Point(17, 501);
@@ -164,6 +175,7 @@
             // 
             // btnBack
             // 
+            btnBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnBack.BackColor = Color.DodgerBlue;
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatStyle = FlatStyle.Flat;

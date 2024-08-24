@@ -51,6 +51,7 @@
             // 
             // txtPassword
             // 
+            txtPassword.Anchor = AnchorStyles.None;
             txtPassword.BackColor = SystemColors.InactiveCaption;
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
             txtPassword.Font = new Font("Segoe UI", 14F);
@@ -62,6 +63,7 @@
             // 
             // txtNewPassword
             // 
+            txtNewPassword.Anchor = AnchorStyles.None;
             txtNewPassword.BackColor = SystemColors.InactiveCaption;
             txtNewPassword.BorderStyle = BorderStyle.FixedSingle;
             txtNewPassword.Font = new Font("Segoe UI", 14F);
@@ -73,6 +75,7 @@
             // 
             // txtNewRePassword
             // 
+            txtNewRePassword.Anchor = AnchorStyles.None;
             txtNewRePassword.BackColor = SystemColors.InactiveCaption;
             txtNewRePassword.BorderStyle = BorderStyle.FixedSingle;
             txtNewRePassword.Font = new Font("Segoe UI", 14F);
@@ -84,6 +87,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label1.Location = new Point(332, 160);
@@ -94,6 +98,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.None;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label2.Location = new Point(279, 290);
@@ -104,6 +109,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             label3.Location = new Point(307, 223);
@@ -114,6 +120,8 @@
             // 
             // btnSaveInfo
             // 
+            btnSaveInfo.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSaveInfo.AutoSize = true;
             btnSaveInfo.BackColor = Color.DodgerBlue;
             btnSaveInfo.FlatAppearance.BorderSize = 0;
             btnSaveInfo.FlatStyle = FlatStyle.Flat;
@@ -128,6 +136,8 @@
             // 
             // btnBack
             // 
+            btnBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnBack.AutoSize = true;
             btnBack.BackColor = Color.DodgerBlue;
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatStyle = FlatStyle.Flat;

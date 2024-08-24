@@ -33,10 +33,12 @@
             // 
             // flpNotifications
             // 
+            flpNotifications.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             flpNotifications.Location = new Point(0, 0);
             flpNotifications.Name = "flpNotifications";
             flpNotifications.Size = new Size(352, 450);
             flpNotifications.TabIndex = 0;
+            flpNotifications.ClientSizeChanged += flpNotifications_ClientSizeChanged;
             flpNotifications.MouseWheel += FlpNotifications_MouseWheel;
             // 
             // NotificationsList

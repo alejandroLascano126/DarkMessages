@@ -18,6 +18,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Configuration;
 using Newtonsoft.Json.Linq;
 using System.Collections;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace DarkMessages.DesktopApp
 {
@@ -30,12 +31,12 @@ namespace DarkMessages.DesktopApp
         public string value
         {
             get { return value; }
-            set { _value = value; loadSettingsList(5, 1, _value); }
+            set { _value = value; loadSettingsList(rows, page, _value); }
 
         }
         HttpClient client = new HttpClient();
-        
-        Dictionary<string, Bitmap> settingsItems = new Dictionary<string, Bitmap>() 
+
+        Dictionary<string, Bitmap> settingsItems = new Dictionary<string, Bitmap>()
         {
             { "Profile Information", Properties.Resources.profile_information_24638},
             { "Account Information", Properties.Resources.vecteezy_user_account_icon_for_your_design_only_21079672},
@@ -53,7 +54,10 @@ namespace DarkMessages.DesktopApp
         private int rows = 5;
         private int maxPage = 2;
         private int minPage = 1;
-        
+
+        private int itemHeight = 76;
+        private Size lastsize = new Size();
+
         public SettingsList()
         {
             InitializeComponent();
@@ -64,12 +68,12 @@ namespace DarkMessages.DesktopApp
         private void SettingsList_Load(object sender, EventArgs e)
         {
             itemNames = new List<string>(settingsItems.Keys);
-            loadSettingsList(5,1, _value);
+            loadSettingsList(rows, page, _value);
         }
 
         private void loadSettingsList(int rows, int page, string value)
         {
-            if (settingItems.Count > 0) 
+            if (settingItems.Count > 0)
             {
                 settingItems.Clear();
             }
@@ -80,10 +84,11 @@ namespace DarkMessages.DesktopApp
             int maxRows = ((rows * page) > settingsCount) ? settingsCount : (rows * page);
             int minRows = (rows * page) - rows;
 
-            
 
-            if (GlobalVariables.isDevelopment) 
+
+            if (GlobalVariables.isDevelopment)
             {
+                if (itemNames.Count == 0) itemNames = new List<string>(settingsItems.Keys);
                 for (int i = minRows; i < maxRows; i++)
                 {
                     SettingItem item = new SettingItem();
@@ -93,7 +98,7 @@ namespace DarkMessages.DesktopApp
                     item.container = container;
                     settingItems.Add(item);
                 }
-                
+
 
                 if (!string.IsNullOrEmpty(value))
                 {
@@ -112,14 +117,14 @@ namespace DarkMessages.DesktopApp
                         flpSettingsItems.Controls.Add(settingItem);
                     }
                 }
-                
+
             }
-            
+
         }
 
-       
 
-        private void FlpSettingsItem_MouseWheel(object sender, MouseEventArgs e) 
+
+        private void FlpSettingsItem_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta > 0) //up
             {
@@ -146,6 +151,18 @@ namespace DarkMessages.DesktopApp
                 return false;
             }
             return true;
+        }
+
+        private void flpSettingsItems_ClientSizeChanged(object sender, EventArgs e)
+        {
+            maxPage = (int)Math.Ceiling((double)settingItems.Count / rows);
+            if ((Size.Height == 0 || Size.Height == 511 || Size.Height == 472) && lastsize.Height == 0)
+                return;
+
+            page = 1;
+            rows = (Size.Height / itemHeight) - 1;
+            lastsize.Height = Size.Height;
+            loadSettingsList(rows, page, _value);
         }
     }
 }

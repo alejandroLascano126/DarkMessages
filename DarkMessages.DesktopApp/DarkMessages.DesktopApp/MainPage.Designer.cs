@@ -45,15 +45,15 @@
             // 
             panelChat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelChat.AutoSize = true;
-            panelChat.Location = new Point(399, 24);
+            panelChat.Location = new Point(410, 24);
             panelChat.Name = "panelChat";
-            panelChat.Size = new Size(744, 574);
+            panelChat.Size = new Size(733, 574);
             panelChat.TabIndex = 2;
             // 
             // panelUsers
             // 
             panelUsers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panelUsers.AutoSize = true;
+            panelUsers.BackColor = SystemColors.InactiveCaption;
             panelUsers.Location = new Point(33, 161);
             panelUsers.Name = "panelUsers";
             panelUsers.Size = new Size(360, 437);

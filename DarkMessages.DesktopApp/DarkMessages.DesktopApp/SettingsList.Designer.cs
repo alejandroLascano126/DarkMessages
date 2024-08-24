@@ -33,11 +33,13 @@
             // 
             // flpSettingsItems
             // 
+            flpSettingsItems.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             flpSettingsItems.BackColor = SystemColors.GradientInactiveCaption;
             flpSettingsItems.Location = new Point(0, 0);
             flpSettingsItems.Name = "flpSettingsItems";
-            flpSettingsItems.Size = new Size(348, 450);
+            flpSettingsItems.Size = new Size(347, 450);
             flpSettingsItems.TabIndex = 0;
+            flpSettingsItems.ClientSizeChanged += flpSettingsItems_ClientSizeChanged;
             flpSettingsItems.MouseWheel += FlpSettingsItem_MouseWheel;
             // 
             // SettingsList
@@ -53,6 +55,8 @@
             Load += SettingsList_Load;
             ResumeLayout(false);
         }
+
+
 
 
         #endregion

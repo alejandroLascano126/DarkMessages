@@ -16,6 +16,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace DarkMessages.DesktopApp
 {
@@ -25,11 +26,14 @@ namespace DarkMessages.DesktopApp
         public Container container { get; set; }
         public MainPage mainPage { get; set; }
         private HubConnection hubConnection;
-        private int notificationsCount {get;set;}
+        private int notificationsCount { get; set; }
         private int rows = 5;
         private int page = 1;
         private int maxPage = 0;
         private int minPage = 1;
+
+        private int itemHeight = 76;
+        private Size lastsize = new Size();
         public NotificationsList()
         {
             InitializeComponent();
@@ -42,7 +46,7 @@ namespace DarkMessages.DesktopApp
             notificationsCount = await countNotifications();
             maxPage = (int)Math.Ceiling((double)notificationsCount / rows);
 
-            await loadNotifications(rows,page);
+            await loadNotifications(rows, page);
         }
 
         public async Task loadNotifications(int rows, int page)
@@ -75,7 +79,7 @@ namespace DarkMessages.DesktopApp
                                 string groupName = "";
                                 string groupId = "";
                                 string userIdRelated = "";
-                                string description =  "";
+                                string description = "";
                                 JObject infoData = JObject.Parse(notification.infoJson);
 
                                 chat chat = new chat();
@@ -87,10 +91,10 @@ namespace DarkMessages.DesktopApp
                                 notificatioItm.mainPage = mainPage;
                                 notificatioItm.container = container;
 
-                                switch (notification.typeId) 
+                                switch (notification.typeId)
                                 {
-                                     case 1 :
-                                     case 2 :
+                                    case 1:
+                                    case 2:
                                         if (infoData != null && infoData.ContainsKey("usernameFirst"))
                                         {
                                             username = infoData["usernameFirst"]!.ToString();
@@ -99,9 +103,9 @@ namespace DarkMessages.DesktopApp
                                             chat = new chat() { name = name, friendUsername = username, email = email };
                                         }
                                         break;
-                                     case 3 :
+                                    case 3:
                                         break;
-                                     case 4 :
+                                    case 4:
                                         if (infoData != null && infoData.ContainsKey("description"))
                                         {
                                             groupName = infoData["groupName"]!.ToString();
@@ -111,7 +115,7 @@ namespace DarkMessages.DesktopApp
                                             chat = new chat() { name = groupName, entityId = Convert.ToInt32(groupId), userIdRelated = Convert.ToInt32(userIdRelated), description = description };
                                         }
                                         break;
-                                     case 5 :
+                                    case 5:
                                         if (infoData != null && infoData.ContainsKey("usernameFirst"))
                                         {
                                             username = infoData["usernameFirst"]!.ToString();
@@ -122,7 +126,7 @@ namespace DarkMessages.DesktopApp
                                         break;
                                 }
 
-                                
+
                                 notificatioItm.chat = chat;
                                 notificatioItm.NotificationsList = this;
                                 flpNotifications.Controls.Add(notificatioItm);
@@ -146,13 +150,13 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async void loadNewAsync() 
+        public async void loadNewAsync()
         {
-            if(container != null) 
+            if (container != null)
             {
                 await loadNotifications(rows, 1);
             }
-        } 
+        }
 
 
         private async void InitializeSignalR()
@@ -234,6 +238,19 @@ namespace DarkMessages.DesktopApp
                         await loadNotifications(rows, page);
                 }
             }
+        }
+
+        private async void flpNotifications_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if ((Size.Height == 0 || Size.Height == 511 || Size.Height == 472) && lastsize.Height == 0)
+                return;
+
+            notificationsCount = await countNotifications();
+            page = 1;
+            rows = (Size.Height / itemHeight) - 1;
+            maxPage = (int)Math.Ceiling((double)notificationsCount / rows);
+            lastsize.Height = Size.Height;
+            await loadNotifications(rows, page);
         }
     }
 }

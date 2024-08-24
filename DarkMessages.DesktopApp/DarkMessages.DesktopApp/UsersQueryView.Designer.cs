@@ -33,11 +33,13 @@
             // 
             // flpUsersQuery
             // 
+            flpUsersQuery.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             flpUsersQuery.BackColor = SystemColors.GradientInactiveCaption;
             flpUsersQuery.Location = new Point(0, -1);
             flpUsersQuery.Name = "flpUsersQuery";
-            flpUsersQuery.Size = new Size(353, 452);
+            flpUsersQuery.Size = new Size(347, 450);
             flpUsersQuery.TabIndex = 0;
+            flpUsersQuery.ClientSizeChanged += flpUsersQuery_ClientSizeChanged;
             flpUsersQuery.MouseWheel += FlpUsersQuery_MouseWheel;
             // 
             // UsersQueryView
@@ -45,7 +47,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(353, 450);
+            ClientSize = new Size(347, 450);
             Controls.Add(flpUsersQuery);
             FormBorderStyle = FormBorderStyle.None;
             Name = "UsersQueryView";

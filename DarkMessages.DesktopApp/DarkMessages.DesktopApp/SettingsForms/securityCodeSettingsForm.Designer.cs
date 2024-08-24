@@ -40,6 +40,7 @@
             // 
             // lblSecurityCode
             // 
+            lblSecurityCode.Anchor = AnchorStyles.None;
             lblSecurityCode.AutoSize = true;
             lblSecurityCode.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblSecurityCode.Location = new Point(274, 224);
@@ -50,6 +51,7 @@
             // 
             // txtSecurityCode
             // 
+            txtSecurityCode.Anchor = AnchorStyles.None;
             txtSecurityCode.BorderStyle = BorderStyle.FixedSingle;
             txtSecurityCode.Font = new Font("Segoe UI", 12F);
             txtSecurityCode.Location = new Point(274, 257);
@@ -64,6 +66,7 @@
             // 
             // lblTimerCodigoValida
             // 
+            lblTimerCodigoValida.Anchor = AnchorStyles.None;
             lblTimerCodigoValida.AutoSize = true;
             lblTimerCodigoValida.Font = new Font("Segoe UI", 14F);
             lblTimerCodigoValida.Location = new Point(344, 292);
@@ -74,6 +77,8 @@
             // 
             // btnReSendSecurityCode
             // 
+            btnReSendSecurityCode.Anchor = AnchorStyles.None;
+            btnReSendSecurityCode.AutoSize = true;
             btnReSendSecurityCode.BackColor = Color.DodgerBlue;
             btnReSendSecurityCode.FlatAppearance.BorderSize = 0;
             btnReSendSecurityCode.FlatStyle = FlatStyle.Flat;
@@ -89,6 +94,8 @@
             // 
             // btnSecurityCode
             // 
+            btnSecurityCode.Anchor = AnchorStyles.None;
+            btnSecurityCode.AutoSize = true;
             btnSecurityCode.BackColor = Color.DodgerBlue;
             btnSecurityCode.FlatAppearance.BorderSize = 0;
             btnSecurityCode.FlatStyle = FlatStyle.Flat;
@@ -104,6 +111,7 @@
             // 
             // btnBackSecCode
             // 
+            btnBackSecCode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnBackSecCode.BackColor = Color.DodgerBlue;
             btnBackSecCode.FlatAppearance.BorderSize = 0;
             btnBackSecCode.FlatStyle = FlatStyle.Flat;

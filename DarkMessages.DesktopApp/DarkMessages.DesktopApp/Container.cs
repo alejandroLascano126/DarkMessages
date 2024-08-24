@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Text;
 using System.Text.Json;
 using System.Xml.Serialization;
+using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DarkMessages.DesktopApp
@@ -19,6 +20,7 @@ namespace DarkMessages.DesktopApp
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
+            //SecurityCodePageInitializer(new User(), "");
             //LoginUserPageInitializer();
             SessionSaved();
         }

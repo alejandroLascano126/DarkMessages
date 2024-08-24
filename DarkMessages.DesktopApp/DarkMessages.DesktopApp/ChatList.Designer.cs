@@ -37,7 +37,7 @@
             flpItemsUser.BackColor = SystemColors.GradientInactiveCaption;
             flpItemsUser.Location = new Point(0, 0);
             flpItemsUser.Name = "flpItemsUser";
-            flpItemsUser.Size = new Size(348, 450);
+            flpItemsUser.Size = new Size(347, 450);
             flpItemsUser.TabIndex = 0;
             flpItemsUser.ClientSizeChanged += flpItemsUser_ClientSizeChanged;
             flpItemsUser.MouseWheel += FlpItemsUser_MouseWheel;

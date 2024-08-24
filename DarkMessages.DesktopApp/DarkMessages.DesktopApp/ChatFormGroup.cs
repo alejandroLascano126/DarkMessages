@@ -42,12 +42,15 @@ namespace DarkMessages.DesktopApp
         public MainPage? container { get; set; }
         HttpClient client = new HttpClient();
         private int page;
+        private int lastPage;
         private int messagesCount;
         private int currentRow = 0;
         private int rows = 5;
         private int maxPage = 0;
         private int minPage = 1;
 
+        private int itemHeight = 50;
+        private Size lastsize = new Size();
         public ChatFormGroup()
         {
             InitializeComponent();
@@ -160,11 +163,14 @@ namespace DarkMessages.DesktopApp
                 {
                     if (rp.messages.Count > 0)
                     {
+                        if (lastPage != page) currentRow = 0;
+                        if (messages == null) messages = new List<groupMessage>();
                         Console.WriteLine("Message consulted correctly");
                         groupMessage msg = new groupMessage();
                         msg = rp.messages.Last(); // last new message
                         if (rp.messages.Count - messages.Count == 1) // a new message received
                         {
+                            if (currentRow < messages.Count) currentRow = messages.Count;
                             AddMessage(msg.messageContent, msg.dateCreated.ToString("HH:mm"), (msg.username == container!.user.userName) ? false : true, $"{msg.name} {msg.lastname}");
                             insertLocalLastMessages(msg.messageContent);
                         }
@@ -382,7 +388,7 @@ namespace DarkMessages.DesktopApp
 
         private async void rtbSendMessage_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
                 {
@@ -391,7 +397,7 @@ namespace DarkMessages.DesktopApp
                     rtbSendMessage.Text = "";
                 }
             }
-            
+
         }
 
         private bool pageScrollHelp(int value)
@@ -416,6 +422,44 @@ namespace DarkMessages.DesktopApp
                 GlobalVariables.chat = chat;
                 GlobalVariables.username = container!.user.userName;
                 GlobalVariables.chatType = ChatType.groupChat;
+            }
+        }
+
+        private async void tlpMessagesChat_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if ((Size.Height == 648 || Size.Height == 609) && lastsize.Height == 0)
+                return;
+            else if (lastsize.Height == 0)
+                lastsize.Height = 609;
+
+            messagesCount = await countGroupMessages();
+            page = 1;
+            currentRow = 0;
+            if (lastsize.Height < Size.Height)
+            {
+                int difference = (int)(Size.Height - lastsize.Height);
+                if (difference > itemHeight)
+                {
+                    lastsize = Size;
+                    int rowsPlus = difference / itemHeight;
+                    rows += rowsPlus;
+                    maxPage = (int)Math.Ceiling((double)messagesCount / rows);
+                    page = maxPage;
+                    await consultMessages(rows, page);
+                }
+            }
+            else
+            {
+                int difference = (int)(Size.Height - lastsize.Height);
+                if (difference < itemHeight)
+                {
+                    lastsize = Size;
+                    int rowsMinus = difference / itemHeight;
+                    rows += rowsMinus;
+                    maxPage = (int)Math.Ceiling((double)messagesCount / rows);
+                    page = maxPage;
+                    await consultMessages(rows, page);
+                }
             }
         }
     }

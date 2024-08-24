@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace DarkMessages.DesktopApp
 {
@@ -27,28 +28,32 @@ namespace DarkMessages.DesktopApp
         private int maxPage = 0;
         private int minPage = 1;
 
+        private int itemHeight = 76;
+        private Size lastsize = new Size();
+
         public string value
         {
             get { return value; }
             set { _value = value; loadUsersAsync(); }
 
         }
-        
+
         public UsersQueryView()
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
 
         }
-            
-        public async void loadUsersAsync() 
+
+        public async void loadUsersAsync()
         {
             usersCount = await countUserItems();
             maxPage = (int)Math.Ceiling((double)usersCount / rows);
             //page = usersCount / rows;
             //page = (page == 0) ? 1 : page;
 
-            await loadUserItems(5, 1);
+            await loadUserItems(rows, page);
+            lastsize = Size;
         }
 
         public async Task loadUserItems(int rows, int page)
@@ -86,11 +91,11 @@ namespace DarkMessages.DesktopApp
                             flpUsersQuery.Controls.Add(item);
                         }
                     }
-                    else 
+                    else
                     {
                         rp.users = new List<User>();
                     }
-                    
+
                 }
                 else
                 {
@@ -140,34 +145,45 @@ namespace DarkMessages.DesktopApp
         private async void FlpUsersQuery_MouseWheel(object sender, MouseEventArgs e)
         {
             usersCount = await countUserItems();
-            if (usersCount > rows) 
+            if (usersCount > rows)
             {
                 if (e.Delta > 0) //up
                 {
-                    if(pageScrollHelp(--page))
+                    if (pageScrollHelp(--page))
                         await loadUserItems(rows, page);
                 }
                 else //down
                 {
-                    if(pageScrollHelp(++page))
+                    if (pageScrollHelp(++page))
                         await loadUserItems(rows, page);
                 }
             }
         }
 
-        private bool pageScrollHelp(int value) 
+        private bool pageScrollHelp(int value)
         {
-            if (value < minPage) 
-            {                
+            if (value < minPage)
+            {
                 page = 1;
                 return false;
             }
-            if (value > maxPage) 
+            if (value > maxPage)
             {
                 page--;
                 return false;
             }
             return true;
+        }
+
+        private async void flpUsersQuery_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if ((Size.Height == 0 || Size.Height == 511 || Size.Height == 472) && lastsize.Height == 0)
+                return;
+
+            page = 1;
+            rows = (Size.Height / itemHeight) - 1;
+            lastsize.Height = Size.Height;
+            await loadUserItems(rows, page);
         }
     }
 }
