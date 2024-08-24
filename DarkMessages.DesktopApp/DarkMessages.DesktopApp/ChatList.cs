@@ -25,11 +25,14 @@ namespace DarkMessages.DesktopApp
         private int maxPage = 0;
         private int minPage = 1;
 
+        private int itemHeight = 76;
+        private Size lastsize = new Size();
+
         public ChatList()
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
-            
+
         }
 
         private async void FriendsList_Load(object sender, EventArgs e)
@@ -43,6 +46,7 @@ namespace DarkMessages.DesktopApp
             //page = (page == 0) ? 1 : page;
 
             await loadUserItems(rows, page);
+            lastsize = Size;
         }
 
         public async Task loadUserItems(int _rows, int _page)
@@ -58,7 +62,7 @@ namespace DarkMessages.DesktopApp
                 rpConsultChats rp = JsonSerializer.Deserialize<rpConsultChats>(responseBody) ?? new rpConsultChats();
                 if (rp.success)
                 {
-                    if (rp.chats.Count > 0) 
+                    if (rp.chats.Count > 0)
                     {
                         if (flpItemsUser.Controls.Count > 0)
                         {
@@ -127,7 +131,7 @@ namespace DarkMessages.DesktopApp
         private async void FlpItemsUser_MouseWheel(object sender, MouseEventArgs e)
         {
             chatsCount = await countChats();
-            if (chatsCount > rows) 
+            if (chatsCount > rows)
             {
                 if (e.Delta > 0) //up
                 {
@@ -140,7 +144,7 @@ namespace DarkMessages.DesktopApp
                         await loadUserItems(rows, page);
                 }
             }
-            
+
         }
 
         private bool pageScrollHelp(int value)
@@ -158,5 +162,34 @@ namespace DarkMessages.DesktopApp
             return true;
         }
 
+        private async void flpItemsUser_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if ((Size.Height == 0 || Size.Height == 511 || Size.Height == 472) && lastsize.Height == 0)
+                return;
+
+            page = 1;
+            if (lastsize.Height < Size.Height)
+            {
+                int difference = (int)(Size.Height - lastsize.Height);
+                if (difference > itemHeight)
+                {
+                    lastsize = Size;
+                    int rowsPlus = difference / itemHeight;
+                    rows += rowsPlus;
+                    await loadUserItems(rows, page);
+                }
+            }
+            else 
+            {
+                int difference = (int)(Size.Height - lastsize.Height);
+                if (difference < itemHeight)
+                {
+                    lastsize = Size;
+                    int rowsMinus = difference / itemHeight;
+                    rows += rowsMinus;
+                    await loadUserItems(rows, page);
+                }
+            }
+        }
     }
 }

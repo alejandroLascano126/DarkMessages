@@ -43,13 +43,17 @@
             // 
             // panelChat
             // 
-            panelChat.Location = new Point(409, 48);
+            panelChat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelChat.AutoSize = true;
+            panelChat.Location = new Point(399, 24);
             panelChat.Name = "panelChat";
-            panelChat.Size = new Size(734, 550);
+            panelChat.Size = new Size(744, 574);
             panelChat.TabIndex = 2;
             // 
             // panelUsers
             // 
+            panelUsers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panelUsers.AutoSize = true;
             panelUsers.Location = new Point(33, 161);
             panelUsers.Name = "panelUsers";
             panelUsers.Size = new Size(360, 437);
@@ -106,9 +110,9 @@
             panel1.Controls.Add(btnNotifications);
             panel1.Controls.Add(btnSettings);
             panel1.Controls.Add(btnChats);
-            panel1.Location = new Point(33, 48);
+            panel1.Location = new Point(33, 24);
             panel1.Name = "panel1";
-            panel1.Size = new Size(360, 116);
+            panel1.Size = new Size(360, 140);
             panel1.TabIndex = 4;
             // 
             // btnContacts
@@ -183,6 +187,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

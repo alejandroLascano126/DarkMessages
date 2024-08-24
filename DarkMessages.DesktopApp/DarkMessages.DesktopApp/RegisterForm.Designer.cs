@@ -95,6 +95,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.None;
+            groupBox1.AutoSize = true;
             groupBox1.Controls.Add(txtLastname);
             groupBox1.Controls.Add(txtName);
             groupBox1.Controls.Add(label7);
@@ -113,7 +115,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Location = new Point(362, 170);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(473, 270);
+            groupBox1.Size = new Size(473, 271);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Register user";
@@ -223,6 +225,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

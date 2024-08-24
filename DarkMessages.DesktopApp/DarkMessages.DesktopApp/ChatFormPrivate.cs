@@ -47,22 +47,26 @@ namespace DarkMessages.DesktopApp
         public NotificationsList? notificationsList { get; set; }
         HttpClient client = new HttpClient();
         private int page;
+        private int lastPage;
         private int messagesCount;
         private int currentRow = 0;
         private int maxPage = 0;
         private int minPage = 1;
+        private int rows = 8;
+
+        private int itemHeight = 50;
+        private Size lastsize = new Size();
 
         public ChatFormPrivate()
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
             InitializeSignalR();
-
         }
 
         private async void ChatForm_Load(object sender, EventArgs e)
         {
-            if (GlobalVariables.chat != null) 
+            if (GlobalVariables.chat != null)
             {
                 chat = GlobalVariables.chat;
                 isFriend = GlobalVariables.isFriend ?? false;
@@ -74,9 +78,10 @@ namespace DarkMessages.DesktopApp
             lblOnlineStatus.Text = "";
 
             messagesCount = await countMessages(userName, chat.friendUsername ?? "");
-            page = (int)Math.Ceiling((double)messagesCount / 7);
+            page = (int)Math.Ceiling((double)messagesCount / rows);            
             page = (page == 0) ? 1 : page;
-            maxPage = (int)Math.Ceiling((double)messagesCount / 7);
+            lastPage = page;
+            maxPage = (int)Math.Ceiling((double)messagesCount / rows);
             messages = new List<DarkMessages.models.Message.message>() { };
 
             if (!isFriend)
@@ -90,19 +95,19 @@ namespace DarkMessages.DesktopApp
                 disableInputChatForm();
             }
 
-            if (!isInputDisabled) 
+            if (!isInputDisabled)
             {
                 await ConsultOnlineStatus();
-                await consultMessages(userName, chat.friendUsername ?? "", 7, page);
+                await consultMessages(userName, chat.friendUsername ?? "", rows, page);
             }
-                
 
-            if (notification != null) 
+
+            if (notification != null)
             {
-                if (notification.typeId == 2 || notification.typeId == 3) 
+                if (notification.typeId == 2 || notification.typeId == 3)
                 {
                     if (await deleteNotification())
-                        await notificationsList!.loadNotifications(5,1);
+                        await notificationsList!.loadNotifications(5, 1);
                 }
             }
 
@@ -184,11 +189,15 @@ namespace DarkMessages.DesktopApp
                 {
                     if (rp.messages.Count > 0)
                     {
+                        if (lastPage != page) currentRow = 0;
+                        if (messages == null) messages = new List<message>();
+
                         Console.WriteLine("Message consulted correctly");
                         DarkMessages.models.Message.message msg = new DarkMessages.models.Message.message();
                         msg = rp.messages.Last(); // last new message
                         if (rp.messages.Count - messages.Count == 1) // a new message received
                         {
+                            if (currentRow < messages.Count) currentRow = messages.Count;
                             AddMessage(msg.messageContent, msg.createdAt.ToString("HH:mm"), (msg.senderUser == userName) ? false : true);
                             insertLocalLastMessages(msg.messageContent);
                         }
@@ -203,6 +212,7 @@ namespace DarkMessages.DesktopApp
                         }
 
                         messages = rp.messages;
+                        lastPage = page;
                     }
                 }
                 else
@@ -261,11 +271,11 @@ namespace DarkMessages.DesktopApp
                 }
             });
 
-            hubConnection.On<rpMantSession>("ReceiveUsersOnlineStatus", (incominggMessage) => 
+            hubConnection.On<rpMantSession>("ReceiveUsersOnlineStatus", (incominggMessage) =>
             {
                 if (InvokeRequired)
                 {
-                   Invoke(new Action(() => ConsultOnlineStatusAsync()));
+                    Invoke(new Action(() => ConsultOnlineStatusAsync()));
                 }
                 else
                 {
@@ -283,9 +293,10 @@ namespace DarkMessages.DesktopApp
             if (!isInputDisabled)
             {
                 messagesCount = await countMessages(userName, chat.friendUsername ?? "");
-                page = (int)Math.Ceiling((double)messagesCount / 7);
+                maxPage = (int)Math.Ceiling((double)messagesCount / rows);
+                page = maxPage;
                 page = (page == 0) ? 1 : page;
-                await consultMessages(userName, chat.friendUsername ?? "", 7, page);
+                await consultMessages(userName, chat.friendUsername ?? "", rows, page);
             }
         }
 
@@ -297,7 +308,7 @@ namespace DarkMessages.DesktopApp
                 {
                     foreach (Control control2 in control.Controls)
                     {
-                        if (control2.Name == "FriendsList")
+                        if (control2.Name == "ChatList")
                         {
                             ChatList friendList = (ChatList)control2;
 
@@ -338,13 +349,13 @@ namespace DarkMessages.DesktopApp
                     {
                         Invoke(new Action(() =>
                         {
-                            if (option == "REG") 
+                            if (option == "REG")
                             {
                                 tlpMessagesChat.Controls.Clear();
                                 container!.flpQueryUserInitializer();
                                 enableInputChatForm();
                             }
-                            
+
                         }));
 
                     }
@@ -375,7 +386,7 @@ namespace DarkMessages.DesktopApp
         private async void messageCellAddFriendClick(object sender, EventArgs e)
         {
             bool resp = await consultRegisterFriendship(userName, chat.friendUsername ?? "", "CON");
-            if (resp) 
+            if (resp)
             {
                 tlpMessagesChat.Controls.Clear();
                 MessageCell messageCell = new MessageCell();
@@ -386,9 +397,9 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async void messageCellAcceptFriendRequest(object sender, EventArgs e) 
+        private async void messageCellAcceptFriendRequest(object sender, EventArgs e)
         {
-            if (notification != null) 
+            if (notification != null)
             {
                 if (await deleteNotification())
                 {
@@ -408,7 +419,7 @@ namespace DarkMessages.DesktopApp
                 messageCell.Click += messageCellAcceptFriendRequest!;
                 tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
             }
-            else 
+            else
             {
                 if (isRequestSent)
                 {
@@ -418,7 +429,7 @@ namespace DarkMessages.DesktopApp
                     messageCell.Description = "";
                     tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
                 }
-                else 
+                else
                 {
                     MessageCell messageCell = new MessageCell();
                     messageCell.TextAlign = ContentAlignment.MiddleCenter;
@@ -449,24 +460,24 @@ namespace DarkMessages.DesktopApp
         private async void TlpMessagesChat_MouseWheel(object sender, MouseEventArgs e)
         {
             currentRow = 0;
-            if (messagesCount > 7)
+            if (messagesCount > rows)
             {
                 if (e.Delta > 0) //up
                 {
                     if (pageScrollHelp(--page))
-                        await consultMessages(userName, chat.friendUsername ?? "", 7, page);
+                        await consultMessages(userName, chat.friendUsername ?? "", rows, page);
                 }
                 else //down
                 {
                     if (pageScrollHelp(++page))
-                        await consultMessages(userName, chat.friendUsername ?? "", 7, page);
+                        await consultMessages(userName, chat.friendUsername ?? "", rows, page);
                 }
             }
         }
 
         private async void rtbSendMessage_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 if (rtbSendMessage.Text != null && rtbSendMessage.Text != "")
                 {
@@ -475,7 +486,7 @@ namespace DarkMessages.DesktopApp
                     rtbSendMessage.Text = "";
                 }
             }
-            
+
         }
 
         private bool pageScrollHelp(int value)
@@ -520,9 +531,9 @@ namespace DarkMessages.DesktopApp
             return false;
         }
 
-        private void saveStateCache() 
+        private void saveStateCache()
         {
-            if (!string.IsNullOrEmpty(chat.name)) 
+            if (!string.IsNullOrEmpty(chat.name))
             {
                 GlobalVariables.chat = chat;
                 GlobalVariables.isFriend = isFriend;
@@ -535,14 +546,14 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async Task ConsultOnlineStatus() 
+        private async Task ConsultOnlineStatus()
         {
             try
             {
                 string urlPost = "api/darkmsgs/MantSession";
                 rqMantSession rqMantSession = new rqMantSession() { username = chat.friendUsername ?? "", option = "CON", onlineStatus = true };
                 var rqSerialized = JsonSerializer.Serialize(rqMantSession);
-               HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
                 string responseBody = await response.Content.ReadAsStringAsync();
                 rpMantSession rp = JsonSerializer.Deserialize<rpMantSession>(responseBody) ?? new rpMantSession();
@@ -552,7 +563,7 @@ namespace DarkMessages.DesktopApp
                     {
                         Invoke(() => lblOnlineStatus.Text = "Online");
                     }
-                    else 
+                    else
                     {
                         Invoke(() => lblOnlineStatus.Text = "Offline");
                     }
@@ -568,12 +579,49 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private async void ConsultOnlineStatusAsync() 
+        private async void ConsultOnlineStatusAsync()
         {
-            if(!isInputDisabled)
+            if (!isInputDisabled)
                 await ConsultOnlineStatus();
         }
 
+        private async void tlpMessagesChat_ClientSizeChanged(object sender, EventArgs e)
+        {
+            if ((Size.Height == 648 || Size.Height == 609) && lastsize.Height == 0)
+                return;
+            else if (lastsize.Height == 0)
+                lastsize.Height = 609;
+
+            messagesCount = await countMessages(userName, chat.friendUsername ?? "");
+            page = 1;
+            currentRow = 0;
+            if (lastsize.Height < Size.Height)
+            {
+                int difference = (int)(Size.Height - lastsize.Height);
+                if (difference > itemHeight)
+                {
+                    lastsize = Size;
+                    int rowsPlus = difference / itemHeight;
+                    rows += rowsPlus;
+                    maxPage = (int)Math.Ceiling((double)messagesCount / rows);
+                    page = maxPage;
+                    await consultMessages(userName, chat.friendUsername ?? "", rows, page);
+                }
+            }
+            else
+            {
+                int difference = (int)(Size.Height - lastsize.Height);
+                if (difference < itemHeight)
+                {
+                    lastsize = Size;
+                    int rowsMinus = difference / itemHeight;
+                    rows += rowsMinus;
+                    maxPage = (int)Math.Ceiling((double)messagesCount / rows);
+                    page = maxPage;
+                    await consultMessages(userName, chat.friendUsername ?? "", rows, page);
+                }
+            }
+        }
     }
 
 

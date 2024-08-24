@@ -33,14 +33,16 @@
             // 
             // flpItemsUser
             // 
+            flpItemsUser.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             flpItemsUser.BackColor = SystemColors.GradientInactiveCaption;
             flpItemsUser.Location = new Point(0, 0);
             flpItemsUser.Name = "flpItemsUser";
             flpItemsUser.Size = new Size(348, 450);
             flpItemsUser.TabIndex = 0;
+            flpItemsUser.ClientSizeChanged += flpItemsUser_ClientSizeChanged;
             flpItemsUser.MouseWheel += FlpItemsUser_MouseWheel;
             // 
-            // FriendsList
+            // ChatList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -48,7 +50,7 @@
             ClientSize = new Size(347, 450);
             Controls.Add(flpItemsUser);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FriendsList";
+            Name = "ChatList";
             Text = "FriendsList";
             Load += FriendsList_Load;
             ResumeLayout(false);

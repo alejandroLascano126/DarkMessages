@@ -49,6 +49,7 @@
             // 
             // panelUpChat
             // 
+            panelUpChat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panelUpChat.BackColor = SystemColors.GradientActiveCaption;
             panelUpChat.Controls.Add(lblOnlineStatus);
             panelUpChat.Controls.Add(lblNameChat);
@@ -69,18 +70,20 @@
             // 
             // rtbSendMessage
             // 
+            rtbSendMessage.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rtbSendMessage.Font = new Font("Segoe UI", 12F);
             rtbSendMessage.Location = new Point(12, 488);
             rtbSendMessage.Name = "rtbSendMessage";
-            rtbSendMessage.Size = new Size(573, 43);
+            rtbSendMessage.Size = new Size(605, 43);
             rtbSendMessage.TabIndex = 2;
             rtbSendMessage.Text = "";
             rtbSendMessage.KeyDown += rtbSendMessage_KeyDown;
             // 
             // btnSendMessage
             // 
+            btnSendMessage.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnSendMessage.Font = new Font("Segoe UI", 15F);
-            btnSendMessage.Location = new Point(591, 488);
+            btnSendMessage.Location = new Point(623, 488);
             btnSendMessage.Name = "btnSendMessage";
             btnSendMessage.Size = new Size(135, 43);
             btnSendMessage.TabIndex = 3;
@@ -90,13 +93,15 @@
             // 
             // tlpMessagesChat
             // 
-            tlpMessagesChat.Anchor = AnchorStyles.Top;
+            tlpMessagesChat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tlpMessagesChat.AutoScroll = true;
+            tlpMessagesChat.AutoSize = true;
+            tlpMessagesChat.BackColor = SystemColors.GradientInactiveCaption;
             tlpMessagesChat.ColumnCount = 3;
             tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tlpMessagesChat.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
-            tlpMessagesChat.Location = new Point(0, 53);
+            tlpMessagesChat.Location = new Point(12, 53);
             tlpMessagesChat.Name = "tlpMessagesChat";
             tlpMessagesChat.RowCount = 22;
             tlpMessagesChat.RowStyles.Add(new RowStyle());
@@ -121,15 +126,15 @@
             tlpMessagesChat.RowStyles.Add(new RowStyle());
             tlpMessagesChat.RowStyles.Add(new RowStyle());
             tlpMessagesChat.RowStyles.Add(new RowStyle());
-            tlpMessagesChat.Size = new Size(713, 429);
+            tlpMessagesChat.Size = new Size(746, 429);
             tlpMessagesChat.TabIndex = 4;
+            tlpMessagesChat.ClientSizeChanged += tlpMessagesChat_ClientSizeChanged;
             tlpMessagesChat.MouseWheel += TlpMessagesChat_MouseWheel;
             // 
             // ChatFormPrivate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(770, 543);
             Controls.Add(tlpMessagesChat);
@@ -143,6 +148,7 @@
             panelUpChat.ResumeLayout(false);
             panelUpChat.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
 

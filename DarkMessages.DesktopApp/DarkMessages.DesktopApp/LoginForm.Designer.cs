@@ -79,6 +79,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.None;
+            groupBox1.AutoSize = true;
             groupBox1.BackColor = SystemColors.GradientActiveCaption;
             groupBox1.Controls.Add(btnLogin);
             groupBox1.Controls.Add(txtUsernameLogin);
@@ -88,7 +90,7 @@
             groupBox1.Controls.Add(lblPasswordLogin);
             groupBox1.Location = new Point(362, 179);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(458, 264);
+            groupBox1.Size = new Size(428, 269);
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "Login";
@@ -125,6 +127,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(1156, 628);
             Controls.Add(groupBox1);
@@ -134,6 +137,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
