@@ -162,11 +162,16 @@ namespace DarkMessages.Service.Objects
                     {
                         Direction = ParameterDirection.Output
                     };
+                    SqlParameter profilePictureOutput = new SqlParameter("@profilePicture", SqlDbType.VarBinary)
+                    {
+                        Direction = ParameterDirection.Output, Size = 13000
+                    };
                     command.Parameters.Add(emailOutput);
                     command.Parameters.Add(idUserOutput);
                     command.Parameters.Add(responseOutput);
                     command.Parameters.Add(nameOutput);
                     command.Parameters.Add(lastnameOutput);
+                    command.Parameters.Add(profilePictureOutput);
 
                     await connection.OpenAsync();
                     int respValue = await command.ExecuteNonQueryAsync();
@@ -179,6 +184,7 @@ namespace DarkMessages.Service.Objects
                         rp.id = (int)idUserOutput.Value;
                         rp.name = (string)nameOutput.Value;
                         rp.lastname = (string)lastnameOutput.Value;
+                        rp.profilePicture = (!profilePictureOutput.Value.Equals(DBNull.Value)) ? (byte[])profilePictureOutput.Value : null;
 
                         if (rq.emailValidation)
                         {
@@ -423,7 +429,7 @@ namespace DarkMessages.Service.Objects
                             rp.users = new List<User>();
                             foreach (DataRow row in dataTable.Rows)
                             {
-                                User user = new() { Id = Convert.ToInt32(row["idUser"]!), userName = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, isFriend = (row["isFriend"].ToString()! == "Y") ? true : false  };
+                                User user = new() { Id = Convert.ToInt32(row["idUser"]!), userName = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, isFriend = (row["isFriend"].ToString()! == "Y") ? true : false, profilePicture = (!row["profilePictur"].Equals(DBNull.Value)) ? (byte[])row["profilePictur"] : null};
                                 rp.users.Add(user ?? new User());
                             }
                         }
@@ -545,6 +551,7 @@ namespace DarkMessages.Service.Objects
                         command.Parameters.AddWithValue("@username", rq.username);
                         command.Parameters.AddWithValue("@password", rq.password);
                         command.Parameters.AddWithValue("@ActualPassword", rq.actualPassword);
+                        command.Parameters.AddWithValue("@profilePicture", rq.profilePicture);
 
 
                         SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)

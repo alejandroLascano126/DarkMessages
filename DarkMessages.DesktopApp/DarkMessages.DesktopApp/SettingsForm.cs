@@ -70,6 +70,7 @@ namespace DarkMessages.DesktopApp
                         GlobalVariables.isRequestSent= null;
                         GlobalVariables.notificationsList= null;
                         GlobalVariables.chatType = null;
+                        GlobalVariables.profilePicture = null;
 
                         return true;
                     }

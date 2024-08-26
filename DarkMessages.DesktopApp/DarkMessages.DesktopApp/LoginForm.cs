@@ -62,8 +62,8 @@ namespace DarkMessages.DesktopApp
                 if (rpLogin.success)
                 {
                     int id = Convert.ToInt32(rpLogin.id);
-                    User user = new User() { Id = id, userName = username, name = rpLogin.name, lastname = rpLogin.lastname, email = rpLogin.email };
-                    InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email);
+                    User user = new User() { Id = id, userName = username, name = rpLogin.name, lastname = rpLogin.lastname, email = rpLogin.email, profilePicture = rpLogin.profilePicture};
+                    InitSession(username, id, rpLogin.name, rpLogin.lastname, rpLogin.email, rpLogin.profilePicture);
                     rpLoginSession resp = await LoginSession(username);
                     if (GlobalVariables.emailValidation)
                     {
@@ -130,7 +130,7 @@ namespace DarkMessages.DesktopApp
         }
 
 
-        public void InitSession(string lastUsername, int userId, string name, string lastname, string email)
+        public void InitSession(string lastUsername, int userId, string name, string lastname, string email, byte[] profilePicture)
         {
             if (string.IsNullOrEmpty(GlobalVariables.lastUsername))
             {
@@ -143,6 +143,7 @@ namespace DarkMessages.DesktopApp
                 root.appSettings.name = name;
                 root.appSettings.lastname = lastname;
                 root.appSettings.email = email;
+                root.appSettings.profilePicture = profilePicture;
 
                 var options = new JsonSerializerOptions { WriteIndented = true };
                 string updatedJsonText = JsonSerializer.Serialize(root, options);
@@ -153,6 +154,7 @@ namespace DarkMessages.DesktopApp
                 GlobalVariables.name = name;
                 GlobalVariables.lastname = lastname;
                 GlobalVariables.email = email;
+                GlobalVariables.profilePicture = profilePicture;
             }
         }
     }
@@ -169,6 +171,7 @@ namespace DarkMessages.DesktopApp
         public string lastname { get; set; }
         public string email { get; set; }
         public bool isDevelopment { get; set; }
+        public byte[] profilePicture { get; set; }
     }
 
     public class Root

@@ -46,6 +46,7 @@
             // 
             flpOptions.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             flpOptions.AutoSize = true;
+            flpOptions.BackColor = SystemColors.GradientInactiveCaption;
             flpOptions.Location = new Point(48, 87);
             flpOptions.Name = "flpOptions";
             flpOptions.Size = new Size(647, 390);

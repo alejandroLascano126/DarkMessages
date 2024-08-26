@@ -61,7 +61,7 @@ namespace DarkMessages.Service.Objects
                                 string? email = (row["email"] == DBNull.Value) ? null : row["email"].ToString();
                                 string? friendUsername = (row["friendUsername"] == DBNull.Value) ? null : row["friendUsername"].ToString();
                                 string? lastMessage = (row["lastMessage"] == DBNull.Value) ? null : row["lastMessage"].ToString();
-                                chat chat = new chat() { chatId = Convert.ToInt32(row["chatId"]), typeChatId = Convert.ToInt32(row["typeChatId"]), entityId = Convert.ToInt32(row["entityId"]), name = row["name"].ToString()!, userIdRelated = Convert.ToInt32(row["userIdRelated"]), lastMessage = lastMessage, friendUsername = friendUsername, dateCreated = Convert.ToDateTime(row["dateCreated"]), email = email, description = row["description"] != DBNull.Value ? row["description"].ToString() : null};
+                                chat chat = new chat() { chatId = Convert.ToInt32(row["chatId"]), typeChatId = Convert.ToInt32(row["typeChatId"]), entityId = Convert.ToInt32(row["entityId"]), name = row["name"].ToString()!, userIdRelated = Convert.ToInt32(row["userIdRelated"]), lastMessage = lastMessage, friendUsername = friendUsername, dateCreated = Convert.ToDateTime(row["dateCreated"]), email = email, description = row["description"] != DBNull.Value ? row["description"].ToString() : null, profilePicture = (!row["profilePicture"].Equals(DBNull.Value)) ? (byte[])row["profilePicture"] : null };
                                 rp.chats.Add(chat);
                             }
                         }

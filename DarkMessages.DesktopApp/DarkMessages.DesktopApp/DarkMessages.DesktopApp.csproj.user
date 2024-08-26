@@ -19,6 +19,9 @@
     <Compile Update="ChatList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GroupMemberOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GroupMessageCell.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -36,6 +39,9 @@
     </Compile>
     <Compile Update="NotificationsList.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="personalizedComponents\Settings\RoundedPictureBox.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="ProfileInformationForm.cs">
       <SubType>Form</SubType>

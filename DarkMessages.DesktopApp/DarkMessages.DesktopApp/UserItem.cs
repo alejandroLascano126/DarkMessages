@@ -1,6 +1,8 @@
 ﻿using DarkMessages.models.Chats;
 using DarkMessages.models.Friends;
+using DarkMessages.models.Groups;
 using DarkMessages.models.Message;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +29,7 @@ namespace DarkMessages.DesktopApp
         public string usernameFriend { get; set; }
         public string username { get; set; }
         public bool isContact { get; set; }
+        public groupMember? groupMemberInfo { get; set; }
         public GroupSettingsForm? groupSettingsForm { get; set; }
         public bool groupMember { get; set; }
         HttpClient client = new HttpClient();
@@ -90,9 +93,13 @@ namespace DarkMessages.DesktopApp
             }
             else 
             {
-                if (!groupMember) 
+                if (!groupMember)
                 {
                     groupSettingsForm.AsignData(chat);
+                }
+                else
+                {
+                    groupSettingsForm.showGroupMembersOptionsForm(chat);
                 }
             }
         }

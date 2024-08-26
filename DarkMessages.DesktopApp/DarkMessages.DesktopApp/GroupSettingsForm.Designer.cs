@@ -40,6 +40,7 @@
             flpContacts = new FlowLayoutPanel();
             lblResponseMessage = new Label();
             btnBack = new CreateGroupButton();
+            btnLeaveGroup = new CreateGroupButton();
             SuspendLayout();
             // 
             // label1
@@ -47,7 +48,7 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(17, 35);
+            label1.Location = new Point(33, 33);
             label1.Name = "label1";
             label1.Size = new Size(123, 25);
             label1.TabIndex = 0;
@@ -60,7 +61,7 @@
             btnAddContact.FlatAppearance.BorderSize = 0;
             btnAddContact.FlatStyle = FlatStyle.Flat;
             btnAddContact.ForeColor = Color.White;
-            btnAddContact.Location = new Point(625, 502);
+            btnAddContact.Location = new Point(641, 500);
             btnAddContact.Name = "btnAddContact";
             btnAddContact.Size = new Size(95, 29);
             btnAddContact.TabIndex = 9;
@@ -74,7 +75,7 @@
             txtSelectedContact.BackColor = SystemColors.InactiveCaption;
             txtSelectedContact.BorderStyle = BorderStyle.FixedSingle;
             txtSelectedContact.Font = new Font("Segoe UI", 14F);
-            txtSelectedContact.Location = new Point(17, 66);
+            txtSelectedContact.Location = new Point(33, 64);
             txtSelectedContact.Name = "txtSelectedContact";
             txtSelectedContact.Size = new Size(314, 32);
             txtSelectedContact.TabIndex = 10;
@@ -88,7 +89,7 @@
             btnViewContacts.FlatAppearance.BorderSize = 0;
             btnViewContacts.FlatStyle = FlatStyle.Flat;
             btnViewContacts.ForeColor = Color.White;
-            btnViewContacts.Location = new Point(625, 31);
+            btnViewContacts.Location = new Point(641, 29);
             btnViewContacts.Name = "btnViewContacts";
             btnViewContacts.Size = new Size(95, 29);
             btnViewContacts.TabIndex = 11;
@@ -102,7 +103,7 @@
             txtDescription.BackColor = SystemColors.InactiveCaption;
             txtDescription.BorderStyle = BorderStyle.FixedSingle;
             txtDescription.Font = new Font("Segoe UI", 14F);
-            txtDescription.Location = new Point(17, 209);
+            txtDescription.Location = new Point(33, 207);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(314, 276);
@@ -113,7 +114,7 @@
             lblDescription.Anchor = AnchorStyles.None;
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblDescription.Location = new Point(17, 178);
+            lblDescription.Location = new Point(33, 176);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(114, 25);
             lblDescription.TabIndex = 14;
@@ -124,7 +125,7 @@
             lblContacts.Anchor = AnchorStyles.None;
             lblContacts.AutoSize = true;
             lblContacts.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblContacts.Location = new Point(358, 35);
+            lblContacts.Location = new Point(374, 33);
             lblContacts.Name = "lblContacts";
             lblContacts.Size = new Size(95, 25);
             lblContacts.TabIndex = 16;
@@ -136,7 +137,7 @@
             txtTitle.BackColor = SystemColors.InactiveCaption;
             txtTitle.BorderStyle = BorderStyle.FixedSingle;
             txtTitle.Font = new Font("Segoe UI", 14F);
-            txtTitle.Location = new Point(17, 139);
+            txtTitle.Location = new Point(33, 137);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(314, 32);
             txtTitle.TabIndex = 17;
@@ -146,7 +147,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label3.Location = new Point(17, 108);
+            label3.Location = new Point(33, 106);
             label3.Name = "label3";
             label3.Size = new Size(50, 25);
             label3.TabIndex = 18;
@@ -157,17 +158,18 @@
             flpContacts.Anchor = AnchorStyles.None;
             flpContacts.BackColor = SystemColors.InactiveCaption;
             flpContacts.BorderStyle = BorderStyle.FixedSingle;
-            flpContacts.Location = new Point(358, 66);
+            flpContacts.Location = new Point(374, 64);
             flpContacts.Name = "flpContacts";
             flpContacts.Size = new Size(362, 419);
             flpContacts.TabIndex = 20;
+            flpContacts.MouseWheel += FlpContacts_MouseWheel;
             // 
             // lblResponseMessage
             // 
             lblResponseMessage.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lblResponseMessage.AutoSize = true;
             lblResponseMessage.Font = new Font("Segoe UI", 10F);
-            lblResponseMessage.Location = new Point(17, 501);
+            lblResponseMessage.Location = new Point(33, 499);
             lblResponseMessage.Name = "lblResponseMessage";
             lblResponseMessage.Size = new Size(121, 19);
             lblResponseMessage.TabIndex = 21;
@@ -180,7 +182,7 @@
             btnBack.FlatAppearance.BorderSize = 0;
             btnBack.FlatStyle = FlatStyle.Flat;
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(524, 502);
+            btnBack.Location = new Point(540, 500);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(95, 29);
             btnBack.TabIndex = 22;
@@ -188,12 +190,28 @@
             btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
+            // btnLeaveGroup
+            // 
+            btnLeaveGroup.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnLeaveGroup.BackColor = Color.DodgerBlue;
+            btnLeaveGroup.FlatAppearance.BorderSize = 0;
+            btnLeaveGroup.FlatStyle = FlatStyle.Flat;
+            btnLeaveGroup.ForeColor = Color.White;
+            btnLeaveGroup.Location = new Point(439, 500);
+            btnLeaveGroup.Name = "btnLeaveGroup";
+            btnLeaveGroup.Size = new Size(95, 29);
+            btnLeaveGroup.TabIndex = 23;
+            btnLeaveGroup.Text = "Leave Group";
+            btnLeaveGroup.UseVisualStyleBackColor = false;
+            btnLeaveGroup.Click += btnLeaveGroup_Click;
+            // 
             // GroupSettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(770, 543);
+            Controls.Add(btnLeaveGroup);
             Controls.Add(btnViewContacts);
             Controls.Add(btnBack);
             Controls.Add(lblResponseMessage);
@@ -228,5 +246,6 @@
         private FlowLayoutPanel flpContacts;
         private Label lblResponseMessage;
         private CreateGroupButton btnBack;
+        private CreateGroupButton btnLeaveGroup;
     }
 }

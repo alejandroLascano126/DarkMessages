@@ -28,6 +28,17 @@ namespace DarkMessages.DesktopApp
             GlobalVariables.lastname = configuration["appSettings:lastname"]!;
             GlobalVariables.email = configuration["appSettings:email"]!;
             GlobalVariables.isDevelopment = Convert.ToBoolean(configuration["appSettings:isDevelopment"]!);
+            string base64String = configuration["appSettings:profilePicture"] ?? "";
+            if (!string.IsNullOrEmpty(base64String))
+            {
+                byte[] profilePictureBytes = Convert.FromBase64String(base64String);
+                GlobalVariables.profilePicture = profilePictureBytes;
+            }
+            else 
+            {
+                GlobalVariables.profilePicture = null;
+            }
+              
 
 
 
@@ -57,6 +68,7 @@ namespace DarkMessages.DesktopApp
         public static bool isDevelopment { get; set; }
         public static TabType tabType { get; set; }
         public static string email { get; set; }
+        public static byte[]? profilePicture { get; set; }
     }
 
     public enum ChatType{ privateChat, groupChat }

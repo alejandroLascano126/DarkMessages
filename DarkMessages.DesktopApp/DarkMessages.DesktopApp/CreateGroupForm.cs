@@ -76,7 +76,7 @@ namespace DarkMessages.DesktopApp
             try
             {
                 string urlPost = "api/darkmsgs/registerGroupMember";
-                rqRegisterGroupMember rqRegisterGroup = new rqRegisterGroupMember() { groupId = groupId, username = user.userName, roleId = 1};
+                rqRegisterGroupMember rqRegisterGroup = new rqRegisterGroupMember() { groupId = groupId, username = user.userName, roleId = 2};
                 var rqSerialized = JsonSerializer.Serialize(rqRegisterGroup);
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);

@@ -272,5 +272,23 @@ namespace DarkMessages.Service.Controllers
             }
             return rp;
         }
+
+        [HttpPost("removeGroupMember")]
+        public async Task<rpRemoveGroupMember> removeGroupMember(rqRemoveGroupMember rq)
+        {
+            rpRemoveGroupMember rp = new rpRemoveGroupMember();
+            rp = await groupObj.removeGroupMember(rq);
+            return rp;
+        }
+
+        [HttpPost("consultGroupMember")]
+        public async Task<rpConsultGroupMembers> consultGroupMember(rqConsultGroupMembers rq)
+        {
+            rpConsultGroupMembers rp = new rpConsultGroupMembers();
+            rp = await groupObj.consultGroupMember(rq);
+            return rp;
+        }
+
+        
     }
 }

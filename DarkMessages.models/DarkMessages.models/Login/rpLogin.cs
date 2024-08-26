@@ -13,5 +13,6 @@ namespace DarkMessages.models.Login
         public string email { get; set; }
         public string name { get; set; }
         public string lastname { get; set; }
+        public byte[]? profilePicture { get; set; }
     }
 }

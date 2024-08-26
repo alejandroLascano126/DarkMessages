@@ -155,12 +155,12 @@ namespace DarkMessages.DesktopApp
 
         private void flpSettingsItems_ClientSizeChanged(object sender, EventArgs e)
         {
-            maxPage = (int)Math.Ceiling((double)settingItems.Count / rows);
             if ((Size.Height == 0 || Size.Height == 511 || Size.Height == 472) && lastsize.Height == 0)
                 return;
 
             page = 1;
             rows = (Size.Height / itemHeight) - 1;
+            maxPage = (int)Math.Ceiling((double)itemNames.Count / rows);
             lastsize.Height = Size.Height;
             loadSettingsList(rows, page, _value);
         }

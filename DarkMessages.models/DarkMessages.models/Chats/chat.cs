@@ -19,5 +19,6 @@ namespace DarkMessages.models.Chats
         public string? email { get; set; }
         public DateTime dateUpdated { get; set; }
         public string? description { get; set; }
+        public byte[]? profilePicture { get; set; }
     }
 }

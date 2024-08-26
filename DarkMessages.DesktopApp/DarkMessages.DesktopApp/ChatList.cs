@@ -11,6 +11,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using DarkMessages.DesktopApp.Helpers;
 
 namespace DarkMessages.DesktopApp
 {
@@ -59,7 +60,7 @@ namespace DarkMessages.DesktopApp
                 HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = await client.PostAsync(urlPost, content);
                 string responseBody = await response.Content.ReadAsStringAsync();
-                rpConsultChats rp = JsonSerializer.Deserialize<rpConsultChats>(responseBody) ?? new rpConsultChats();
+                    rpConsultChats rp = JsonSerializer.Deserialize<rpConsultChats>(responseBody) ?? new rpConsultChats();
                 if (rp.success)
                 {
                     if (rp.chats.Count > 0)
@@ -76,16 +77,18 @@ namespace DarkMessages.DesktopApp
                             item.description = chat.lastMessage ?? "";
                             item.username = container.user.userName;
                             item.usernameFriend = chat.friendUsername ?? "";
-                            //1 contact  2 group
-                            item.isFriend = (!string.IsNullOrEmpty(chat.friendUsername)) ? true : false;
-                            item.isContact = chat.typeChatId == 1 ? true : false;
-                            item.container = mainPage;
-                            if (GlobalVariables.isDevelopment)
+                            if (chat.profilePicture != null)
+                                item.icon = ImageHelper.ConvertBytesToImage(chat.profilePicture!);
+                            else 
                             {
                                 Bitmap groupBitmap = Properties.Resources.multiple_users_silhouette;
                                 Bitmap privateBitmap = Properties.Resources.user_solid;
                                 item.icon = (item.isContact) ? privateBitmap : groupBitmap;
                             }
+                            //1 contact  2 group
+                            item.isFriend = (!string.IsNullOrEmpty(chat.friendUsername)) ? true : false;
+                            item.isContact = chat.typeChatId == 1 ? true : false;
+                            item.container = mainPage;
                             flpItemsUser.Controls.Add(item);
                         }
                     }
@@ -169,6 +172,8 @@ namespace DarkMessages.DesktopApp
 
             page = 1;
             rows = (Size.Height / itemHeight) - 1;
+            chatsCount = await countChats();
+            maxPage = (int)Math.Ceiling((double)chatsCount / rows);
             lastsize.Height = Size.Height;
             await loadUserItems(rows, page);
         }

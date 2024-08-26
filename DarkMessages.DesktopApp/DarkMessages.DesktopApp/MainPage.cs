@@ -1,5 +1,6 @@
 ﻿using DarkMessages.models.Chats;
 using DarkMessages.models.Friends;
+using DarkMessages.models.Groups;
 using DarkMessages.models.Message;
 using DarkMessages.models.Notifications;
 using DarkMessages.models.Usuarios;
@@ -167,7 +168,7 @@ namespace DarkMessages.DesktopApp
             chatForm.Show();
         }
 
-        public void GroupSettingsFormInitializer(chat chat)
+        public void GroupSettingsFormInitializer(chat chat, groupMember groupMember)
         {
             if (panelChat.Controls.Count > 0)
             {
@@ -177,6 +178,7 @@ namespace DarkMessages.DesktopApp
             groupSettingsForm.chat = chat;
             groupSettingsForm.container = container;
             groupSettingsForm.mainPage = this;
+            groupSettingsForm.groupMember = groupMember;
             groupSettingsForm.TopLevel = false;
             groupSettingsForm.Dock = DockStyle.Fill;
             panelChat.Controls.Add(groupSettingsForm);
@@ -266,7 +268,7 @@ namespace DarkMessages.DesktopApp
 
         }
 
-        private void colorSelectedButton(string buttonName)
+        public void colorSelectedButton(string buttonName)
         {
             if (!string.IsNullOrEmpty(buttonSelectedBefore) && buttonName != buttonSelectedBefore)
             {

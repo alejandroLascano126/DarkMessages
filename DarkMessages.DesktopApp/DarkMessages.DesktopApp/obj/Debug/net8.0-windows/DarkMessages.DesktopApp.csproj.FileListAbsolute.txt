@@ -145,3 +145,4 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Deb
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.pdb
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.genruntimeconfig.cache
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\ref\DarkMessages.DesktopApp.dll
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.GroupMemberOptionsForm.resources

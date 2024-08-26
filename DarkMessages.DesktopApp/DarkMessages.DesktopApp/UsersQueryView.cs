@@ -1,4 +1,5 @@
-﻿using DarkMessages.models.Chats;
+﻿using DarkMessages.DesktopApp.Helpers;
+using DarkMessages.models.Chats;
 using DarkMessages.models.Friends;
 using DarkMessages.models.Usuarios;
 using Newtonsoft.Json.Linq;
@@ -81,8 +82,12 @@ namespace DarkMessages.DesktopApp
                             chat chat = new chat() { name = user.name ?? "", friendUsername = user.userName ?? "", email = user.email };
                             UserItem item = new UserItem();
                             item.name = $"{user.name} {user.lastname}" ?? "";
+                            item.name = $"{user.name} {user.lastname}" ?? "";
                             item.description = (user.isFriend) ? "Friend" : "";
                             item.username = container.user.userName;
+
+                            if (user.profilePicture != null)
+                                item.icon = ImageHelper.ConvertBytesToImage(user.profilePicture!);
                             item.chat = chat;
                             item.usernameFriend = user.userName ?? "";
                             item.isFriend = user.isFriend;
@@ -182,6 +187,8 @@ namespace DarkMessages.DesktopApp
 
             page = 1;
             rows = (Size.Height / itemHeight) - 1;
+            usersCount = await countUserItems();
+            maxPage = (int)Math.Ceiling((double)usersCount / rows);
             lastsize.Height = Size.Height;
             await loadUserItems(rows, page);
         }

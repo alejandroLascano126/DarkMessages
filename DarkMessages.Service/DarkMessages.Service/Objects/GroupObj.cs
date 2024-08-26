@@ -250,34 +250,49 @@ namespace DarkMessages.Service.Objects
                         {
                             Direction = ParameterDirection.Output
                         };
+                        SqlParameter countOutput = new SqlParameter("@countValue", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
 
                         command.Parameters.Add(responseOutput);
+                        command.Parameters.Add(countOutput);
 
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        if (rq.option == "CNT")
                         {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
-                            rp.groupMembers = new List<groupMember>();
-                            foreach (DataRow row in dataTable.Rows)
-                            {
-                                int roleId = 1;
-                                if (row.Table.Columns.Contains("roleId"))
-                                {
-                                    roleId = (row["roleId"] != DBNull.Value) ? Convert.ToInt32(row["roleId"]) : 1;
-                                }   
-                                groupMember groupMember = new groupMember() { idUser = Convert.ToInt32(row["idUser"]), username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, roleId = roleId };
-                                rp.groupMembers.Add(groupMember);
-                            }
-                        }
-
-                        int response = (int)responseOutput.Value;
-                        if (response == 0)
-                        {
-                            rp.success = true;
+                            await command.ExecuteNonQueryAsync();
+                            int response = (int)responseOutput.Value;
+                            rp.success = (response == 0) ? true : false;
+                            rp.message = countOutput.Value.ToString() ?? "0";
                         }
                         else
                         {
-                            rp.success = false;
+                            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                            {
+                                DataTable dataTable = new DataTable();
+                                adapter.Fill(dataTable);
+                                rp.groupMembers = new List<groupMember>();
+                                foreach (DataRow row in dataTable.Rows)
+                                {
+                                    int roleId = 1;
+                                    if (row.Table.Columns.Contains("roleId"))
+                                    {
+                                        roleId = (row["roleId"] != DBNull.Value) ? Convert.ToInt32(row["roleId"]) : 1;
+                                    }
+                                    groupMember groupMember = new groupMember() { idUser = Convert.ToInt32(row["idUser"]), username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, roleId = roleId };
+                                    rp.groupMembers.Add(groupMember);
+                                }
+                            }
+
+                            int response = (int)responseOutput.Value;
+                            if (response == 0)
+                            {
+                                rp.success = true;
+                            }
+                            else
+                            {
+                                rp.success = false;
+                            }
                         }
                     }
                 }
@@ -399,10 +414,117 @@ namespace DarkMessages.Service.Objects
             }
 
             return rp;
-
-
         }
 
 
+        public async Task<rpRemoveGroupMember> removeGroupMember(rqRemoveGroupMember rq)
+        {
+            rpRemoveGroupMember rp = new rpRemoveGroupMember();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("sp_remove_groupMember", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@groupId", rq.groupId);
+                        command.Parameters.AddWithValue("@userId", rq.userId);
+                        command.Parameters.AddWithValue("@userIdRemove", rq.userIdRemove);
+                        SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        command.Parameters.Add(responseOutput);
+                        await command.ExecuteNonQueryAsync();
+                        int response = (int)responseOutput.Value;
+                        if (response == 0)
+                        {
+                            rp.success = true;
+                        }
+                        else if (response == 1)
+                        {
+                            rp.success = false;
+                            rp.message = "The group members wasn't removed";
+                        }
+                        else if (response == 2)
+                        {
+                            rp.success = false;
+                            rp.message = "The group members wasn't removed";
+                        }
+                        else 
+                        {
+                            rp.success = false;
+                            rp.message = "The group members wasn't removed";
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                rp.success = false;
+            }
+            return rp;
+        }
+
+        public async Task<rpConsultGroupMembers> consultGroupMember(rqConsultGroupMembers rq)
+        {
+            rpConsultGroupMembers rp = new rpConsultGroupMembers();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("sp_consult_groupMember", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@groupId", rq.groupId);
+                        command.Parameters.AddWithValue("@userId", Int32.Parse(rq.value));
+                        SqlParameter responseOutput = new SqlParameter("@response", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        command.Parameters.Add(responseOutput);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+                            rp.groupMembers = new List<groupMember>();
+                            foreach (DataRow row in dataTable.Rows)
+                            {
+                                int roleId = 1;
+                                if (row.Table.Columns.Contains("roleId"))
+                                {
+                                    roleId = (row["roleId"] != DBNull.Value) ? Convert.ToInt32(row["roleId"]) : 1;
+                                }
+                                groupMember groupMember = new groupMember() { idUser = Convert.ToInt32(row["userId"]), username = "", name = "", lastname = "", email = "", roleId = roleId };
+                                rp.groupMembers.Add(groupMember);
+                            }
+                        }
+
+                        int response = (int)responseOutput.Value;
+                        if (response == 0)
+                        {
+                            rp.success = true;
+                        }
+                        else
+                        {
+                            rp.success = false;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                rp.success = false;
+            }
+            return rp;
+        }
     }
 }

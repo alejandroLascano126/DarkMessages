@@ -245,9 +245,9 @@ namespace DarkMessages.DesktopApp
             if ((Size.Height == 0 || Size.Height == 511 || Size.Height == 472) && lastsize.Height == 0)
                 return;
 
-            notificationsCount = await countNotifications();
             page = 1;
             rows = (Size.Height / itemHeight) - 1;
+            notificationsCount = await countNotifications();
             maxPage = (int)Math.Ceiling((double)notificationsCount / rows);
             lastsize.Height = Size.Height;
             await loadNotifications(rows, page);

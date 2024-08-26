@@ -36,6 +36,10 @@
             txtName = new TextBox();
             txtLastname = new TextBox();
             txtEmail = new TextBox();
+            label2 = new Label();
+            btbUpdatePhoto = new CreateGroupButton();
+            picBoxProfilePicture = new personalizedComponents.Settings.RoundedPictureBox();
+            ((System.ComponentModel.ISupportInitialize)picBoxProfilePicture).BeginInit();
             SuspendLayout();
             // 
             // lblProfileInfo
@@ -56,7 +60,7 @@
             btnSaveInfo.FlatAppearance.BorderSize = 0;
             btnSaveInfo.FlatStyle = FlatStyle.Flat;
             btnSaveInfo.ForeColor = Color.White;
-            btnSaveInfo.Location = new Point(579, 467);
+            btnSaveInfo.Location = new Point(579, 468);
             btnSaveInfo.Name = "btnSaveInfo";
             btnSaveInfo.Size = new Size(106, 35);
             btnSaveInfo.TabIndex = 3;
@@ -69,7 +73,7 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(45, 84);
+            label1.Location = new Point(45, 269);
             label1.Name = "label1";
             label1.Size = new Size(64, 25);
             label1.TabIndex = 4;
@@ -80,7 +84,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label3.Location = new Point(45, 188);
+            label3.Location = new Point(45, 373);
             label3.Name = "label3";
             label3.Size = new Size(59, 25);
             label3.TabIndex = 6;
@@ -91,7 +95,7 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label4.Location = new Point(371, 84);
+            label4.Location = new Point(371, 269);
             label4.Name = "label4";
             label4.Size = new Size(104, 25);
             label4.TabIndex = 7;
@@ -103,7 +107,7 @@
             txtName.BackColor = SystemColors.InactiveCaption;
             txtName.BorderStyle = BorderStyle.FixedSingle;
             txtName.Font = new Font("Segoe UI", 14F);
-            txtName.Location = new Point(45, 128);
+            txtName.Location = new Point(45, 313);
             txtName.Name = "txtName";
             txtName.Size = new Size(314, 32);
             txtName.TabIndex = 11;
@@ -114,7 +118,7 @@
             txtLastname.BackColor = SystemColors.InactiveCaption;
             txtLastname.BorderStyle = BorderStyle.FixedSingle;
             txtLastname.Font = new Font("Segoe UI", 14F);
-            txtLastname.Location = new Point(371, 128);
+            txtLastname.Location = new Point(371, 313);
             txtLastname.Name = "txtLastname";
             txtLastname.Size = new Size(314, 32);
             txtLastname.TabIndex = 12;
@@ -126,10 +130,49 @@
             txtEmail.BorderStyle = BorderStyle.FixedSingle;
             txtEmail.Enabled = false;
             txtEmail.Font = new Font("Segoe UI", 14F);
-            txtEmail.Location = new Point(45, 236);
+            txtEmail.Location = new Point(45, 421);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(640, 32);
             txtEmail.TabIndex = 13;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label2.Location = new Point(45, 69);
+            label2.Name = "label2";
+            label2.Size = new Size(66, 25);
+            label2.TabIndex = 14;
+            label2.Text = "Photo";
+            // 
+            // btbUpdatePhoto
+            // 
+            btbUpdatePhoto.Anchor = AnchorStyles.None;
+            btbUpdatePhoto.BackColor = Color.RoyalBlue;
+            btbUpdatePhoto.FlatAppearance.BorderSize = 0;
+            btbUpdatePhoto.FlatStyle = FlatStyle.Flat;
+            btbUpdatePhoto.ForeColor = Color.White;
+            btbUpdatePhoto.Location = new Point(201, 220);
+            btbUpdatePhoto.Name = "btbUpdatePhoto";
+            btbUpdatePhoto.Size = new Size(76, 35);
+            btbUpdatePhoto.TabIndex = 16;
+            btbUpdatePhoto.Text = "Update";
+            btbUpdatePhoto.UseVisualStyleBackColor = false;
+            btbUpdatePhoto.Click += btbUpdatePhoto_Click;
+            // 
+            // picBoxProfilePicture
+            // 
+            picBoxProfilePicture.Anchor = AnchorStyles.None;
+            picBoxProfilePicture.BackgroundImageLayout = ImageLayout.Stretch;
+            picBoxProfilePicture.BorderStyle = BorderStyle.FixedSingle;
+            picBoxProfilePicture.Image = Properties.Resources.user_solid;
+            picBoxProfilePicture.Location = new Point(45, 105);
+            picBoxProfilePicture.Name = "picBoxProfilePicture";
+            picBoxProfilePicture.Size = new Size(150, 150);
+            picBoxProfilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBoxProfilePicture.TabIndex = 17;
+            picBoxProfilePicture.TabStop = false;
             // 
             // ProfileInformationForm
             // 
@@ -137,6 +180,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(771, 544);
+            Controls.Add(picBoxProfilePicture);
+            Controls.Add(btbUpdatePhoto);
+            Controls.Add(label2);
             Controls.Add(txtEmail);
             Controls.Add(txtLastname);
             Controls.Add(txtName);
@@ -149,6 +195,7 @@
             Name = "ProfileInformationForm";
             Text = "SetingsForm";
             Load += ProfileInformationForm_Load;
+            ((System.ComponentModel.ISupportInitialize)picBoxProfilePicture).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -163,5 +210,8 @@
         private TextBox txtName;
         private TextBox txtLastname;
         private TextBox txtEmail;
+        private Label label2;
+        private CreateGroupButton btbUpdatePhoto;
+        private personalizedComponents.Settings.RoundedPictureBox picBoxProfilePicture;
     }
 }

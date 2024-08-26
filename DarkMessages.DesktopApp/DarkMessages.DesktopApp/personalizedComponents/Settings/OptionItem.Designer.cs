@@ -62,7 +62,7 @@
             Controls.Add(picboxNotificationItem);
             Controls.Add(lblNotificationTitle);
             Name = "OptionItem";
-            Size = new Size(626, 57);
+            Size = new Size(638, 57);
             MouseClick += UserItem_MouseClick;
             MouseEnter += UserItem_MouseEnter;
             MouseLeave += UserItem_MouseLeave;

@@ -142,3 +142,4 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Rel
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.UpdateUsernameForm.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.SettingsList.resources
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMess.41910493.Up2Date
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Release\net8.0-windows\DarkMessages.DesktopApp.GroupMemberOptionsForm.resources

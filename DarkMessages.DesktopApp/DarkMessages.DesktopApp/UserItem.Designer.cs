@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             lblname = new Label();
-            picboxUserItem = new PictureBox();
             lblDescripcionItemUser = new Label();
+            picboxUserItem = new personalizedComponents.Settings.RoundedPictureBox();
             ((System.ComponentModel.ISupportInitialize)picboxUserItem).BeginInit();
             SuspendLayout();
             // 
@@ -44,16 +44,6 @@
             lblname.TabIndex = 0;
             lblname.Text = "Alejandro Lascano";
             // 
-            // picboxUserItem
-            // 
-            picboxUserItem.Image = Properties.Resources.user_solid;
-            picboxUserItem.Location = new Point(12, 12);
-            picboxUserItem.Name = "picboxUserItem";
-            picboxUserItem.Size = new Size(62, 58);
-            picboxUserItem.SizeMode = PictureBoxSizeMode.StretchImage;
-            picboxUserItem.TabIndex = 1;
-            picboxUserItem.TabStop = false;
-            // 
             // lblDescripcionItemUser
             // 
             lblDescripcionItemUser.AutoSize = true;
@@ -63,13 +53,24 @@
             lblDescripcionItemUser.TabIndex = 2;
             lblDescripcionItemUser.Text = "Como la pasaste la ultima noche?";
             // 
+            // picboxUserItem
+            // 
+            picboxUserItem.BorderStyle = BorderStyle.FixedSingle;
+            picboxUserItem.Image = Properties.Resources.user_solid;
+            picboxUserItem.Location = new Point(15, 12);
+            picboxUserItem.Name = "picboxUserItem";
+            picboxUserItem.Size = new Size(58, 58);
+            picboxUserItem.SizeMode = PictureBoxSizeMode.StretchImage;
+            picboxUserItem.TabIndex = 3;
+            picboxUserItem.TabStop = false;
+            // 
             // UserItem
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
-            Controls.Add(lblDescripcionItemUser);
             Controls.Add(picboxUserItem);
+            Controls.Add(lblDescripcionItemUser);
             Controls.Add(lblname);
             Name = "UserItem";
             Size = new Size(352, 76);
@@ -84,7 +85,7 @@
         #endregion
 
         private Label lblname;
-        private PictureBox picboxUserItem;
         private Label lblDescripcionItemUser;
+        private personalizedComponents.Settings.RoundedPictureBox picboxUserItem;
     }
 }

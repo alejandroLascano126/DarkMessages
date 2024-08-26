@@ -19,5 +19,6 @@ namespace DarkMessages.models.Usuarios
         public string name { get; set; }
         public string lastname { get; set; }
         public bool isFriend { get; set; }
+        public byte[]? profilePicture { get; set; }
     }
 }

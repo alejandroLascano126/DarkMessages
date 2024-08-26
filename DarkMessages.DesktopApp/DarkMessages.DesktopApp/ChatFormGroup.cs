@@ -45,12 +45,14 @@ namespace DarkMessages.DesktopApp
         private int lastPage;
         private int messagesCount;
         private int currentRow = 0;
-        private int rows = 5;
+        private int rows = 6;
         private int maxPage = 0;
         private int minPage = 1;
 
         private int itemHeight = 50;
         private Size lastsize = new Size();
+
+        private groupMember userGroupMember;
         public ChatFormGroup()
         {
             InitializeComponent();
@@ -176,7 +178,7 @@ namespace DarkMessages.DesktopApp
                         }
                         else //many new messages
                         {
-                            insertLocalLastMessages(msg.messageContent);
+                            //insertLocalLastMessages(msg.messageContent);
                             tlpMessagesChat.Controls.Clear();
                             foreach (var message in rp.messages)
                             {
@@ -190,12 +192,12 @@ namespace DarkMessages.DesktopApp
                 }
                 else
                 {
-                    MessageBox.Show("Error");
+                    //MessageBox.Show("Error");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex}");
+                //MessageBox.Show($"Error: {ex}");
             }
 
         }
@@ -268,7 +270,7 @@ namespace DarkMessages.DesktopApp
                 {
                     foreach (Control control2 in control.Controls)
                     {
-                        if (control2.Name == "FriendsList")
+                        if (control2.Name == "ChatList")
                         {
                             ChatList friendList = (ChatList)control2;
 
@@ -292,63 +294,6 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        //private async Task registerFriendship(string usernameFirst, string usernameSecond)
-        //{
-        //    try
-        //    {
-        //        string urlPost = "api/darkmsgs/registerFriendship";
-        //        rqAddFriendship rqCountMessages = new rqAddFriendship() { usernameFirst = usernameFirst, usernameSecond = usernameSecond };
-        //        var rqSerialized = JsonSerializer.Serialize(rqCountMessages);
-        //        HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
-        //        HttpResponseMessage response = await client.PostAsync(urlPost, content);
-        //        string responseBody = await response.Content.ReadAsStringAsync();
-        //        rpAddFriendship rp = JsonSerializer.Deserialize<rpAddFriendship>(responseBody) ?? new rpAddFriendship();
-        //        if (rp.success)
-        //        {
-        //            if (InvokeRequired)
-        //            {
-        //                Invoke(new Action(() =>
-        //                {
-        //                    tlpMessagesChat.Controls.Clear();
-        //                    container!.flpQueryUserInitializer();
-        //                    enableInputChatForm();
-        //                }));
-
-        //            }
-        //            else
-        //            {
-        //                tlpMessagesChat.Controls.Clear();
-        //                container!.flpQueryUserInitializer();
-        //                enableInputChatForm();
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show($"Error. {rp.message}");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error: {ex}");
-        //    }
-        //}
-
-
-        //private async void messageCellAddFriendClick(object sender, EventArgs e)
-        //{
-        //    await registerFriendship(userName, receiver);
-        //}
-
-        //private void AddFriendButton()
-        //{
-        //    MessageCell messageCell = new MessageCell();
-        //    messageCell.TextAlign = ContentAlignment.MiddleCenter;
-        //    messageCell.Title = "Add Friend";
-        //    messageCell.Description = "";
-        //    messageCell.Click += messageCellAddFriendClick!;
-        //    tlpMessagesChat.Controls.Add(messageCell, 1, currentRow);
-        //}
-
         public void disableInputChatForm()
         {
             btnSendMessage.Enabled = false;
@@ -363,9 +308,10 @@ namespace DarkMessages.DesktopApp
             isInputDisabled = false;
         }
 
-        private void panelUpChat_Click(object sender, EventArgs e)
+        private async void panelUpChat_Click(object sender, EventArgs e)
         {
-            container!.GroupSettingsFormInitializer(chat!);
+            await consultUserGroupMember();
+            container!.GroupSettingsFormInitializer(chat!, userGroupMember);
         }
 
         private async void TlpMessagesChat_MouseWheel(object sender, MouseEventArgs e)
@@ -460,6 +406,28 @@ namespace DarkMessages.DesktopApp
                     page = maxPage;
                     await consultMessages(rows, page);
                 }
+            }
+        }
+
+        private async Task consultUserGroupMember()
+        {
+            try
+            {
+                string urlPost = "api/darkmsgs/consultGroupMember";
+                rqConsultGroupMembers rqConsultGroupMembers = new rqConsultGroupMembers() { groupId = chat!.entityId, rows = rows, page = page, option = "ALL", value = container!.user.Id.ToString() };
+                var rqSerialized = JsonSerializer.Serialize(rqConsultGroupMembers);
+                HttpContent content = new StringContent(rqSerialized, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = await client.PostAsync(urlPost, content);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                rpConsultGroupMembers rp = JsonSerializer.Deserialize<rpConsultGroupMembers>(responseBody) ?? new rpConsultGroupMembers();
+                if (rp.success)
+                {
+                    userGroupMember = rp.groupMembers.FirstOrDefault() ?? new groupMember();
+                }   
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex}");
             }
         }
     }
