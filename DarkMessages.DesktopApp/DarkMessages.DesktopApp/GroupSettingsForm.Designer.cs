@@ -41,6 +41,10 @@
             lblResponseMessage = new Label();
             btnBack = new CreateGroupButton();
             btnLeaveGroup = new CreateGroupButton();
+            label2 = new Label();
+            picBoxProfilePicture = new personalizedComponents.Settings.RoundedPictureBox();
+            btbUpdatePhoto = new CreateGroupButton();
+            ((System.ComponentModel.ISupportInitialize)picBoxProfilePicture).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -48,7 +52,7 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label1.Location = new Point(33, 33);
+            label1.Location = new Point(33, 219);
             label1.Name = "label1";
             label1.Size = new Size(123, 25);
             label1.TabIndex = 0;
@@ -75,7 +79,7 @@
             txtSelectedContact.BackColor = SystemColors.InactiveCaption;
             txtSelectedContact.BorderStyle = BorderStyle.FixedSingle;
             txtSelectedContact.Font = new Font("Segoe UI", 14F);
-            txtSelectedContact.Location = new Point(33, 64);
+            txtSelectedContact.Location = new Point(33, 247);
             txtSelectedContact.Name = "txtSelectedContact";
             txtSelectedContact.Size = new Size(314, 32);
             txtSelectedContact.TabIndex = 10;
@@ -103,10 +107,10 @@
             txtDescription.BackColor = SystemColors.InactiveCaption;
             txtDescription.BorderStyle = BorderStyle.FixedSingle;
             txtDescription.Font = new Font("Segoe UI", 14F);
-            txtDescription.Location = new Point(33, 207);
+            txtDescription.Location = new Point(33, 373);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(314, 276);
+            txtDescription.Size = new Size(314, 110);
             txtDescription.TabIndex = 13;
             // 
             // lblDescription
@@ -114,7 +118,7 @@
             lblDescription.Anchor = AnchorStyles.None;
             lblDescription.AutoSize = true;
             lblDescription.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblDescription.Location = new Point(33, 176);
+            lblDescription.Location = new Point(33, 345);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(114, 25);
             lblDescription.TabIndex = 14;
@@ -137,7 +141,7 @@
             txtTitle.BackColor = SystemColors.InactiveCaption;
             txtTitle.BorderStyle = BorderStyle.FixedSingle;
             txtTitle.Font = new Font("Segoe UI", 14F);
-            txtTitle.Location = new Point(33, 137);
+            txtTitle.Location = new Point(33, 310);
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(314, 32);
             txtTitle.TabIndex = 17;
@@ -147,7 +151,7 @@
             label3.Anchor = AnchorStyles.None;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            label3.Location = new Point(33, 106);
+            label3.Location = new Point(33, 282);
             label3.Name = "label3";
             label3.Size = new Size(50, 25);
             label3.TabIndex = 18;
@@ -205,12 +209,54 @@
             btnLeaveGroup.UseVisualStyleBackColor = false;
             btnLeaveGroup.Click += btnLeaveGroup_Click;
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.None;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label2.Location = new Point(33, 33);
+            label2.Name = "label2";
+            label2.Size = new Size(66, 25);
+            label2.TabIndex = 24;
+            label2.Text = "Photo";
+            // 
+            // picBoxProfilePicture
+            // 
+            picBoxProfilePicture.Anchor = AnchorStyles.None;
+            picBoxProfilePicture.BackgroundImageLayout = ImageLayout.Stretch;
+            picBoxProfilePicture.BorderStyle = BorderStyle.FixedSingle;
+            picBoxProfilePicture.Image = Properties.Resources.multiple_users_silhouette;
+            picBoxProfilePicture.Location = new Point(33, 61);
+            picBoxProfilePicture.Name = "picBoxProfilePicture";
+            picBoxProfilePicture.Size = new Size(150, 150);
+            picBoxProfilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
+            picBoxProfilePicture.TabIndex = 26;
+            picBoxProfilePicture.TabStop = false;
+            // 
+            // btbUpdatePhoto
+            // 
+            btbUpdatePhoto.Anchor = AnchorStyles.None;
+            btbUpdatePhoto.BackColor = Color.RoyalBlue;
+            btbUpdatePhoto.FlatAppearance.BorderSize = 0;
+            btbUpdatePhoto.FlatStyle = FlatStyle.Flat;
+            btbUpdatePhoto.ForeColor = Color.White;
+            btbUpdatePhoto.Location = new Point(271, 176);
+            btbUpdatePhoto.Name = "btbUpdatePhoto";
+            btbUpdatePhoto.Size = new Size(76, 35);
+            btbUpdatePhoto.TabIndex = 25;
+            btbUpdatePhoto.Text = "Update";
+            btbUpdatePhoto.UseVisualStyleBackColor = false;
+            btbUpdatePhoto.Click += btbUpdatePhoto_Click;
+            // 
             // GroupSettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(770, 543);
+            Controls.Add(picBoxProfilePicture);
+            Controls.Add(btbUpdatePhoto);
+            Controls.Add(label2);
             Controls.Add(btnLeaveGroup);
             Controls.Add(btnViewContacts);
             Controls.Add(btnBack);
@@ -228,6 +274,7 @@
             Name = "GroupSettingsForm";
             Text = "GroupSettingsForm";
             Load += GroupSettingsForm_Load;
+            ((System.ComponentModel.ISupportInitialize)picBoxProfilePicture).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -247,5 +294,8 @@
         private Label lblResponseMessage;
         private CreateGroupButton btnBack;
         private CreateGroupButton btnLeaveGroup;
+        private Label label2;
+        private personalizedComponents.Settings.RoundedPictureBox picBoxProfilePicture;
+        private CreateGroupButton btbUpdatePhoto;
     }
 }

@@ -279,7 +279,7 @@ namespace DarkMessages.Service.Objects
                                     {
                                         roleId = (row["roleId"] != DBNull.Value) ? Convert.ToInt32(row["roleId"]) : 1;
                                     }
-                                    groupMember groupMember = new groupMember() { idUser = Convert.ToInt32(row["idUser"]), username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, roleId = roleId };
+                                    groupMember groupMember = new groupMember() { idUser = Convert.ToInt32(row["idUser"]), username = row["username"].ToString()!, name = row["name"].ToString()!, lastname = row["lastname"].ToString()!, email = row["email"].ToString()!, roleId = roleId, profilePicture = (!row["profilePictur"].Equals(DBNull.Value)) ? (byte[])row["profilePictur"] : null };
                                     rp.groupMembers.Add(groupMember);
                                 }
                             }
@@ -298,9 +298,10 @@ namespace DarkMessages.Service.Objects
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 rp.success = false;
+                rp.message = ex.Message;
             }
             return rp;
         }

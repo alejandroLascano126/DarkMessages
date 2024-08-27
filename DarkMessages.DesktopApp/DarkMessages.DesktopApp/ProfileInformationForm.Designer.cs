@@ -153,7 +153,7 @@
             btbUpdatePhoto.FlatAppearance.BorderSize = 0;
             btbUpdatePhoto.FlatStyle = FlatStyle.Flat;
             btbUpdatePhoto.ForeColor = Color.White;
-            btbUpdatePhoto.Location = new Point(201, 220);
+            btbUpdatePhoto.Location = new Point(283, 220);
             btbUpdatePhoto.Name = "btbUpdatePhoto";
             btbUpdatePhoto.Size = new Size(76, 35);
             btbUpdatePhoto.TabIndex = 16;

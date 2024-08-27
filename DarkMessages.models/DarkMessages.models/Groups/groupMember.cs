@@ -14,5 +14,6 @@ namespace DarkMessages.models.Groups
         public string lastname { get; set; }
         public string email { get; set; }
         public int roleId { get; set; }
+        public byte[]? profilePicture { get; set; }
     }
 }

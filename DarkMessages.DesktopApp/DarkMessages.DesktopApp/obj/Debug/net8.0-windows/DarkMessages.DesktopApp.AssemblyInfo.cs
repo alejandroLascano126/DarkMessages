@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DarkMessages.DesktopApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea6501d758141d2fcb1c95c73325b2dbe15f278a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15ed70f4be56d4b84c0abeb369f0e8f5e7955884")]
 [assembly: System.Reflection.AssemblyProductAttribute("DarkMessages.DesktopApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DarkMessages.DesktopApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

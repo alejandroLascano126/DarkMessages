@@ -1,4 +1,5 @@
-﻿using DarkMessages.models.Chats;
+﻿using DarkMessages.DesktopApp.Helpers;
+using DarkMessages.models.Chats;
 using DarkMessages.models.Friends;
 using DarkMessages.models.Groups;
 using DarkMessages.models.Notifications;
@@ -30,15 +31,21 @@ namespace DarkMessages.DesktopApp
         private int maxPage = 0;
         private int minPage = 1;
         private string optionConsulting = "ALL";
+        private OpenFileDialog openFileDialog;
 
         public GroupSettingsForm()
         {
             InitializeComponent();
             client.BaseAddress = new Uri(GlobalVariables.url);
+            openFileDialog = new OpenFileDialog();
         }
 
         private async void GroupSettingsForm_Load(object sender, EventArgs e)
         {
+            if(GlobalVariables.chat != null) 
+                if (GlobalVariables.chat.profilePicture != null) 
+                    picBoxProfilePicture.Image = ImageHelper.ConvertBytesToImage(GlobalVariables.chat.profilePicture);
+
             groupMembersCount = await countGroupMembers();
             maxPage = (int)Math.Ceiling((double)groupMembersCount / rows);
             lblResponseMessage.Text = "";
@@ -76,6 +83,8 @@ namespace DarkMessages.DesktopApp
                         item.description = user.roleId == 1 ? "Member" : "Administrator";
                         item.username = container.user.userName;
                         item.chat = chat;
+                        if(user.profilePicture != null)
+                          item.icon = ImageHelper.ConvertBytesToImage(user.profilePicture);
                         item.groupMemberInfo = user;
                         item.usernameFriend = user.username ?? "";
                         item.groupSettingsForm = this;
@@ -124,6 +133,8 @@ namespace DarkMessages.DesktopApp
                         item.description = "";
                         item.username = container.user.userName;
                         item.chat = chat;
+                        if (user.profilePicture != null)
+                            item.icon = ImageHelper.ConvertBytesToImage(user.profilePicture);
                         item.groupSettingsForm = this;
                         item.groupMember = false;
                         item.groupMember = false;
@@ -349,7 +360,7 @@ namespace DarkMessages.DesktopApp
                 }
                 else
                 {
-                    
+
                 }
             }
             catch (Exception ex)
@@ -359,7 +370,7 @@ namespace DarkMessages.DesktopApp
             }
         }
 
-        private void clearCacheData() 
+        private void clearCacheData()
         {
             GlobalVariables.chat = null;
             GlobalVariables.isFriend = null;
@@ -369,6 +380,27 @@ namespace DarkMessages.DesktopApp
             GlobalVariables.isFriendRequest = null;
             GlobalVariables.isRequestSent = null;
             GlobalVariables.chatType = ChatType.privateChat;
+        }
+
+        private void btbUpdatePhoto_Click(object sender, EventArgs e)
+        {
+            setGroupPicture();
+        }
+
+        private void setGroupPicture()
+        {
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                Image resizedImage = ImageHelper.ResizeImage(Image.FromFile(filePath), 200, 200);
+                picBoxProfilePicture.Image = resizedImage;
+
+                //profilePicture = ConvertImageToBytes(resizedImage);
+                GlobalVariables.chat!.profilePicture = ImageHelper.ConvertImageToBytes(resizedImage);
+                //await UpdateUserInfo();
+            }
         }
     }
 }
