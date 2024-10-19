@@ -44,6 +44,7 @@
             label2 = new Label();
             picBoxProfilePicture = new personalizedComponents.Settings.RoundedPictureBox();
             btbUpdatePhoto = new CreateGroupButton();
+            btnViewMembers = new CreateGroupButton();
             ((System.ComponentModel.ISupportInitialize)picBoxProfilePicture).BeginInit();
             SuspendLayout();
             // 
@@ -197,7 +198,7 @@
             // btnLeaveGroup
             // 
             btnLeaveGroup.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnLeaveGroup.BackColor = Color.DodgerBlue;
+            btnLeaveGroup.BackColor = Color.Crimson;
             btnLeaveGroup.FlatAppearance.BorderSize = 0;
             btnLeaveGroup.FlatStyle = FlatStyle.Flat;
             btnLeaveGroup.ForeColor = Color.White;
@@ -248,12 +249,28 @@
             btbUpdatePhoto.UseVisualStyleBackColor = false;
             btbUpdatePhoto.Click += btbUpdatePhoto_Click;
             // 
+            // btnViewMembers
+            // 
+            btnViewMembers.Anchor = AnchorStyles.None;
+            btnViewMembers.BackColor = Color.DodgerBlue;
+            btnViewMembers.FlatAppearance.BorderSize = 0;
+            btnViewMembers.FlatStyle = FlatStyle.Flat;
+            btnViewMembers.ForeColor = Color.White;
+            btnViewMembers.Location = new Point(540, 29);
+            btnViewMembers.Name = "btnViewMembers";
+            btnViewMembers.Size = new Size(95, 29);
+            btnViewMembers.TabIndex = 27;
+            btnViewMembers.Text = "View members";
+            btnViewMembers.UseVisualStyleBackColor = false;
+            btnViewMembers.Click += btnViewMembers_Click;
+            // 
             // GroupSettingsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(770, 543);
+            Controls.Add(btnViewMembers);
             Controls.Add(picBoxProfilePicture);
             Controls.Add(btbUpdatePhoto);
             Controls.Add(label2);
@@ -297,5 +314,6 @@
         private Label label2;
         private personalizedComponents.Settings.RoundedPictureBox picBoxProfilePicture;
         private CreateGroupButton btbUpdatePhoto;
+        private CreateGroupButton btnViewMembers;
     }
 }

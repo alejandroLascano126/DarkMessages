@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\groupmemberoptionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\groupmemberoptionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\groupsettingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\groupsettingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\groupsettingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\groupsettingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\personalizedcomponents\\shared\\messagedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\personalizedcomponents\\shared\\messagedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\profileinformationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\profileinformationform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\personalizedcomponents\\shared\\confirmdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\personalizedcomponents\\shared\\confirmdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\groupmemberoptionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\groupmemberoptionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\personalizedcomponents\\shared\\messagedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\personalizedcomponents\\shared\\messagedialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|e:\\darkmessenger desktop\\darkmessages.desktopapp\\darkmessages.desktopapp\\personalizedcomponents\\shared\\confirmdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{AE1DD927-EAC3-4FA2-B7CC-48932AA0F519}|DarkMessages.DesktopApp\\DarkMessages.DesktopApp.csproj|solutionrelative:darkmessages.desktopapp\\personalizedcomponents\\shared\\confirmdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,54 +66,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GroupSettingsForm.cs [Design]",
-              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupSettingsForm.cs",
-              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\GroupSettingsForm.cs",
-              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupSettingsForm.cs [Design]",
-              "RelativeToolTip": "DarkMessages.DesktopApp\\GroupSettingsForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T05:14:44.454Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProfileInformationForm.cs",
-              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\ProfileInformationForm.cs",
-              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\ProfileInformationForm.cs",
-              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\ProfileInformationForm.cs",
-              "RelativeToolTip": "DarkMessages.DesktopApp\\ProfileInformationForm.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAtwCMAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T05:13:52.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GroupSettingsForm.cs",
-              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupSettingsForm.cs",
-              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\GroupSettingsForm.cs",
-              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupSettingsForm.cs",
-              "RelativeToolTip": "DarkMessages.DesktopApp\\GroupSettingsForm.cs",
-              "ViewState": "AQIAAGQAAAAAAAAAAAAAwIIAAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T05:08:34.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "GroupMemberOptionsForm.cs",
               "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupMemberOptionsForm.cs",
               "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\GroupMemberOptionsForm.cs",
               "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupMemberOptionsForm.cs",
               "RelativeToolTip": "DarkMessages.DesktopApp\\GroupMemberOptionsForm.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAmwCUAAAAsAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T05:05:51.758Z",
+              "WhenOpened": "2024-10-19T17:34:03.656Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupSettingsForm.cs",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupSettingsForm.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\GroupSettingsForm.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\GroupSettingsForm.cs",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\GroupSettingsForm.cs",
+              "ViewState": "AgIAAEkBAAAAAAAAAAAjwHQBAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T17:25:48.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MessageDialog.cs [Design]",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs [Design]",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T17:25:22.5Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessageDialog.cs",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\MessageDialog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T17:22:10.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConfirmDialog.cs",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T17:03:45.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConfirmDialog.cs [Design]",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs",
+              "RelativeDocumentMoniker": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.DesktopApp\\DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs [Design]",
+              "RelativeToolTip": "DarkMessages.DesktopApp\\personalizedComponents\\shared\\ConfirmDialog.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T16:55:51.778Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

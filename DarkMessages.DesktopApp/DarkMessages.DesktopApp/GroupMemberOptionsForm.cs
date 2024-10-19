@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.Json;
+using DarkMessages.DesktopApp.personalizedComponents.shared;
 
 namespace DarkMessages.DesktopApp
 {
@@ -37,6 +38,7 @@ namespace DarkMessages.DesktopApp
         {
             lblGroupMember.Text = chat.name;
             if(!isAdmin) btnRemove.Enabled = false;
+            if(container.user.Id == chat.entityId) btnRemove.Visible = false;
         }
 
         private async Task removeGroupMember()
@@ -52,7 +54,7 @@ namespace DarkMessages.DesktopApp
                 rpRemoveGroupMember rp = JsonSerializer.Deserialize<rpRemoveGroupMember>(responseBody) ?? new rpRemoveGroupMember();
                 if (rp.success)
                 {
-                    this.DialogResult = DialogResult.OK;
+                    this.DialogResult = DialogResult.OK;                    
                     Close();
 
                 }
@@ -70,7 +72,14 @@ namespace DarkMessages.DesktopApp
 
         private async void btnRemove_Click(object sender, EventArgs e)
         {
-            await removeGroupMember();
+            ConfirmDialog confirmDialog = new ConfirmDialog();
+            confirmDialog.predicateText = "Remove member";
+            confirmDialog.StartPosition = FormStartPosition.CenterParent;
+            DialogResult result = confirmDialog.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                await removeGroupMember();
+            }
         }
     }
 }

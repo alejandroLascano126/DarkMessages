@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|e:\\darkmessenger desktop\\darkmessages.service\\darkmessages.service\\objects\\groupobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF37E590-B62E-4AD0-9EE2-A5A304E7B329}|DarkMessages.Service\\DarkMessages.Service.csproj|solutionrelative:darkmessages.service\\objects\\groupobj.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +58,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\Properties\\launchSettings.json",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Properties\\launchSettings.json",
+              "RelativeToolTip": "DarkMessages.Service\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-03T00:16:57.818Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\appsettings.json",
+              "RelativeDocumentMoniker": "DarkMessages.Service\\appsettings.json",
+              "ToolTip": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\appsettings.json",
+              "RelativeToolTip": "DarkMessages.Service\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-03T00:16:34.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "GroupObj.cs",
               "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\GroupObj.cs",
               "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\GroupObj.cs",
@@ -58,12 +91,11 @@
               "RelativeToolTip": "DarkMessages.Service\\Objects\\GroupObj.cs",
               "ViewState": "AQIAAOoAAAAAAAAAAAD4v/IAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-27T05:36:54.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-27T05:36:54.203Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "UserObj.cs",
               "DocumentMoniker": "E:\\DarkMessenger Desktop\\DarkMessages.Service\\DarkMessages.Service\\Objects\\UserObj.cs",
               "RelativeDocumentMoniker": "DarkMessages.Service\\Objects\\UserObj.cs",
@@ -71,8 +103,7 @@
               "RelativeToolTip": "DarkMessages.Service\\Objects\\UserObj.cs",
               "ViewState": "AQIAAIQBAAAAAAAAAADwv60BAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T06:17:12.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T06:17:12.321Z"
             }
           ]
         }

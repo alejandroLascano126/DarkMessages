@@ -146,3 +146,5 @@ E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Deb
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.genruntimeconfig.cache
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\ref\DarkMessages.DesktopApp.dll
 E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.GroupMemberOptionsForm.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.personalizedComponents.shared.ConfirmDialog.resources
+E:\DarkMessenger Desktop\DarkMessages.DesktopApp\DarkMessages.DesktopApp\obj\Debug\net8.0-windows\DarkMessages.DesktopApp.personalizedComponents.shared.MessageDialog.resources

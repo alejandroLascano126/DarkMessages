@@ -43,6 +43,12 @@
     <Compile Update="personalizedComponents\Settings\RoundedPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="personalizedComponents\shared\ConfirmDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="personalizedComponents\shared\MessageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ProfileInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>

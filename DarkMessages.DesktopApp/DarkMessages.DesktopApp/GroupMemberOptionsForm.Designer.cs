@@ -39,7 +39,7 @@
             // 
             // btnRemove
             // 
-            btnRemove.BackColor = Color.DodgerBlue;
+            btnRemove.BackColor = Color.Crimson;
             btnRemove.FlatAppearance.BorderSize = 0;
             btnRemove.FlatStyle = FlatStyle.Flat;
             btnRemove.ForeColor = Color.White;

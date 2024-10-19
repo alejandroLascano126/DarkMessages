@@ -1,4 +1,5 @@
 ﻿using DarkMessages.DesktopApp.Helpers;
+using DarkMessages.DesktopApp.personalizedComponents.shared;
 using DarkMessages.models.Chats;
 using DarkMessages.models.Friends;
 using DarkMessages.models.Groups;
@@ -42,8 +43,8 @@ namespace DarkMessages.DesktopApp
 
         private async void GroupSettingsForm_Load(object sender, EventArgs e)
         {
-            if(GlobalVariables.chat != null) 
-                if (GlobalVariables.chat.profilePicture != null) 
+            if (GlobalVariables.chat != null)
+                if (GlobalVariables.chat.profilePicture != null)
                     picBoxProfilePicture.Image = ImageHelper.ConvertBytesToImage(GlobalVariables.chat.profilePicture);
 
             groupMembersCount = await countGroupMembers();
@@ -83,8 +84,8 @@ namespace DarkMessages.DesktopApp
                         item.description = user.roleId == 1 ? "Member" : "Administrator";
                         item.username = container.user.userName;
                         item.chat = chat;
-                        if(user.profilePicture != null)
-                          item.icon = ImageHelper.ConvertBytesToImage(user.profilePicture);
+                        if (user.profilePicture != null)
+                            item.icon = ImageHelper.ConvertBytesToImage(user.profilePicture);
                         item.groupMemberInfo = user;
                         item.usernameFriend = user.username ?? "";
                         item.groupSettingsForm = this;
@@ -336,7 +337,14 @@ namespace DarkMessages.DesktopApp
 
         private async void btnLeaveGroup_Click(object sender, EventArgs e)
         {
-            await LeaveGroup();
+            ConfirmDialog confirmDialog = new ConfirmDialog();
+            confirmDialog.predicateText = "Leave group";
+            confirmDialog.StartPosition = FormStartPosition.CenterParent;
+            DialogResult result = confirmDialog.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                await LeaveGroup();
+            }
         }
 
         private async Task LeaveGroup()
@@ -360,7 +368,10 @@ namespace DarkMessages.DesktopApp
                 }
                 else
                 {
-
+                    MessageDialog messageDialog = new MessageDialog();
+                    messageDialog.predicateText = rp.message;
+                    messageDialog.StartPosition = FormStartPosition.CenterParent;
+                    messageDialog.ShowDialog(this);
                 }
             }
             catch (Exception ex)
@@ -401,6 +412,14 @@ namespace DarkMessages.DesktopApp
                 GlobalVariables.chat!.profilePicture = ImageHelper.ConvertImageToBytes(resizedImage);
                 //await UpdateUserInfo();
             }
+        }
+
+        private async void btnViewMembers_Click(object sender, EventArgs e)
+        {
+            lblContacts.Text = "Members";
+            groupMembersCount = await countGroupMembers();
+            maxPage = (int)Math.Ceiling((double)groupMembersCount / rows);
+            await consultMembers();
         }
     }
 }
